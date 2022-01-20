@@ -11,7 +11,7 @@ import RxSwift
 import Toast
 import AnyFormatKit
 
-class PhoneNumberViewAuthViewController: UIViewController {
+class PhoneNumberViewAuthViewController: BaseViewController {
     
     let viewModel = PhoneNumberAuthViewModel()
     
@@ -25,8 +25,6 @@ class PhoneNumberViewAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
         
         // 전화번호 텍스트필드 설정
         setPhoneNumberTextField()
@@ -74,25 +72,23 @@ class PhoneNumberViewAuthViewController: UIViewController {
             .map { self.mainView.phoneNumberTextField.textField.text!.validPhoneNumber() }
             .bind { [self] state in
 
-                print("phoneNumber = ", mainView.phoneNumberTextField.textField.text!)
-                print("phoneNumber = ", viewModel.phoneNumber.value)
-
-                self.navigationController?.pushViewController(AuthNumberViewController(), animated: true)
-
-//                // 번호를 제대로 입력한 경우 전화번호 인증 수행
-//                if state {
-//                    view.makeToast("전화번호 인증 시작")
-//                    switch viewModel.sendPhoneAuthorization() {
-//                    case .success:
-//                        view.makeToast("성공")
-//                    case .tooManyRequests:
-//                        view.makeToast("많은 요청")
-//                    case .unknownError:
-//                        view.makeToast("알 수 없는 오류")
-//                    }
-//                } else { // 만약 형식을 맞추지 않았다면
-//                    view.makeToast("잘못된 전화번호 형식입니다.")
-//                }
+                // 번호를 제대로 입력한 경우 전화번호 인증 수행
+                if state {
+                    view.makeToast("전화번호 인증 시작")
+                    viewModel.sendPhoneAuthorization { state in
+                        switch state {
+                        case .success:
+                            view.makeToast("성공")
+                            self.navigationController?.pushViewController(AuthNumberViewController(), animated: true)
+                        case .tooManyRequests:
+                            view.makeToast("많은 요청")
+                        case .unknownError:
+                            view.makeToast("알 수 없는 오류")
+                        }
+                    }
+                } else { // 만약 형식을 맞추지 않았다면
+                    view.makeToast("잘못된 전화번호 형식입니다.")
+                }
             }
             .disposed(by: disposeBag)
     }
@@ -117,6 +113,15 @@ extension PhoneNumberViewAuthViewController: UITextFieldDelegate {
         mainView.phoneNumberTextField.textField.text = result.formattedText
         let position = textField.position(from: textField.beginningOfDocument, offset: result.caretBeginOffset)!
         textField.selectedTextRange = textField.textRange(from: position, to: position)
+        
+        print(textField.text?.count)
+        
+        let count = textField.text?.count ?? 0
+        if count >= 13 && mainView.phoneNumberTextField.textField.text!.validPhoneNumber() {
+            mainView.authMessageButton.backgroundColor = .slpGreen
+        } else {
+            mainView.authMessageButton.backgroundColor = .slpGray6
+        }
 
         // RX가 안됨
         return false
@@ -146,19 +151,19 @@ extension PhoneNumberViewAuthViewController: UITextFieldDelegate {
 //            return false
 //        }
 //
-        // MARK: 순서대로 입력하면 가능한 코드
-        if (range.location == 3 || range.location == 8) && isBackSpace != -92 {
-            textField.text = "\(textField.text!)-\(string)"
-            return false
-        }
-
-        if (range.location == 4 || range.location == 9) && isBackSpace == -92 {
-            let text = textField.text!
-            let index = text.lastIndex(of: "-")!
-            textField.text = String(text[..<index])
-
-            return false
-        }
+//        // MARK: 순서대로 입력하면 가능한 코드
+//        if (range.location == 3 || range.location == 8) && isBackSpace != -92 {
+//            textField.text = "\(textField.text!)-\(string)"
+//            return false
+//        }
+//
+//        if (range.location == 4 || range.location == 9) && isBackSpace == -92 {
+//            let text = textField.text!
+//            let index = text.lastIndex(of: "-")!
+//            textField.text = String(text[..<index])
+//
+//            return false
+//        }
 //
 //
 //

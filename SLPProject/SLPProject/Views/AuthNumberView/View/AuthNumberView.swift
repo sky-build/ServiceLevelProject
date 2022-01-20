@@ -34,6 +34,7 @@ class AuthNumberView: UIView, FetchViews {
         let button = CustomButton()
         button.setTitle("인증하고 시작하기", for: .normal)
         button.titleLabel?.font = .Body3_R14
+        button.backgroundColor = .slpGray6
         return button
     }()
     
