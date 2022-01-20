@@ -12,14 +12,12 @@ class CustomTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 5
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1
+//        self.backgroundColor = .white
         self.addLeftPadding()
+        self.font = .Title4_R14
         
         self.snp.makeConstraints {
-            $0.height.equalTo(40)
+            $0.height.equalTo(22)
         }
     }
     

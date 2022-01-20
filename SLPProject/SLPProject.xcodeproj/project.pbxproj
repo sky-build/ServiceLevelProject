@@ -26,6 +26,13 @@
 		D33459232797D51700EB983B /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D33459212797D51700EB983B /* NotoSansKR-Medium.otf */; };
 		D33459242797D51700EB983B /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D33459222797D51700EB983B /* NotoSansKR-Regular.otf */; };
 		D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459272797D55300EB983B /* UIFont+Extension.swift */; };
+		D334592C27987ECE00EB983B /* AnyFormatKit in Frameworks */ = {isa = PBXBuildFile; productRef = D334592B27987ECE00EB983B /* AnyFormatKit */; };
+		D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334593027996A2100EB983B /* AuthNumberViewController.swift */; };
+		D334593327996A3700EB983B /* AuthNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334593227996A3700EB983B /* AuthNumberView.swift */; };
+		D3345935279970FA00EB983B /* ExplainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3345934279970FA00EB983B /* ExplainLabel.swift */; };
+		D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459362799809900EB983B /* CustomTextFieldView.swift */; };
+		D33459392799995E00EB983B /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459382799995E00EB983B /* UINavigationController+Extension.swift */; };
+		D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334593A2799A7C800EB983B /* BaseViewController.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -49,6 +56,12 @@
 		D33459212797D51700EB983B /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		D33459222797D51700EB983B /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		D33459272797D55300EB983B /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		D334593027996A2100EB983B /* AuthNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumberViewController.swift; sourceTree = "<group>"; };
+		D334593227996A3700EB983B /* AuthNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNumberView.swift; sourceTree = "<group>"; };
+		D3345934279970FA00EB983B /* ExplainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainLabel.swift; sourceTree = "<group>"; };
+		D33459362799809900EB983B /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
+		D33459382799995E00EB983B /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		D334593A2799A7C800EB983B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D334592C27987ECE00EB983B /* AnyFormatKit in Frameworks */,
 				D33459142796F97900EB983B /* Toast in Frameworks */,
 				D334591C2797158700EB983B /* FirebaseAuth in Frameworks */,
 				D334590F2796F81200EB983B /* RxCocoa in Frameworks */,
@@ -80,18 +94,19 @@
 			isa = PBXGroup;
 			children = (
 				D33458FC2796B03F00EB983B /* CustomView */,
-				D33458F2279695ED00EB983B /* PhoneNumberAuth */,
+				D33458F2279695ED00EB983B /* PhoneNumberAuthView */,
+				D334592927987D8E00EB983B /* AuthNumberView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D33458F2279695ED00EB983B /* PhoneNumberAuth */ = {
+		D33458F2279695ED00EB983B /* PhoneNumberAuthView */ = {
 			isa = PBXGroup;
 			children = (
 				D33458F42796960400EB983B /* ViewModel */,
 				D33458F3279695FE00EB983B /* View */,
 			);
-			path = PhoneNumberAuth;
+			path = PhoneNumberAuthView;
 			sourceTree = "<group>";
 		};
 		D33458F3279695FE00EB983B /* View */ = {
@@ -118,6 +133,7 @@
 				D33459062796E21800EB983B /* UITextField+Extension.swift */,
 				D33459152797058D00EB983B /* String+Extension.swift */,
 				D33459272797D55300EB983B /* UIFont+Extension.swift */,
+				D33459382799995E00EB983B /* UINavigationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,7 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				D33458FD2796B05100EB983B /* CustomButton.swift */,
+				D33459362799809900EB983B /* CustomTextFieldView.swift */,
 				D33459042796E1F500EB983B /* CustomTextField.swift */,
+				D3345934279970FA00EB983B /* ExplainLabel.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -156,6 +174,31 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		D334592927987D8E00EB983B /* AuthNumberView */ = {
+			isa = PBXGroup;
+			children = (
+				D334592F27996A0300EB983B /* ViewModel */,
+				D334592E279969FF00EB983B /* View */,
+			);
+			path = AuthNumberView;
+			sourceTree = "<group>";
+		};
+		D334592E279969FF00EB983B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D334593227996A3700EB983B /* AuthNumberView.swift */,
+				D334593027996A2100EB983B /* AuthNumberViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D334592F27996A0300EB983B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D36958A9279669AF00924F5A = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +226,7 @@
 				D36958B5279669AF00924F5A /* AppDelegate.swift */,
 				D36958B7279669AF00924F5A /* SceneDelegate.swift */,
 				D36958B9279669AF00924F5A /* ViewController.swift */,
+				D334593A2799A7C800EB983B /* BaseViewController.swift */,
 				D36958BE279669B200924F5A /* Assets.xcassets */,
 				D36958C0279669B200924F5A /* LaunchScreen.storyboard */,
 				D36958C3279669B200924F5A /* Info.plist */,
@@ -215,6 +259,7 @@
 				D33459132796F97900EB983B /* Toast */,
 				D33459192797158700EB983B /* FirebaseAnalytics */,
 				D334591B2797158700EB983B /* FirebaseAuth */,
+				D334592B27987ECE00EB983B /* AnyFormatKit */,
 			);
 			productName = SLPProject;
 			productReference = D36958B2279669AF00924F5A /* SLPProject.app */;
@@ -249,6 +294,7 @@
 				D334590D2796F81200EB983B /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D33459122796F97900EB983B /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				D33459182797158700EB983B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D334592A27987ECD00EB983B /* XCRemoteSwiftPackageReference "AnyFormatKit" */,
 			);
 			productRefGroup = D36958B3279669AF00924F5A /* Products */;
 			projectDirPath = "";
@@ -281,9 +327,12 @@
 			files = (
 				D334591F27971D3500EB983B /* PhoneNumberAuthStatus.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
+				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
 				D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */,
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
+				D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */,
 				D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */,
+				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
 				D33459092796E44D00EB983B /* PhoneNumberAuthViewModel.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
@@ -291,8 +340,11 @@
 				D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */,
 				D33458FE2796B05100EB983B /* CustomButton.swift in Sources */,
 				D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */,
+				D3345935279970FA00EB983B /* ExplainLabel.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
 				D33459052796E1F500EB983B /* CustomTextField.swift in Sources */,
+				D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */,
+				D33459392799995E00EB983B /* UINavigationController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +592,14 @@
 				version = 8.9.1;
 			};
 		};
+		D334592A27987ECD00EB983B /* XCRemoteSwiftPackageReference "AnyFormatKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/luximetr/AnyFormatKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -572,6 +632,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D33459182797158700EB983B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		D334592B27987ECE00EB983B /* AnyFormatKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D334592A27987ECD00EB983B /* XCRemoteSwiftPackageReference "AnyFormatKit" */;
+			productName = AnyFormatKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,25 +9,25 @@ import UIKit
 
 class PhoneNumberAuthView: UIView, FetchViews {
     
-    let explainLabel: UILabel = {
-        let label = UILabel()
+    let explainLabel: ExplainLabel = {
+        let label = ExplainLabel()
         label.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해주세요"
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 24)
         return label
     }()
     
-    let phoneNumberTextField: CustomTextField = {
-        let textField = CustomTextField()
-        textField.placeholder = "전화번호를 입력하세요"
-        textField.keyboardType = .numberPad
-        return textField
+    let phoneNumberTextField: CustomTextFieldView = {
+        let view = CustomTextFieldView()
+        view.textField.placeholder = "전화번호를 입력하세요"
+        view.textField.keyboardType = .numberPad
+        return view
     }()
     
     let authMessageButton: CustomButton = {
         let button = CustomButton()
         button.setTitle("인증 문자 받기", for: .normal)
+        button.titleLabel?.font = .Body3_R14
         return button
     }()
     
@@ -50,18 +50,18 @@ class PhoneNumberAuthView: UIView, FetchViews {
     
     func makeConstraints() {
         explainLabel.snp.makeConstraints {
-            $0.top.equalTo(super.safeAreaLayoutGuide).offset(100)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.top.equalTo(super.safeAreaLayoutGuide).offset(80)
+            $0.leading.trailing.equalToSuperview().inset(74)
         }
         
         phoneNumberTextField.snp.makeConstraints {
-            $0.top.equalTo(explainLabel.snp.bottom).offset(50)
+            $0.top.equalTo(explainLabel.snp.bottom).offset(77)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
         authMessageButton.snp.makeConstraints {
-            $0.top.equalTo(phoneNumberTextField.snp.bottom).offset(50)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.top.equalTo(phoneNumberTextField.snp.bottom).offset(85)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

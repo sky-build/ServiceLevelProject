@@ -18,7 +18,7 @@ class CustomButton: UIButton {
         backgroundColor = .slpGreen
         
         self.snp.makeConstraints {
-            $0.height.equalTo(50)
+            $0.height.equalTo(48)
         }
     }
     
