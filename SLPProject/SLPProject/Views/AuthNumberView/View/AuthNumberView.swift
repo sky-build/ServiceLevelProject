@@ -10,7 +10,19 @@ import SnapKit
 
 class AuthNumberView: UIView, FetchViews {
     
-    let timeLabel = UILabel()
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .Title3_M14
+        label.textColor = .slpGreen
+        return label
+    }()
+    
+    let timeButton: CustomButton = {
+        let button = CustomButton()
+        button.setTitle("재전송", for: .normal)
+        button.titleLabel?.font = .Body3_R14
+        return button
+    }()
 
     let explainLabel: ExplainLabel = {
         let label = ExplainLabel()
@@ -27,7 +39,7 @@ class AuthNumberView: UIView, FetchViews {
         return label
     }()
     
-    let numberTextField: CustomTextFieldView = {
+    let numberTextFieldView: CustomTextFieldView = {
         let view = CustomTextFieldView()
         view.textField.placeholder = "인증번호 입력"
         view.textField.keyboardType = .numberPad
@@ -56,16 +68,23 @@ class AuthNumberView: UIView, FetchViews {
     
     func addViews() {
         self.addSubview(timeLabel)
+        self.addSubview(timeButton)
         self.addSubview(explainLabel)
         self.addSubview(messageTimeLabel)
-        self.addSubview(numberTextField)
+        self.addSubview(numberTextFieldView)
         self.addSubview(authMessageButton)
     }
     
     func makeConstraints() {
+        timeButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.centerY.equalTo(numberTextFieldView)
+            $0.width.equalTo(72)
+        }
+        
         timeLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(50)
-            $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(numberTextFieldView)
+            $0.trailing.equalTo(numberTextFieldView.snp.trailing).inset(10)
         }
         
         explainLabel.snp.makeConstraints {
@@ -78,17 +97,15 @@ class AuthNumberView: UIView, FetchViews {
             $0.centerX.equalToSuperview()
         }
         
-        numberTextField.snp.makeConstraints {
+        numberTextFieldView.snp.makeConstraints {
             $0.top.equalTo(messageTimeLabel.snp.bottom).offset(76)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.equalTo(timeButton.snp.leading).inset(-16)
         }
         
         authMessageButton.snp.makeConstraints {
-            $0.top.equalTo(numberTextField.snp.bottom).offset(84)
+            $0.top.equalTo(numberTextFieldView.snp.bottom).offset(84)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
-    
-    
-
 }
