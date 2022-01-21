@@ -26,17 +26,17 @@ class AuthNumberViewController: BaseViewController {
         super.viewDidLoad()
         
         mainView.numberTextField.textField.rx.text
-            .orEmpty
-            .bind(to: viewModel.authNumber)
-            .disposed(by: disposeBag)
-        
-        mainView.authMessageButton.rx.tap
-            .bind { [self] _ in
-                viewModel.authToken { state in
-                    switch state {
-                    case .success:
-                        view.makeToast("성공")
-                    case .tooManyRequests:
+                .orEmpty
+                .bind(to: viewModel.authNumber)
+                .disposed(by: disposeBag)
+            
+            mainView.authMessageButton.rx.tap
+                .bind { [self] _ in
+                    viewModel.authToken { state in
+                        switch state {
+                        case .success:
+                            view.makeToast("성공")
+                        case .tooManyRequests:
                         view.makeToast("많은 요청")
                     case .unknownError:
                         view.makeToast("알수 없는 오류")
@@ -67,8 +67,8 @@ extension AuthNumberViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        // 입력값 6개 이상일 경우 오류 발생
-        if (textField.text?.count ?? 0) >= 6 || (Int(string) == nil && string != "") {
+        // 입력값 6개 이상일 경우 입력안되게 막음
+        if (((textField.text?.count ?? 0) >= 6 || Int(string) == nil) && string != "") {
             return false
         }
         

@@ -9,16 +9,20 @@ import UIKit
 import SnapKit
 
 class AuthNumberView: UIView, FetchViews {
+    
+    let timeLabel = UILabel()
 
     let explainLabel: ExplainLabel = {
         let label = ExplainLabel()
         label.text = "인증번호가 문자로 전송되었어요"
+        label.textAlignment = .center
         return label
     }()
     
     let messageTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "최대 소모 20초"
+        label.textAlignment = .center
         label.textColor = .slpGray7
         return label
     }()
@@ -51,6 +55,7 @@ class AuthNumberView: UIView, FetchViews {
     
     
     func addViews() {
+        self.addSubview(timeLabel)
         self.addSubview(explainLabel)
         self.addSubview(messageTimeLabel)
         self.addSubview(numberTextField)
@@ -58,6 +63,11 @@ class AuthNumberView: UIView, FetchViews {
     }
     
     func makeConstraints() {
+        timeLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(50)
+            $0.centerX.equalToSuperview()
+        }
+        
         explainLabel.snp.makeConstraints {
             $0.top.equalTo(super.safeAreaLayoutGuide).offset(80)
             $0.leading.trailing.equalToSuperview().inset(57)
