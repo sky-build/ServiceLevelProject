@@ -17,12 +17,17 @@ class PhoneNumberAuthViewModel {
         PhoneAuthProvider.provider()
           .verifyPhoneNumber("+82\(phoneNumber.value)", uiDelegate: nil) { verificationID, error in
               if let error = error {
-                  print(error)
-                  print(error.localizedDescription.description.endIndex)
-                  print(error.localizedDescription.endIndex.hashValue)
-                  print(error.localizedDescription.hashValue)
-                  // 많이 보냈을 때 오류 어떻게 아는지?
-                  completion(.unknownError)
+                  // AuthErrorCode로 변환
+                  let state = AuthErrorCode(rawValue: error._code)
+                  
+                  switch state {
+                  case .tooManyRequests:
+                      // 만약 에러코드가 tooManyRequests(17010)이라면 tooManyRequests 전달
+                      completion(.tooManyRequests)
+                  default:
+                      completion(.unknownError)
+                  }
+                  
                   return
               }
               // Sign in using the verificationID and the code sent to the user

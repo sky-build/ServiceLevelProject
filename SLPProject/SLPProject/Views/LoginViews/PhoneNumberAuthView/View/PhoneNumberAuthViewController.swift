@@ -65,12 +65,13 @@ class PhoneNumberViewAuthViewController: BaseViewController {
                     viewModel.sendPhoneAuthorization { state in
                         switch state {
                         case .success:
-                            view.makeToast("성공")
-                            self.navigationController?.pushViewController(AuthNumberViewController(), animated: true)
+                            let vc = AuthNumberViewController()
+                            vc.viewModel.toastText = "인증번호를 보냈습니다."
+                            self.navigationController?.pushViewController(vc, animated: true)
                         case .tooManyRequests:
-                            view.makeToast("많은 요청")
+                            view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해주세요.")
                         case .unknownError:
-                            view.makeToast("알 수 없는 오류")
+                            view.makeToast("에러가 발생했습니다. 다시 시도해주세요.")
                         }
                     }
                 } else { // 만약 형식을 맞추지 않았다면

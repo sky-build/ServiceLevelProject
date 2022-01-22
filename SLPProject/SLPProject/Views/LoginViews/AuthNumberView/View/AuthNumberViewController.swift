@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Toast
 
 class AuthNumberViewController: BaseViewController {
     
@@ -39,6 +40,20 @@ class AuthNumberViewController: BaseViewController {
         
         // 재전송버튼 설정
         setRetransmitButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // 인증번호를 보냈습니다 토스트 띄우기(viewDidLoad에서 쓰면 실행이 안됨)
+        setAuthMessageToast()
+    }
+    
+    // 인증번호를 보냈습니다 토스트 띄우기
+    func setAuthMessageToast() {
+        if let toastText = viewModel.toastText {
+            view.makeToast("\(toastText)")
+        }
     }
     
     // 텍스트필드 Rx 설정
@@ -95,6 +110,11 @@ class AuthNumberViewController: BaseViewController {
         // 재전송 버튼 클릭했을 때 우선적으로 타이머만 초기화해줌(계속 요청하면 안될거같아서....)
         mainView.timeButton.rx.tap
             .bind { [self] _ in
+                
+//                PhoneNumberAuthViewModel().sendPhoneAuthorization { state in
+//                    // 여기서 처리
+//                }
+                
                 // 타이머가 nil이 아니라면 시간만 60초로 초기화 해줌
                 if timer != nil {
                     timeLeft = 60

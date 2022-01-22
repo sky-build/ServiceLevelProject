@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class AuthNumberViewModel {
     var authNumber = BehaviorRelay<String>(value: "")
+    var toastText: String?
     
     func authToken(completion: @escaping (PhoneNumberAuthStatus) -> Void) {
         let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")!

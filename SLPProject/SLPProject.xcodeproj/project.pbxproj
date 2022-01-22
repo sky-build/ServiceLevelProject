@@ -94,8 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				D33458FC2796B03F00EB983B /* CustomView */,
-				D33458F2279695ED00EB983B /* PhoneNumberAuthView */,
-				D334592927987D8E00EB983B /* AuthNumberView */,
+				D334593E279BD2CE00EB983B /* LoginViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +196,15 @@
 				D334593C2799BB8800EB983B /* AuthNumberViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D334593E279BD2CE00EB983B /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				D33458F2279695ED00EB983B /* PhoneNumberAuthView */,
+				D334592927987D8E00EB983B /* AuthNumberView */,
+			);
+			path = LoginViews;
 			sourceTree = "<group>";
 		};
 		D36958A9279669AF00924F5A = {
