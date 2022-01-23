@@ -50,14 +50,14 @@ class AuthNumberViewController: BaseViewController {
     }
     
     // 인증번호를 보냈습니다 토스트 띄우기
-    func setAuthMessageToast() {
+    private func setAuthMessageToast() {
         if let toastText = viewModel.toastText {
             view.makeToast("\(toastText)")
         }
     }
     
     // 텍스트필드 Rx 설정
-    func setNumberTextFieldView() {
+    private func setNumberTextFieldView() {
         // 입력값 뷰모델에 바인딩
         mainView.numberTextFieldView.textField.rx.text
             .orEmpty
@@ -82,7 +82,7 @@ class AuthNumberViewController: BaseViewController {
     }
     
     // 인증버튼 설정
-    func setAuthMessageButton() {
+    private func setAuthMessageButton() {
         mainView.authMessageButton.rx.tap
             .map { [self] in viewModel.authNumber.value.count == 6 }
             .map { [self] in $0 && timeLeft != 0 }  // 6개 입력하고 시간이 남아있는지
@@ -91,7 +91,8 @@ class AuthNumberViewController: BaseViewController {
                     viewModel.authToken { state in
                         switch state {
                         case .success:
-                            view.makeToast("성공")
+//                            view.makeToast("성공")
+                            navigationController?.pushViewController(NicknameViewController(), animated: true)
                         case .tooManyRequests:
                             view.makeToast("많은 요청")
                         case .unknownError:
@@ -106,7 +107,7 @@ class AuthNumberViewController: BaseViewController {
     }
     
     // 재전송버튼 설정
-    func setRetransmitButton() {
+    private func setRetransmitButton() {
         // 재전송 버튼 클릭했을 때 우선적으로 타이머만 초기화해줌(계속 요청하면 안될거같아서....)
         mainView.timeButton.rx.tap
             .bind { [self] _ in
@@ -128,12 +129,12 @@ class AuthNumberViewController: BaseViewController {
     }
     
     // 타이머 설정
-    func setTimer() {
+    private func setTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(authTimer), userInfo: nil, repeats: true)
     }
     
     // 타이머 1초씩 줄어듬
-    @objc func authTimer()
+    @objc private func authTimer()
     {
         timeLeft -= 1
         let addString = timeLeft % 60 < 10 ? "0": ""

@@ -12,7 +12,6 @@ class CustomTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        self.backgroundColor = .white
         self.addLeftPadding()
         self.font = .Title4_R14
         

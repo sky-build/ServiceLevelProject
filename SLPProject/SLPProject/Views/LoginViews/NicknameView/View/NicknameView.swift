@@ -1,33 +1,30 @@
 //
-//  PhoneNumberAuthView.swift
+//  NicknameView.swift
 //  SLPProject
 //
-//  Created by 노건호 on 2022/01/18.
+//  Created by 노건호 on 2022/01/23.
 //
 
 import UIKit
-import SnapKit
 
-class PhoneNumberAuthView: UIView, FetchViews {
+class NicknameView: UIView, FetchViews {
     
     let explainLabel: ExplainLabel = {
         let label = ExplainLabel()
-        label.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해주세요"
-        label.numberOfLines = 2
+        label.text = "닉네임을 입력해주세요"
         label.textAlignment = .center
         return label
     }()
     
-    let phoneNumberTextField: CustomTextFieldView = {
+    let nicknameTextField: CustomTextFieldView = {
         let view = CustomTextFieldView()
-        view.textField.placeholder = "전화번호를 입력하세요"
-        view.textField.keyboardType = .numberPad
+        view.textField.placeholder = "10자 이내로 입력"
         return view
     }()
     
-    let authMessageButton: CustomNextButton = {
+    let nextButton: CustomNextButton = {
         let button = CustomNextButton()
-        button.setTitle("인증 문자 받기", for: .normal)
+        button.setTitle("다음", for: .normal)
         button.titleLabel?.font = .Body3_R14
         button.backgroundColor = .slpGray6
         return button
@@ -46,8 +43,8 @@ class PhoneNumberAuthView: UIView, FetchViews {
     
     func addViews() {
         self.addSubview(explainLabel)
-        self.addSubview(phoneNumberTextField)
-        self.addSubview(authMessageButton)
+        self.addSubview(nicknameTextField)
+        self.addSubview(nextButton)
     }
     
     func makeConstraints() {
@@ -56,15 +53,14 @@ class PhoneNumberAuthView: UIView, FetchViews {
             $0.leading.trailing.equalToSuperview().inset(74)
         }
         
-        phoneNumberTextField.snp.makeConstraints {
+        nicknameTextField.snp.makeConstraints {
             $0.top.equalTo(explainLabel.snp.bottom).offset(77)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
-        authMessageButton.snp.makeConstraints {
-            $0.top.equalTo(phoneNumberTextField.snp.bottom).offset(85)
+        nextButton.snp.makeConstraints {
+            $0.top.equalTo(nicknameTextField.snp.bottom).offset(85)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
-    
 }

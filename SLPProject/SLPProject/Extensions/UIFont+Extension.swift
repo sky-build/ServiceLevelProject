@@ -14,6 +14,8 @@ enum NotoFont: String {
 
 extension UIFont {
     
+    static let Onboarding_R24 = UIFont(name: NotoFont.regular.rawValue, size: 24)
+    
     static let Display1_R20 = UIFont(name: NotoFont.regular.rawValue, size: 20)
     
     static let Title1_M16 = UIFont(name: NotoFont.medium.rawValue, size: 16)

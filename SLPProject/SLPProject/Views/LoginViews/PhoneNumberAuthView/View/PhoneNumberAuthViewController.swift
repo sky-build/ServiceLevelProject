@@ -11,7 +11,7 @@ import RxSwift
 import Toast
 import AnyFormatKit
 
-class PhoneNumberViewAuthViewController: BaseViewController {
+class PhoneNumberAuthViewController: BaseViewController {
     
     let viewModel = PhoneNumberAuthViewModel()
     
@@ -34,26 +34,13 @@ class PhoneNumberViewAuthViewController: BaseViewController {
     }
     
     // 전화번호 텍스트필드 설정
-    func setPhoneNumberTextField() {
-        // 델리게이트 설정
+    private func setPhoneNumberTextField() {
+        // 델리게이트 위임
         mainView.phoneNumberTextField.textField.delegate = self
-
-        // TextField값을 정규식으로 체크해서 버튼 상태 변경
-        mainView.phoneNumberTextField.textField.rx.text
-            .orEmpty
-            .map { $0.validPhoneNumber() }
-            .bind { [self] value in
-                if value {
-                    mainView.authMessageButton.backgroundColor = .slpGreen
-                } else {
-                    mainView.authMessageButton.backgroundColor = .slpGray6
-                }
-            }
-            .disposed(by: disposeBag)
     }
     
     // 인증하기 메시지 버튼 설정
-    func setAuthMessageButton() {
+    private func setAuthMessageButton() {
         // 인증하기 버튼 클릭했을 경우
         mainView.authMessageButton.rx.tap
             .map { self.mainView.phoneNumberTextField.textField.text!.validPhoneNumber() }
@@ -82,7 +69,7 @@ class PhoneNumberViewAuthViewController: BaseViewController {
     }
 }
 
-extension PhoneNumberViewAuthViewController: UITextFieldDelegate {
+extension PhoneNumberAuthViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         

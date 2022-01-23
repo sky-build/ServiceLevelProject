@@ -17,8 +17,8 @@ class AuthNumberView: UIView, FetchViews {
         return label
     }()
     
-    let timeButton: CustomButton = {
-        let button = CustomButton()
+    let timeButton: CustomNextButton = {
+        let button = CustomNextButton()
         button.setTitle("재전송", for: .normal)
         button.titleLabel?.font = .Body3_R14
         return button
@@ -46,8 +46,8 @@ class AuthNumberView: UIView, FetchViews {
         return view
     }()
     
-    let authMessageButton: CustomButton = {
-        let button = CustomButton()
+    let authMessageButton: CustomNextButton = {
+        let button = CustomNextButton()
         button.setTitle("인증하고 시작하기", for: .normal)
         button.titleLabel?.font = .Body3_R14
         button.backgroundColor = .slpGray6

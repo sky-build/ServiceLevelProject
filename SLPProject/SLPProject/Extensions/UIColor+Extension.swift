@@ -27,4 +27,6 @@ extension UIColor {
     static let slpSuccess = UIColor(red: 98/255, green: 143/255, blue: 229/255, alpha: 1)
     static let slpError = UIColor(red: 233/255, green: 102/255, blue: 107/255, alpha: 1)
     static let slpFocus = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+    
+    static let slpBorderColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1)
 }

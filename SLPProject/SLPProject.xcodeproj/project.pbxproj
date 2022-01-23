@@ -7,17 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D301DC2C279BF94900E4BD08 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC2B279BF94900E4BD08 /* EndPoint.swift */; };
+		D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC2F279C22AF00E4BD08 /* OnboardingViewController.swift */; };
+		D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC31279C269B00E4BD08 /* OnboardingView.swift */; };
+		D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC33279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift */; };
+		D301DC36279C55E100E4BD08 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC35279C55E100E4BD08 /* OnboardingViewModel.swift */; };
+		D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC3D279C646200E4BD08 /* NicknameView.swift */; };
+		D301DC40279C646B00E4BD08 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC3F279C646B00E4BD08 /* NicknameViewController.swift */; };
+		D301DC42279C647300E4BD08 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC41279C647300E4BD08 /* NicknameViewModel.swift */; };
+		D301DC4A279C793000E4BD08 /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC49279C793000E4BD08 /* BirthdayView.swift */; };
+		D301DC4C279C793C00E4BD08 /* BirtydayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC4B279C793C00E4BD08 /* BirtydayViewController.swift */; };
+		D301DC4E279C7A5000E4BD08 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC4D279C7A4F00E4BD08 /* BirthdayViewModel.swift */; };
+		D301DC50279D03B200E4BD08 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC4F279D03B200E4BD08 /* DateView.swift */; };
+		D301DC52279D0C0400E4BD08 /* DateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC51279D0C0400E4BD08 /* DateType.swift */; };
+		D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC53279D0CE300E4BD08 /* DateStackView.swift */; };
+		D301DC56279D4C9C00E4BD08 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC55279D4C9C00E4BD08 /* Date+Extension.swift */; };
+		D301DC59279D5F1700E4BD08 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC58279D5F1700E4BD08 /* EmailView.swift */; };
+		D301DC5B279D5F2500E4BD08 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC5A279D5F2500E4BD08 /* EmailViewController.swift */; };
+		D301DC5D279D5FC000E4BD08 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC5C279D5FC000E4BD08 /* EmailViewModel.swift */; };
+		D301DC62279D65C100E4BD08 /* GenderSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC61279D65C100E4BD08 /* GenderSelectView.swift */; };
+		D301DC64279D65C800E4BD08 /* GenderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC63279D65C800E4BD08 /* GenderSelectViewController.swift */; };
+		D301DC66279D662B00E4BD08 /* GenderSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC65279D662B00E4BD08 /* GenderSelectViewModel.swift */; };
+		D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC67279D67CC00E4BD08 /* GenderView.swift */; };
+		D301DC6A279D70A800E4BD08 /* GenderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC69279D70A800E4BD08 /* GenderStackView.swift */; };
+		D301DC6D279D769900E4BD08 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D301DC6C279D769900E4BD08 /* RxCocoa */; };
+		D301DC6F279D769900E4BD08 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D301DC6E279D769900E4BD08 /* RxSwift */; };
+		D301DC72279D771400E4BD08 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = D301DC71279D771400E4BD08 /* RxGesture */; };
+		D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC73279D78B300E4BD08 /* GenderType.swift */; };
 		D33458F02796951A00EB983B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D33458EF2796951A00EB983B /* SnapKit */; };
 		D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */; };
 		D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */; };
 		D33458FB2796A54500EB983B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458FA2796A54500EB983B /* UIColor+Extension.swift */; };
-		D33458FE2796B05100EB983B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458FD2796B05100EB983B /* CustomButton.swift */; };
+		D33458FE2796B05100EB983B /* CustomNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458FD2796B05100EB983B /* CustomNextButton.swift */; };
 		D33459012796CF9800EB983B /* FetchViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459002796CF9800EB983B /* FetchViews.swift */; };
 		D33459052796E1F500EB983B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459042796E1F500EB983B /* CustomTextField.swift */; };
 		D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459062796E21800EB983B /* UITextField+Extension.swift */; };
 		D33459092796E44D00EB983B /* PhoneNumberAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459082796E44D00EB983B /* PhoneNumberAuthViewModel.swift */; };
-		D334590F2796F81200EB983B /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D334590E2796F81200EB983B /* RxCocoa */; };
-		D33459112796F81200EB983B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D33459102796F81200EB983B /* RxSwift */; };
 		D33459142796F97900EB983B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D33459132796F97900EB983B /* Toast */; };
 		D33459162797058D00EB983B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459152797058D00EB983B /* String+Extension.swift */; };
 		D334591A2797158700EB983B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D33459192797158700EB983B /* FirebaseAnalytics */; };
@@ -42,10 +67,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D301DC2B279BF94900E4BD08 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		D301DC2F279C22AF00E4BD08 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		D301DC31279C269B00E4BD08 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D301DC33279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		D301DC35279C55E100E4BD08 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		D301DC3D279C646200E4BD08 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		D301DC3F279C646B00E4BD08 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		D301DC41279C647300E4BD08 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		D301DC49279C793000E4BD08 /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
+		D301DC4B279C793C00E4BD08 /* BirtydayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirtydayViewController.swift; sourceTree = "<group>"; };
+		D301DC4D279C7A4F00E4BD08 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
+		D301DC4F279D03B200E4BD08 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		D301DC51279D0C0400E4BD08 /* DateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateType.swift; sourceTree = "<group>"; };
+		D301DC53279D0CE300E4BD08 /* DateStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStackView.swift; sourceTree = "<group>"; };
+		D301DC55279D4C9C00E4BD08 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D301DC58279D5F1700E4BD08 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		D301DC5A279D5F2500E4BD08 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		D301DC5C279D5FC000E4BD08 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		D301DC61279D65C100E4BD08 /* GenderSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectView.swift; sourceTree = "<group>"; };
+		D301DC63279D65C800E4BD08 /* GenderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectViewController.swift; sourceTree = "<group>"; };
+		D301DC65279D662B00E4BD08 /* GenderSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectViewModel.swift; sourceTree = "<group>"; };
+		D301DC67279D67CC00E4BD08 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		D301DC69279D70A800E4BD08 /* GenderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderStackView.swift; sourceTree = "<group>"; };
+		D301DC73279D78B300E4BD08 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
 		D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthViewController.swift; sourceTree = "<group>"; };
 		D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthView.swift; sourceTree = "<group>"; };
 		D33458FA2796A54500EB983B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		D33458FD2796B05100EB983B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D33458FD2796B05100EB983B /* CustomNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNextButton.swift; sourceTree = "<group>"; };
 		D33459002796CF9800EB983B /* FetchViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchViews.swift; sourceTree = "<group>"; };
 		D33459042796E1F500EB983B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D33459062796E21800EB983B /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -77,23 +126,168 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D301DC6D279D769900E4BD08 /* RxCocoa in Frameworks */,
 				D334592C27987ECE00EB983B /* AnyFormatKit in Frameworks */,
+				D301DC72279D771400E4BD08 /* RxGesture in Frameworks */,
 				D33459142796F97900EB983B /* Toast in Frameworks */,
 				D334591C2797158700EB983B /* FirebaseAuth in Frameworks */,
-				D334590F2796F81200EB983B /* RxCocoa in Frameworks */,
-				D33459112796F81200EB983B /* RxSwift in Frameworks */,
 				D334591A2797158700EB983B /* FirebaseAnalytics in Frameworks */,
 				D33458F02796951A00EB983B /* SnapKit in Frameworks */,
+				D301DC6F279D769900E4BD08 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D301DC29279BF93000E4BD08 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC2B279BF94900E4BD08 /* EndPoint.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D301DC2D279C229200E4BD08 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC37279C55E400E4BD08 /* ViewModel */,
+				D301DC2E279C22A100E4BD08 /* View */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
+		D301DC2E279C22A100E4BD08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC33279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift */,
+				D301DC31279C269B00E4BD08 /* OnboardingView.swift */,
+				D301DC2F279C22AF00E4BD08 /* OnboardingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D301DC37279C55E400E4BD08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC35279C55E100E4BD08 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D301DC3A279C642D00E4BD08 /* NicknameView */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC3C279C645100E4BD08 /* ViewModel */,
+				D301DC3B279C644900E4BD08 /* View */,
+			);
+			path = NicknameView;
+			sourceTree = "<group>";
+		};
+		D301DC3B279C644900E4BD08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC3D279C646200E4BD08 /* NicknameView.swift */,
+				D301DC3F279C646B00E4BD08 /* NicknameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D301DC3C279C645100E4BD08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC41279C647300E4BD08 /* NicknameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D301DC43279C78F100E4BD08 /* BirthdayView */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC46279C791300E4BD08 /* ViewModel */,
+				D301DC45279C790F00E4BD08 /* View */,
+			);
+			path = BirthdayView;
+			sourceTree = "<group>";
+		};
+		D301DC44279C78F900E4BD08 /* EmailView */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC48279C792100E4BD08 /* ViewModel */,
+				D301DC47279C791A00E4BD08 /* View */,
+			);
+			path = EmailView;
+			sourceTree = "<group>";
+		};
+		D301DC45279C790F00E4BD08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC4F279D03B200E4BD08 /* DateView.swift */,
+				D301DC53279D0CE300E4BD08 /* DateStackView.swift */,
+				D301DC49279C793000E4BD08 /* BirthdayView.swift */,
+				D301DC4B279C793C00E4BD08 /* BirtydayViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D301DC46279C791300E4BD08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC4D279C7A4F00E4BD08 /* BirthdayViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D301DC47279C791A00E4BD08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC58279D5F1700E4BD08 /* EmailView.swift */,
+				D301DC5A279D5F2500E4BD08 /* EmailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D301DC48279C792100E4BD08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC5C279D5FC000E4BD08 /* EmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D301DC5E279D659C00E4BD08 /* GenderView */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC60279D65B400E4BD08 /* ViewModel */,
+				D301DC5F279D65B000E4BD08 /* View */,
+			);
+			path = GenderView;
+			sourceTree = "<group>";
+		};
+		D301DC5F279D65B000E4BD08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC67279D67CC00E4BD08 /* GenderView.swift */,
+				D301DC69279D70A800E4BD08 /* GenderStackView.swift */,
+				D301DC61279D65C100E4BD08 /* GenderSelectView.swift */,
+				D301DC63279D65C800E4BD08 /* GenderSelectViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D301DC60279D65B400E4BD08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D301DC65279D662B00E4BD08 /* GenderSelectViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D33458F1279695D800EB983B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D33458FC2796B03F00EB983B /* CustomView */,
+				D301DC2D279C229200E4BD08 /* OnboardingView */,
 				D334593E279BD2CE00EB983B /* LoginViews */,
 			);
 			path = Views;
@@ -132,6 +326,7 @@
 				D33459062796E21800EB983B /* UITextField+Extension.swift */,
 				D33459152797058D00EB983B /* String+Extension.swift */,
 				D33459272797D55300EB983B /* UIFont+Extension.swift */,
+				D301DC55279D4C9C00E4BD08 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,7 +334,7 @@
 		D33458FC2796B03F00EB983B /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				D33458FD2796B05100EB983B /* CustomButton.swift */,
+				D33458FD2796B05100EB983B /* CustomNextButton.swift */,
 				D33459362799809900EB983B /* CustomTextFieldView.swift */,
 				D33459042796E1F500EB983B /* CustomTextField.swift */,
 				D3345934279970FA00EB983B /* ExplainLabel.swift */,
@@ -159,6 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				D334591E27971D3500EB983B /* PhoneNumberAuthStatus.swift */,
+				D301DC51279D0C0400E4BD08 /* DateType.swift */,
+				D301DC73279D78B300E4BD08 /* GenderType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -203,6 +400,10 @@
 			children = (
 				D33458F2279695ED00EB983B /* PhoneNumberAuthView */,
 				D334592927987D8E00EB983B /* AuthNumberView */,
+				D301DC3A279C642D00E4BD08 /* NicknameView */,
+				D301DC43279C78F100E4BD08 /* BirthdayView */,
+				D301DC44279C78F900E4BD08 /* EmailView */,
+				D301DC5E279D659C00E4BD08 /* GenderView */,
 			);
 			path = LoginViews;
 			sourceTree = "<group>";
@@ -227,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				D3345917279714F800EB983B /* SLPProject.entitlements */,
+				D301DC29279BF93000E4BD08 /* API */,
 				D334591D27971D1C00EB983B /* Enums */,
 				D33458FF2796CD3F00EB983B /* Protocols */,
 				D33458F92796A53800EB983B /* Extensions */,
@@ -262,12 +464,13 @@
 			name = SLPProject;
 			packageProductDependencies = (
 				D33458EF2796951A00EB983B /* SnapKit */,
-				D334590E2796F81200EB983B /* RxCocoa */,
-				D33459102796F81200EB983B /* RxSwift */,
 				D33459132796F97900EB983B /* Toast */,
 				D33459192797158700EB983B /* FirebaseAnalytics */,
 				D334591B2797158700EB983B /* FirebaseAuth */,
 				D334592B27987ECE00EB983B /* AnyFormatKit */,
+				D301DC6C279D769900E4BD08 /* RxCocoa */,
+				D301DC6E279D769900E4BD08 /* RxSwift */,
+				D301DC71279D771400E4BD08 /* RxGesture */,
 			);
 			productName = SLPProject;
 			productReference = D36958B2279669AF00924F5A /* SLPProject.app */;
@@ -299,10 +502,11 @@
 			mainGroup = D36958A9279669AF00924F5A;
 			packageReferences = (
 				D33458EE2796951A00EB983B /* XCRemoteSwiftPackageReference "SnapKit" */,
-				D334590D2796F81200EB983B /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D33459122796F97900EB983B /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				D33459182797158700EB983B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D334592A27987ECD00EB983B /* XCRemoteSwiftPackageReference "AnyFormatKit" */,
+				D301DC6B279D769900E4BD08 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				D301DC70279D771300E4BD08 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = D36958B3279669AF00924F5A /* Products */;
 			projectDirPath = "";
@@ -333,25 +537,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D301DC36279C55E100E4BD08 /* OnboardingViewModel.swift in Sources */,
+				D301DC64279D65C800E4BD08 /* GenderSelectViewController.swift in Sources */,
 				D334591F27971D3500EB983B /* PhoneNumberAuthStatus.swift in Sources */,
+				D301DC50279D03B200E4BD08 /* DateView.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
+				D301DC52279D0C0400E4BD08 /* DateType.swift in Sources */,
 				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
+				D301DC5B279D5F2500E4BD08 /* EmailViewController.swift in Sources */,
 				D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */,
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
 				D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */,
 				D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */,
+				D301DC4C279C793C00E4BD08 /* BirtydayViewController.swift in Sources */,
+				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
 				D334593D2799BB8800EB983B /* AuthNumberViewModel.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
+				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
 				D33459092796E44D00EB983B /* PhoneNumberAuthViewModel.swift in Sources */,
+				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
+				D301DC4E279C7A5000E4BD08 /* BirthdayViewModel.swift in Sources */,
+				D301DC2C279BF94900E4BD08 /* EndPoint.swift in Sources */,
+				D301DC66279D662B00E4BD08 /* GenderSelectViewModel.swift in Sources */,
 				D33458FB2796A54500EB983B /* UIColor+Extension.swift in Sources */,
+				D301DC4A279C793000E4BD08 /* BirthdayView.swift in Sources */,
 				D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */,
-				D33458FE2796B05100EB983B /* CustomButton.swift in Sources */,
+				D33458FE2796B05100EB983B /* CustomNextButton.swift in Sources */,
+				D301DC56279D4C9C00E4BD08 /* Date+Extension.swift in Sources */,
 				D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */,
 				D3345935279970FA00EB983B /* ExplainLabel.swift in Sources */,
+				D301DC5D279D5FC000E4BD08 /* EmailViewModel.swift in Sources */,
+				D301DC62279D65C100E4BD08 /* GenderSelectView.swift in Sources */,
+				D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */,
+				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
+				D301DC6A279D70A800E4BD08 /* GenderStackView.swift in Sources */,
+				D301DC59279D5F1700E4BD08 /* EmailView.swift in Sources */,
 				D33459052796E1F500EB983B /* CustomTextField.swift in Sources */,
+				D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */,
+				D301DC42279C647300E4BD08 /* NicknameViewModel.swift in Sources */,
+				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,
+				D301DC40279C646B00E4BD08 /* NicknameViewController.swift in Sources */,
 				D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,20 +796,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D301DC6B279D769900E4BD08 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		D301DC70279D771300E4BD08 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		D33458EE2796951A00EB983B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
-			};
-		};
-		D334590D2796F81200EB983B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
 			};
 		};
 		D33459122796F97900EB983B /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
@@ -611,20 +847,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D301DC6C279D769900E4BD08 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D301DC6B279D769900E4BD08 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		D301DC6E279D769900E4BD08 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D301DC6B279D769900E4BD08 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		D301DC71279D771400E4BD08 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D301DC70279D771300E4BD08 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		D33458EF2796951A00EB983B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D33458EE2796951A00EB983B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		D334590E2796F81200EB983B /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D334590D2796F81200EB983B /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		D33459102796F81200EB983B /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D334590D2796F81200EB983B /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
 		};
 		D33459132796F97900EB983B /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

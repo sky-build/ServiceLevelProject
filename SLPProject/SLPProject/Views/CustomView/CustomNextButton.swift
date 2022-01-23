@@ -1,5 +1,5 @@
 //
-//  CustomButton.swift
+//  CustomNextButton.swift
 //  SLPProject
 //
 //  Created by 노건호 on 2022/01/18.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CustomButton: UIButton {
+class CustomNextButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
