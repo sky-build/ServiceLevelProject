@@ -13,7 +13,7 @@ import AnyFormatKit
 
 class PhoneNumberAuthViewController: BaseViewController {
     
-    let viewModel = PhoneNumberAuthViewModel()
+    let viewModel = LoginViewModel()
     
     let mainView = PhoneNumberAuthView()
     
@@ -45,7 +45,6 @@ class PhoneNumberAuthViewController: BaseViewController {
         mainView.authMessageButton.rx.tap
             .map { self.mainView.phoneNumberTextField.textField.text!.validPhoneNumber() }
             .bind { [self] state in
-
                 // 번호를 제대로 입력한 경우 전화번호 인증 수행
                 if state {
                     view.makeToast("전화번호 인증 시작")
@@ -53,7 +52,7 @@ class PhoneNumberAuthViewController: BaseViewController {
                         switch state {
                         case .success:
                             let vc = AuthNumberViewController()
-                            vc.viewModel.toastText = "인증번호를 보냈습니다."
+                            vc.toastText = "인증번호를 보냈습니다."
                             self.navigationController?.pushViewController(vc, animated: true)
                         case .tooManyRequests:
                             view.makeToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해주세요.")
@@ -84,7 +83,10 @@ extension PhoneNumberAuthViewController: UITextFieldDelegate {
         let formatter = DefaultTextInputFormatter(textPattern: "###-####-####")
         let result = formatter.formatInput(currentText: text, range: range, replacementString: string)
         textField.text = result.formattedText
+        
+        //
         viewModel.phoneNumber.accept(textField.text!.replacingOccurrences(of: "-", with: ""))
+        
         mainView.phoneNumberTextField.textField.text = result.formattedText
         let position = textField.position(from: textField.beginningOfDocument, offset: result.caretBeginOffset)!
         textField.selectedTextRange = textField.textRange(from: position, to: position)

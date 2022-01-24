@@ -33,7 +33,7 @@ class EmailView: UIView, FetchViews {
     
     let nextButton: CustomNextButton = {
         let button = CustomNextButton()
-        button.setTitle("인증 문자 받기", for: .normal)
+        button.setTitle("다음", for: .normal)
         button.titleLabel?.font = .Body3_R14
         button.backgroundColor = .slpGray6
         return button

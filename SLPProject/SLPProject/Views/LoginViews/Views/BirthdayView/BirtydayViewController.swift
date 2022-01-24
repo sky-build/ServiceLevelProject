@@ -11,7 +11,7 @@ import RxSwift
 
 class BirthdayViewController: BaseViewController {
     
-    let viewModel = BirthdayViewModel()
+    let viewModel = LoginViewModel()
     
     let mainView = BirthdayView()
     
@@ -38,21 +38,11 @@ class BirthdayViewController: BaseViewController {
     
     // 뷰모델에 생일 바인딩
     private func bindBirthday() {
-        viewModel.year
-            .bind { [self] value in
-                mainView.dateLabel.yearView.dateLabel.text = "\(value)"
-            }
-            .disposed(by: disposeBag)
-        
-        viewModel.month
-            .bind { [self] value in
-                mainView.dateLabel.montyView.dateLabel.text = "\(value)"
-            }
-            .disposed(by: disposeBag)
-        
-        viewModel.day
-            .bind { [self] value in
-                mainView.dateLabel.dayView.dateLabel.text = "\(value)"
+        viewModel.birthday
+            .bind { [self] date in
+                mainView.dateLabel.yearView.dateLabel.text = "\(date.year)"
+                mainView.dateLabel.montyView.dateLabel.text = "\(date.month)"
+                mainView.dateLabel.dayView.dateLabel.text = "\(date.day)"
             }
             .disposed(by: disposeBag)
     }
@@ -64,7 +54,8 @@ class BirthdayViewController: BaseViewController {
                 // 날짜를 선택했는지 먼저 검사
                 if mainView.state {
                     // 날짜가 유효한지 먼저 검사(17살 이상인지 검사)
-                    if koreanAge(year: viewModel.year.value, month: viewModel.month.value, day: viewModel.day.value) >= 17 {
+                    let birthday = viewModel.birthday.value
+                    if koreanAge(year: birthday.year, month: birthday.month, day: birthday.day) >= 17 {
                         navigationController?.pushViewController(EmailViewController(), animated: true)
                     } else {
                         view.makeToast("새싹친구는 만 17세 이상만 사용할 수 있습니다.")
@@ -79,10 +70,10 @@ class BirthdayViewController: BaseViewController {
     
     @objc private func datePickerSelected(_ sender: UIDatePicker) {
         let date = sender.date
+        
         // 날짜 업데이트
-        viewModel.year.accept(date.year)
-        viewModel.month.accept(date.month)
-        viewModel.day.accept(date.day)
+        viewModel.birthday.accept(date)
+//        print(UserModel.shared.birthday)
         
         // 색상을 바꾸는 코드는 한번만 실행하도록 설정
         if !mainView.state {

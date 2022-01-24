@@ -11,6 +11,8 @@ import RxSwift
 
 class NicknameViewController: BaseViewController {
     
+    let viewModel = LoginViewModel()
+    
     let mainView = NicknameView()
     
     var disposeBag = DisposeBag()
@@ -24,11 +26,22 @@ class NicknameViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 데이터 바인딩
+        dataBind()
+        
         // 닉네임 설정
         setNickname()
         
         // 다음버튼 설정
         setNextButton()
+    }
+    
+    // 데이터 바인딩
+    func dataBind() {
+        mainView.nicknameTextField.textField.rx.text
+            .orEmpty
+            .bind(to: viewModel.nickname)
+            .disposed(by: disposeBag)
     }
     
     // 닉네임 설정

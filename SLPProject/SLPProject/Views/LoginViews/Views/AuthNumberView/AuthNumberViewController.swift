@@ -12,14 +12,16 @@ import Toast
 
 class AuthNumberViewController: BaseViewController {
     
-    let viewModel = AuthNumberViewModel()
+    let viewModel = LoginViewModel()
     
     let mainView = AuthNumberView()
     
     var disposeBag = DisposeBag()
     
-    var timer: Timer?
-    var timeLeft = 60
+    var toastText: String?
+    
+    private var timer: Timer?
+    private var timeLeft = 60
     
     override func loadView() {
         super.loadView()
@@ -51,7 +53,7 @@ class AuthNumberViewController: BaseViewController {
     
     // 인증번호를 보냈습니다 토스트 띄우기
     private func setAuthMessageToast() {
-        if let toastText = viewModel.toastText {
+        if let toastText = toastText {
             view.makeToast("\(toastText)")
         }
     }
@@ -91,7 +93,6 @@ class AuthNumberViewController: BaseViewController {
                     viewModel.authToken { state in
                         switch state {
                         case .success:
-//                            view.makeToast("성공")
                             navigationController?.pushViewController(NicknameViewController(), animated: true)
                         case .tooManyRequests:
                             view.makeToast("많은 요청")
@@ -112,7 +113,7 @@ class AuthNumberViewController: BaseViewController {
         mainView.timeButton.rx.tap
             .bind { [self] _ in
                 
-//                PhoneNumberAuthViewModel().sendPhoneAuthorization { state in
+//                viewModel.sendPhoneAuthorization { state in
 //                    // 여기서 처리
 //                }
                 

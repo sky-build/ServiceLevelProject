@@ -13,7 +13,7 @@ import Toast
 
 class GenderSelectViewController: BaseViewController {
     
-    let viewModel = GenderSelectViewModel()
+    let viewModel = LoginViewModel()
     
     let mainView = GenderSelectView()
     

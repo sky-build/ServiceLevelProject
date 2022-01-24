@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let nav = UINavigationController(rootViewController: PhoneNumberViewAuthViewController())
         
-        let nav = UINavigationController(rootViewController: GenderSelectViewController())
+        let nav = UINavigationController(rootViewController: OnboardingViewController())
         
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

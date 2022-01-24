@@ -11,7 +11,7 @@ import RxSwift
 
 class EmailViewController: BaseViewController {
     
-    let viewModel = EmailViewModel()
+    let viewModel = LoginViewModel()
     
     let mainView = EmailView()
     
