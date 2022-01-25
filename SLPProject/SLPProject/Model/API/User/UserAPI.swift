@@ -40,13 +40,13 @@ class UserAPI {
     ]
     
     // API상태 업데이트
-    let state = PublishRelay<Bool>()
+    let state = PublishRelay<UserAPIResult>()
     let userResult = PublishRelay<UserInformation>()
     
     private var disposeBag = DisposeBag()
     
     // 기본 코드
-    fileprivate func baseAlamofire(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, UserEnum) -> Void) {
+    fileprivate func baseUserAPIRequest(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, UserEnum) -> Void) {
         RxAlamofire.requestData(method, url, parameters: parameters, headers: header)
             .debug()
             .subscribe { (header, data) in
@@ -60,30 +60,36 @@ class UserAPI {
     
     // 유저가 이미 있는지 확인
     func checkUserExist() {
-        baseAlamofire(method: .get, url: UserURL.user.url, parameters: nil, header: header) { [self] (data, apiState) in
+        baseUserAPIRequest(method: .get, url: UserURL.user.url, parameters: nil, header: header) { [self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 guard let data = data else { return }
-
+                
                 do {
                     let decoder = JSONDecoder()
                     let decodeData = try decoder.decode(UserInformation.self, from: data)
                     // 여기에서 값을 전달
                     userResult.accept(decodeData)
                     // 그리고 구독하라고 설정
-                    state.accept(true)
+                    state.accept(.alreadyRegister)
                 } catch {
-                    print("디코딩 실패")
-                    state.accept(false)
+                    // 디코딩 실패
+                    state.accept(.failDecode)
                 }
-            case .noRegister: break
+            case .noRegister:
                 // 회원가입페이지로 전송
-            case .firebaseTokenError: break
+                print(apiState.rawValue)
+                // 다음화면으로 이동
+                state.accept(.noRegister)
+            case .firebaseTokenError:
                 // 토큰 재발급, 재시도
-            case .serverError: break
+                print(apiState.rawValue)
+            case .serverError:
                 // 서버 오류
-            case .clientError: break
+                print(apiState.rawValue)
+            case .clientError:
                 // 클라이언트 오류
+                print(apiState.rawValue)
             default:
                 print("안됨")
             }
@@ -102,10 +108,11 @@ class UserAPI {
             "gender" : user.gender.value.rawValue
         ]
         
-        baseAlamofire(method: .post, url: UserURL.user.url, parameters: parameters, header: header) { (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: parameters, header: header) { [self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 print("성공")
+                state.accept(.success)
             case .invalidNickname:
                 // 부적절한 닉네임
                 print("부적절한 닉네임")
@@ -125,7 +132,7 @@ class UserAPI {
     
     // 회원탈퇴
     func withdrawUser() {
-        baseAlamofire(method: .post, url: UserURL.user.url, parameters: nil, header: header) { (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: nil, header: header) { (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 print("성공")

@@ -28,6 +28,24 @@ class GenderSelectViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // API에서 State를 구독
+        viewModel.userAPI.state
+            .subscribe(onNext: { [weak self] state in
+                print("state = ", state)
+                // 만약 API가 호출&디코딩을 성공적으로 했다면 홈화면으로 이동
+                switch state {
+                case .alreadyRegister:
+                    self?.changeRootView(HomeViewController())
+                case .noRegister:
+                    self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                case .invalidToken: // 나중에 처리
+                    break
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+        
         // 성별 탭했을 경우 뷰모델에 바인딩
         bindGenderSelect()
         
@@ -81,6 +99,8 @@ class GenderSelectViewController: BaseViewController {
         mainView.nextButton.rx.tap
             .map { [self] in viewModel.user.gender.value != .none }
             .bind { [self] state in
+                viewModel.userAPI.registerUser()
+                
                 // 회원가입
                 viewModel.userAPI.registerUser()
                 if state {  // 성별을 선택했다면

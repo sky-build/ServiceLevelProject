@@ -34,13 +34,18 @@ class AuthNumberViewController: BaseViewController {
         // API에서 State를 구독
         viewModel.userAPI.state
             .subscribe(onNext: { [weak self] state in
+                print("state = ", state)
                 // 만약 API가 호출&디코딩을 성공적으로 했다면 홈화면으로 이동
-                if state {
+                switch state {
+                case .alreadyRegister:
                     self?.changeRootView(HomeViewController())
-                } else {    // 아니라면 다음으로 변경
+                case .noRegister:
                     self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                case .invalidToken: // 나중에 처리
+                    break
+                default:
+                    break
                 }
-                self?.changeRootView(HomeViewController())
             })
             .disposed(by: disposeBag)
 

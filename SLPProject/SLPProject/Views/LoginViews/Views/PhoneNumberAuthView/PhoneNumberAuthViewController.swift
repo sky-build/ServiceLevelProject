@@ -26,7 +26,8 @@ class PhoneNumberAuthViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(FirebaseToken.shared.idToken)
+        FirebaseToken.shared.authUser()
+        FirebaseToken.shared.FcmTokenValue()
         
         // 전화번호 텍스트필드 설정
         setPhoneNumberTextField()
