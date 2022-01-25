@@ -13,7 +13,7 @@ import AnyFormatKit
 
 class PhoneNumberAuthViewController: BaseViewController {
     
-    let viewModel = LoginViewModel()
+    let viewModel = UserViewModel()
     
     let mainView = PhoneNumberAuthView()
     
@@ -25,6 +25,8 @@ class PhoneNumberAuthViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(FirebaseToken.shared.idToken)
         
         // 전화번호 텍스트필드 설정
         setPhoneNumberTextField()
@@ -84,8 +86,7 @@ extension PhoneNumberAuthViewController: UITextFieldDelegate {
         let result = formatter.formatInput(currentText: text, range: range, replacementString: string)
         textField.text = result.formattedText
         
-        //
-        viewModel.phoneNumber.accept(textField.text!.replacingOccurrences(of: "-", with: ""))
+        viewModel.user.phoneNumber.accept(textField.text!.replacingOccurrences(of: "-", with: ""))
         
         mainView.phoneNumberTextField.textField.text = result.formattedText
         let position = textField.position(from: textField.beginningOfDocument, offset: result.caretBeginOffset)!

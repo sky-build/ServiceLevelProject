@@ -42,10 +42,7 @@ class OnboardingViewController: BaseViewController {
     
     // 시작하기 버튼 클릭했을 떄
     @objc func startButtonClicked(_ sender: UIButton) {
-        // Root 뷰컨트롤러를 바꿔줌
-        let rootVC = UINavigationController(rootViewController: PhoneNumberAuthViewController())
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
-        sceneDelegate.window?.rootViewController = rootVC
+        changeRootView(PhoneNumberAuthViewController())
     }
     
     // 페이지 변경되었을 때 설정

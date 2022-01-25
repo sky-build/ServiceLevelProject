@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  UserViewModel.swift
 //  SLPProject
 //
 //  Created by 노건호 on 2022/01/24.
@@ -9,21 +9,27 @@ import Foundation
 import RxRelay
 import FirebaseAuth
 
-class LoginViewModel {
+class UserViewModel {
     
-    var phoneNumber = BehaviorRelay<String>(value: "")
-    var authNumber = BehaviorRelay<String>(value: "")
-    var nickname = BehaviorRelay<String>(value: "")
-    let birthday = BehaviorRelay<Date>(value: Date())
-    var email = BehaviorRelay<String>(value: "")
-    var gender = BehaviorRelay<GenderType>(value: .none)
+    // 싱글톤
+    let userAPI = UserAPI()
+    
+    let user = UserModel.shared
+    
+//    var phoneNumber = BehaviorRelay<String>(value: "")
+//    var authNumber = BehaviorRelay<String>(value: "")
+//    var nickname = BehaviorRelay<String>(value: "")
+//    let birthday = BehaviorRelay<Date>(value: Date())
+//    var email = BehaviorRelay<String>(value: "")
+//    var gender = BehaviorRelay<GenderType>(value: .none)
     
     // 휴대폰 인증 전송 코드
     func sendPhoneAuthorization(completion: @escaping (PhoneNumberAuthStatus) -> Void) {
-        print("phoneNumber = ", phoneNumber.value)
+        print("phoneNumber = ", user.phoneNumber.value)
         PhoneAuthProvider.provider()
-          .verifyPhoneNumber("+82\(phoneNumber.value)", uiDelegate: nil) { verificationID, error in
+            .verifyPhoneNumber("+82\(user.phoneNumber.value)", uiDelegate: nil) { verificationID, error in
               if let error = error {
+                  
                   // AuthErrorCode로 변환
                   let state = AuthErrorCode(rawValue: error._code)
                   
@@ -39,17 +45,17 @@ class LoginViewModel {
               }
               // Sign in using the verificationID and the code sent to the user
               // ...
-              print("메시지로 전송")
-              UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+              UserDefaults.standard.set(verificationID, forKey: "verificationID")
               completion(.success)
           }
     }
     
+    // 전화번호로 auth토큰 인증하는것
     func authToken(completion: @escaping (PhoneNumberAuthStatus) -> Void) {
-        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")!
+        let verificationID = UserDefaults.standard.string(forKey: "verificationID")!
         let credential = PhoneAuthProvider.provider().credential(
           withVerificationID: verificationID,
-          verificationCode: authNumber.value
+          verificationCode: user.authNumber.value
         )
         
         Auth.auth().signIn(with: credential) { authResult, error in
@@ -60,8 +66,6 @@ class LoginViewModel {
                 return
             }
             // User is signed in
-            // ...
-            print("인증 성공")
             completion(.success)
         }
     }

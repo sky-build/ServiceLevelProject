@@ -11,7 +11,7 @@ import RxSwift
 
 class NicknameViewController: BaseViewController {
     
-    let viewModel = LoginViewModel()
+    let viewModel = UserViewModel()
     
     let mainView = NicknameView()
     
@@ -40,7 +40,7 @@ class NicknameViewController: BaseViewController {
     func dataBind() {
         mainView.nicknameTextField.textField.rx.text
             .orEmpty
-            .bind(to: viewModel.nickname)
+            .bind(to: viewModel.user.nickname)
             .disposed(by: disposeBag)
     }
     

@@ -13,7 +13,7 @@ import Toast
 
 class GenderSelectViewController: BaseViewController {
     
-    let viewModel = LoginViewModel()
+    let viewModel = UserViewModel()
     
     let mainView = GenderSelectView()
     
@@ -44,7 +44,7 @@ class GenderSelectViewController: BaseViewController {
         mainView.genderView.manView.rx.tapGesture()
             .when(.recognized)
             .subscribe { [self] _ in
-                viewModel.gender.accept(.man)   // 뷰모델에 값 넣어줌
+                viewModel.user.gender.accept(.man)   // 뷰모델에 값 넣어줌
             }
             .disposed(by: disposeBag)
         
@@ -52,14 +52,14 @@ class GenderSelectViewController: BaseViewController {
         mainView.genderView.womanView.rx.tapGesture()
             .when(.recognized)
             .subscribe { [self] _ in
-                viewModel.gender.accept(.woman) // 뷰모델에 값 넣어줌
+                viewModel.user.gender.accept(.woman) // 뷰모델에 값 넣어줌
             }
             .disposed(by: disposeBag)
     }
     
     // 성별 탭 했을때 뷰, 버튼색 바꿔줌
     private func setGenderColor() {
-        viewModel.gender
+        viewModel.user.gender
             .filter { $0 != .none }     // none라면 별도로 처리하지 않음
             .bind { [self] gender in
                 if gender == .man {
@@ -79,8 +79,10 @@ class GenderSelectViewController: BaseViewController {
     // 다음 버튼 클릭했을 때
     private func setNextButton() {
         mainView.nextButton.rx.tap
-            .map { [self] in viewModel.gender.value != .none }
+            .map { [self] in viewModel.user.gender.value != .none }
             .bind { [self] state in
+                // 회원가입
+                viewModel.userAPI.registerUser()
                 if state {  // 성별을 선택했다면
                     view.makeToast("성별을 선택했어요.")
                 } else {

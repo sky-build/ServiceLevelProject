@@ -12,7 +12,7 @@ import Toast
 
 class AuthNumberViewController: BaseViewController {
     
-    let viewModel = LoginViewModel()
+    let viewModel = UserViewModel()
     
     let mainView = AuthNumberView()
     
@@ -30,6 +30,20 @@ class AuthNumberViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // API에서 State를 구독
+        viewModel.userAPI.state
+            .subscribe(onNext: { [weak self] state in
+                // 만약 API가 호출&디코딩을 성공적으로 했다면 홈화면으로 이동
+                if state {
+                    self?.changeRootView(HomeViewController())
+                } else {    // 아니라면 다음으로 변경
+                    self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                }
+                self?.changeRootView(HomeViewController())
+            })
+            .disposed(by: disposeBag)
+
         
         // 타이머 설정
         setTimer()
@@ -63,7 +77,7 @@ class AuthNumberViewController: BaseViewController {
         // 입력값 뷰모델에 바인딩
         mainView.numberTextFieldView.textField.rx.text
             .orEmpty
-            .bind(to: viewModel.authNumber)
+            .bind(to: viewModel.user.authNumber)
             .disposed(by: disposeBag)
         
         // 6개 입력하면 버튼색 변경
@@ -86,14 +100,14 @@ class AuthNumberViewController: BaseViewController {
     // 인증버튼 설정
     private func setAuthMessageButton() {
         mainView.authMessageButton.rx.tap
-            .map { [self] in viewModel.authNumber.value.count == 6 }
+            .map { [self] in viewModel.user.authNumber.value.count == 6 }
             .map { [self] in $0 && timeLeft != 0 }  // 6개 입력하고 시간이 남아있는지
             .bind { [self] valid in
                 if valid {
                     viewModel.authToken { state in
                         switch state {
                         case .success:
-                            navigationController?.pushViewController(NicknameViewController(), animated: true)
+                            viewModel.userAPI.checkUserExist()
                         case .tooManyRequests:
                             view.makeToast("많은 요청")
                         case .unknownError:

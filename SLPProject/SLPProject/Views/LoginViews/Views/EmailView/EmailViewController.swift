@@ -11,7 +11,7 @@ import RxSwift
 
 class EmailViewController: BaseViewController {
     
-    let viewModel = LoginViewModel()
+    let viewModel = UserViewModel()
     
     let mainView = EmailView()
     
@@ -41,7 +41,7 @@ class EmailViewController: BaseViewController {
         // 이메일 텍스트 뷰모델에 바인딩
         mainView.emailTextField.textField.rx.text
             .orEmpty
-            .bind(to: viewModel.email)
+            .bind(to: viewModel.user.email)
             .disposed(by: disposeBag)
         
         mainView.emailTextField.textField.rx.text
