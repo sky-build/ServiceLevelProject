@@ -30,26 +30,27 @@ class UserViewModel {
         print("phoneNumber = ", user.phoneNumber.value)
         PhoneAuthProvider.provider()
             .verifyPhoneNumber("+82\(user.phoneNumber.value)", uiDelegate: nil) { verificationID, error in
-              if let error = error {
-                  
-                  // AuthErrorCode로 변환
-                  let state = AuthErrorCode(rawValue: error._code)
-                  
-                  switch state {
-                  case .tooManyRequests:
-                      // 만약 에러코드가 tooManyRequests(17010)이라면 tooManyRequests 전달
-                      completion(.tooManyRequests)
-                  default:
-                      completion(.unknownError)
-                  }
-                  
-                  return
-              }
-              // Sign in using the verificationID and the code sent to the user
-              // ...
-              UserDefaults.standard.set(verificationID, forKey: "verificationID")
-              completion(.success)
-          }
+                if let error = error {
+                    
+                    // AuthErrorCode로 변환
+                    let state = AuthErrorCode(rawValue: error._code)
+                    
+                    switch state {
+                    case .tooManyRequests:
+                        // 만약 에러코드가 tooManyRequests(17010)이라면 tooManyRequests 전달
+                        completion(.tooManyRequests)
+                    default:
+                        completion(.unknownError)
+                    }
+                    
+                    return
+                }
+                // Sign in using the verificationID and the code sent to the user
+                // ...
+                FirebaseToken.shared.updateIDToken {}
+                UserDefaults.standard.set(verificationID, forKey: "verificationID")
+                completion(.success)
+            }
     }
     
     // 전화번호로 auth토큰 인증하는것
@@ -60,7 +61,7 @@ class UserViewModel {
           verificationCode: user.authNumber.value
         )
         
-        Auth.auth().signIn(with: credential) { authResult, error in
+        Auth.auth().signIn(with: credential) { [self] authResult, error in
             if let error = error {
                 let authError = error as NSError
                 print(authError.description)
@@ -68,6 +69,8 @@ class UserViewModel {
                 return
             }
             // User is signed in
+            // 유저인지 체크
+            userAPI.checkUserExist()
             completion(.success)
         }
     }

@@ -73,7 +73,6 @@ class NicknameViewController: BaseViewController {
             .map { [self] in mainView.nicknameTextField.textField.text?.validNickname() ?? false }
             .bind { [self] state in
                 if state {
-                    view.makeToast("다음화면")
                     navigationController?.pushViewController(BirthdayViewController(), animated: true)
                 } else {
                     view.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요")

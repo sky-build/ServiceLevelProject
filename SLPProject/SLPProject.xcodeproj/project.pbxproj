@@ -64,6 +64,12 @@
 		D362F906279FF0E600409DF2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F905279FF0E600409DF2 /* UIViewController+Extension.swift */; };
 		D362F90927A019D800409DF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F90827A019D800409DF2 /* UserModel.swift */; };
 		D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F90A27A0493400409DF2 /* UserAPIResult.swift */; };
+		D362F90D27A1A10600409DF2 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F90C27A1A10600409DF2 /* HomeTabBarController.swift */; };
+		D362F91027A1A16F00409DF2 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F90F27A1A16F00409DF2 /* MyInfoViewController.swift */; };
+		D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91127A1A6E800409DF2 /* MainViewController.swift */; };
+		D362F91427A1A71600409DF2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91327A1A71600409DF2 /* ShopViewController.swift */; };
+		D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91527A1A73600409DF2 /* FriendsViewController.swift */; };
+		D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91B27A1AF8700409DF2 /* MyInfoView.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -121,6 +127,12 @@
 		D362F905279FF0E600409DF2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D362F90827A019D800409DF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D362F90A27A0493400409DF2 /* UserAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIResult.swift; sourceTree = "<group>"; };
+		D362F90C27A1A10600409DF2 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		D362F90F27A1A16F00409DF2 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		D362F91127A1A6E800409DF2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D362F91327A1A71600409DF2 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		D362F91527A1A73600409DF2 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		D362F91B27A1AF8700409DF2 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -384,6 +396,8 @@
 		D362F900279FEEFB00409DF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D362F90C27A1A10600409DF2 /* HomeTabBarController.swift */,
+				D362F90E27A1A15600409DF2 /* TabBarViews */,
 				D362F901279FEF0500409DF2 /* HomeViewController.swift */,
 			);
 			path = View;
@@ -395,6 +409,50 @@
 				D362F90827A019D800409DF2 /* UserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D362F90E27A1A15600409DF2 /* TabBarViews */ = {
+			isa = PBXGroup;
+			children = (
+				D362F91727A1AEF400409DF2 /* MainView */,
+				D362F91827A1AEFE00409DF2 /* ShopView */,
+				D362F91927A1AF0A00409DF2 /* FriendsView */,
+				D362F91A27A1AF1100409DF2 /* MyInfoView */,
+			);
+			path = TabBarViews;
+			sourceTree = "<group>";
+		};
+		D362F91727A1AEF400409DF2 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F91127A1A6E800409DF2 /* MainViewController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		D362F91827A1AEFE00409DF2 /* ShopView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F91327A1A71600409DF2 /* ShopViewController.swift */,
+			);
+			path = ShopView;
+			sourceTree = "<group>";
+		};
+		D362F91927A1AF0A00409DF2 /* FriendsView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F91527A1A73600409DF2 /* FriendsViewController.swift */,
+			);
+			path = FriendsView;
+			sourceTree = "<group>";
+		};
+		D362F91A27A1AF1100409DF2 /* MyInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F91B27A1AF8700409DF2 /* MyInfoView.swift */,
+				D362F90F27A1A16F00409DF2 /* MyInfoViewController.swift */,
+			);
+			path = MyInfoView;
 			sourceTree = "<group>";
 		};
 		D36958A9279669AF00924F5A = {
@@ -535,13 +593,17 @@
 			files = (
 				D301DC36279C55E100E4BD08 /* OnboardingViewModel.swift in Sources */,
 				D301DC64279D65C800E4BD08 /* GenderSelectViewController.swift in Sources */,
+				D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */,
 				D334591F27971D3500EB983B /* PhoneNumberAuthStatus.swift in Sources */,
+				D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */,
 				D301DC50279D03B200E4BD08 /* DateView.swift in Sources */,
+				D362F91027A1A16F00409DF2 /* MyInfoViewController.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
 				D362F902279FEF0500409DF2 /* HomeViewController.swift in Sources */,
 				D362F8FE279FD1D300409DF2 /* UserInformation.swift in Sources */,
 				D301DC52279D0C0400E4BD08 /* DateType.swift in Sources */,
 				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
+				D362F90D27A1A10600409DF2 /* HomeTabBarController.swift in Sources */,
 				D301DC5B279D5F2500E4BD08 /* EmailViewController.swift in Sources */,
 				D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */,
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
@@ -555,6 +617,7 @@
 				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
 				D351C88E279E8C19001D51D9 /* TestViewController.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
+				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
@@ -562,6 +625,7 @@
 				D301DC2C279BF94900E4BD08 /* EndPoint.swift in Sources */,
 				D33458FB2796A54500EB983B /* UIColor+Extension.swift in Sources */,
 				D301DC4A279C793000E4BD08 /* BirthdayView.swift in Sources */,
+				D362F91427A1A71600409DF2 /* ShopViewController.swift in Sources */,
 				D301DC7E279E827E00E4BD08 /* UserViewModel.swift in Sources */,
 				D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */,
 				D362F906279FF0E600409DF2 /* UIViewController+Extension.swift in Sources */,

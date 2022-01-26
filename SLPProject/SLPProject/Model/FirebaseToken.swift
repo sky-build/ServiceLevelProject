@@ -31,9 +31,8 @@ class FirebaseToken {
         }
     }
     
-    func authUser() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+    func updateIDToken(completion: @escaping () -> Void) {
+        let currentUser = Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { token, error in
             if let error = error {
                 print(error)
                 return;
@@ -41,12 +40,13 @@ class FirebaseToken {
             
             // Send token to your backend via HTTPS
             // ...
-            print(idToken)
-            self.idToken = idToken!
+            print("ID token: \(token!)")
+            self.idToken = token!
+            completion()
         }
     }
     
-    func FcmTokenValue() {
+    func updateFCMToken(completion: @escaping () -> Void) {
         Messaging.messaging().token { token, error in
             if let error = error {
                 print("Error fetching FCM registration token: \(error)")
@@ -55,6 +55,7 @@ class FirebaseToken {
                 // fcm토큰 넣어줌
                 print(token)
                 self.fcmToken = token
+                completion()
             }
         }
     }

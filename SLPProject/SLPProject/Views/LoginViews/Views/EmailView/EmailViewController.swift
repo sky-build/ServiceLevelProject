@@ -26,6 +26,9 @@ class EmailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 이메일 들어올때 뷰모델값 넣어줌
+        mainView.emailTextField.textField.text = viewModel.user.email.value
+        
         // 이메일텍스트필드 설정
         setEmailTextView()
         
@@ -36,8 +39,7 @@ class EmailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 이메일 들어올때 뷰모델값 넣어줌
-        mainView.emailTextField.textField.text = viewModel.user.email.value
+
     }
     
     // 이메일텍스트필드 설정

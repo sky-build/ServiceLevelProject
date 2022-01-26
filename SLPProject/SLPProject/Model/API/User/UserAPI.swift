@@ -24,6 +24,7 @@ private enum UserEnum: Int {
 private enum UserURL: String {
     case user = "user"
     case withdraw = "user/withdraw"
+    case updateFCMToken = "user/update_fcm_token"
 }
 
 extension UserURL {
@@ -34,15 +35,18 @@ extension UserURL {
 
 class UserAPI {
     
-    let header: HTTPHeaders = [
-        "Content-Type": "application/x-www-form-urlencoded",
-        "idtoken": FirebaseToken.shared.idToken
-    ]
+    // 연산 프로퍼티 사용해야 idToken값이 지속적으로 변경됨
+    var header: HTTPHeaders {
+        [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "idtoken": FirebaseToken.shared.idToken
+        ]
+    }
     
     // API상태 업데이트
     let state = PublishRelay<UserAPIResult>()
     let userResult = PublishRelay<UserInformation>()
-    
+
     private var disposeBag = DisposeBag()
     
     // 기본 코드
@@ -72,6 +76,15 @@ class UserAPI {
                     userResult.accept(decodeData)
                     // 그리고 구독하라고 설정
                     state.accept(.alreadyRegister)
+                    
+                    // FCM 토큰이 지금 내것이랑 다르다면 별도로 처리
+                    if FirebaseToken.shared.fcmToken != decodeData.fcMtoken {
+                        // FCM토큰 업데이트
+                        FirebaseToken.shared.updateFCMToken {
+                            // 다시 호출
+                            updateFCMToken()
+                        }
+                    }
                 } catch {
                     // 디코딩 실패
                     state.accept(.failDecode)
@@ -84,6 +97,19 @@ class UserAPI {
             case .firebaseTokenError:
                 // 토큰 재발급, 재시도
                 print(apiState.rawValue)
+                FirebaseToken.shared.updateIDToken {
+//                    baseUserAPIRequest(method: .get, url: UserURL.user.url, parameters: nil, header: header) { [self] (data, apiState) in
+//                        switch apiState {
+//                        case .success, :
+//                            state.accept(.success)
+//                        case .firebaseTokenError:
+//                            state.accept(.invalidToken)
+//                        default:
+//                            state.accept(.unknownError)
+//                        }
+//                    }
+                    checkUserExist()
+                }
             case .serverError:
                 // 서버 오류
                 print(apiState.rawValue)
@@ -122,7 +148,9 @@ class UserAPI {
                 state.accept(.alreadyRegister)
             case .firebaseTokenError:
                 // 토큰 재발급, 재시도
-                state.accept(.invalidToken)
+                FirebaseToken.shared.updateIDToken {
+                    registerUser()
+                }
             case .serverError: break
                 // 서버 오류
             case .clientError: break
@@ -151,4 +179,19 @@ class UserAPI {
         }
     }
     
+    // FCM 토큰 갱신
+    func updateFCMToken() {
+        baseUserAPIRequest(method: .post, url: UserURL.updateFCMToken.url, parameters: nil, header: header) { (data, apiState) in
+            switch apiState {
+            case .success:  // 성공했을때
+                print("성공")
+            case .firebaseTokenError: break
+                // 토큰 재발급, 재시도
+            case .serverError: break
+                // 서버 오류
+            default:
+                print("defualt")
+            }
+        }
+    }
 }
