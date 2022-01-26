@@ -41,6 +41,7 @@ class FirebaseToken {
             
             // Send token to your backend via HTTPS
             // ...
+            print(idToken)
             self.idToken = idToken!
         }
     }
@@ -52,6 +53,7 @@ class FirebaseToken {
             } else if let token = token {
                 print("FCM registration token: \(token)")
                 // fcm토큰 넣어줌
+                print(token)
                 self.fcmToken = token
             }
         }

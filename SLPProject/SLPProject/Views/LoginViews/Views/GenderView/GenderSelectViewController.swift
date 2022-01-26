@@ -34,13 +34,20 @@ class GenderSelectViewController: BaseViewController {
                 print("state = ", state)
                 // 만약 API가 호출&디코딩을 성공적으로 했다면 홈화면으로 이동
                 switch state {
-                case .alreadyRegister:
+                case .success, .alreadyRegister:
                     self?.changeRootView(HomeViewController())
                 case .noRegister:
                     self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
                 case .invalidToken: // 나중에 처리
-                    break
+                    FirebaseToken.shared.authUser()
+                    FirebaseToken.shared.FcmTokenValue()
+                case .invalidNickname:  // 닉네임 부적절할때
+                    // 닉네임 뷰컨트롤러로 돌아가는 코드
+                    if let vc = self?.navigationController?.viewControllers.last(where: { $0.isKind(of: NicknameViewController.self) }) {
+                        self?.navigationController?.popToViewController(vc, animated: true)
+                    }
                 default:
+                    print(state)
                     break
                 }
             })
@@ -99,8 +106,6 @@ class GenderSelectViewController: BaseViewController {
         mainView.nextButton.rx.tap
             .map { [self] in viewModel.user.gender.value != .none }
             .bind { [self] state in
-                viewModel.userAPI.registerUser()
-                
                 // 회원가입
                 viewModel.userAPI.registerUser()
                 if state {  // 성별을 선택했다면

@@ -14,4 +14,5 @@ enum UserAPIResult {
     case failDecode
     case unknownError
     case success
+    case invalidNickname
 }

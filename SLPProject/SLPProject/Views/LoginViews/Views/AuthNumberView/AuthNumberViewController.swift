@@ -42,7 +42,8 @@ class AuthNumberViewController: BaseViewController {
                 case .noRegister:
                     self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
                 case .invalidToken: // 나중에 처리
-                    break
+                    self?.view.makeToast("토큰 업데이트")
+                    FirebaseToken.shared.authUser()
                 default:
                     break
                 }

@@ -8,6 +8,7 @@
 import Foundation
 import RxRelay
 import FirebaseAuth
+import UIKit
 
 class UserViewModel {
     
@@ -22,6 +23,7 @@ class UserViewModel {
 //    let birthday = BehaviorRelay<Date>(value: Date())
 //    var email = BehaviorRelay<String>(value: "")
 //    var gender = BehaviorRelay<GenderType>(value: .none)
+    var nicknameViewModel: UIViewController?
     
     // 휴대폰 인증 전송 코드
     func sendPhoneAuthorization(completion: @escaping (PhoneNumberAuthStatus) -> Void) {

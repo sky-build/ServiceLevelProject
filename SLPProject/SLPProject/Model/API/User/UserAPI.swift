@@ -116,10 +116,13 @@ class UserAPI {
             case .invalidNickname:
                 // 부적절한 닉네임
                 print("부적절한 닉네임")
-            case .noRegister: break
+                state.accept(.invalidNickname)
+            case .noRegister:
                 // 회원가입페이지로 전송
-            case .firebaseTokenError: break
+                state.accept(.alreadyRegister)
+            case .firebaseTokenError:
                 // 토큰 재발급, 재시도
+                state.accept(.invalidToken)
             case .serverError: break
                 // 서버 오류
             case .clientError: break

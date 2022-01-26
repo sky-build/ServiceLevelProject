@@ -26,9 +26,6 @@ class BirthdayViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 뷰모델에 생일 바인딩
-        bindBirthday()
-        
         // 다음버튼 클릭했을 때 설정
         setNextButton()
         
@@ -36,10 +33,26 @@ class BirthdayViewController: BaseViewController {
         mainView.datePicker.addTarget(self, action: #selector(datePickerSelected(_:)), for: .valueChanged)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 뷰모델에 생일 바인딩
+        bindBirthday()
+        
+        // 데이트피커 날짜 설정
+        mainView.datePicker.date = viewModel.user.birthday.value
+    }
+    
     // 뷰모델에 생일 바인딩
     private func bindBirthday() {
         viewModel.user.birthday
             .bind { [self] date in
+                if koreanAge(year: date.year, month: date.month, day: date.day) >= 17 {
+                    mainView.nextButton.backgroundColor = .slpGreen
+                } else {
+                    mainView.nextButton.backgroundColor = .slpGray6
+                }
+                
                 mainView.dateLabel.yearView.dateLabel.text = "\(date.year)"
                 mainView.dateLabel.montyView.dateLabel.text = "\(date.month)"
                 mainView.dateLabel.dayView.dateLabel.text = "\(date.day)"
@@ -52,7 +65,7 @@ class BirthdayViewController: BaseViewController {
         mainView.nextButton.rx.tap
             .bind { [self] _ in
                 // 날짜를 선택했는지 먼저 검사
-                if mainView.state {
+//                if mainView.state {
                     // 날짜가 유효한지 먼저 검사(17살 이상인지 검사)
                     let birthday = viewModel.user.birthday.value
                     if koreanAge(year: birthday.year, month: birthday.month, day: birthday.day) >= 17 {
@@ -61,9 +74,9 @@ class BirthdayViewController: BaseViewController {
                         view.makeToast("새싹친구는 만 17세 이상만 사용할 수 있습니다.")
                     }
                     
-                } else {
-                    view.makeToast("생일을 선택해주세요")
-                }
+//                } else {
+//                    view.makeToast("생일을 선택해주세요")
+//                }
             }
             .disposed(by: disposeBag)
     }

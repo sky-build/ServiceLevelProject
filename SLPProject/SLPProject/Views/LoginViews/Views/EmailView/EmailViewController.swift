@@ -33,6 +33,13 @@ class EmailViewController: BaseViewController {
         setNextButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 이메일 들어올때 뷰모델값 넣어줌
+        mainView.emailTextField.textField.text = viewModel.user.email.value
+    }
+    
     // 이메일텍스트필드 설정
     private func setEmailTextView() {
         // 키보드가 올라온 상태여야함
