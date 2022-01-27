@@ -8,6 +8,7 @@
 import Foundation
 
 enum UserAPIResult {
+    case noConnection
     case noRegister
     case alreadyRegister
     case invalidToken

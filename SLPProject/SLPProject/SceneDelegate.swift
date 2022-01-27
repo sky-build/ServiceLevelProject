@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         
-        let nav = UINavigationController(rootViewController: GenderSelectViewController())
+        let nav = UINavigationController(rootViewController: HomeTabBarController())
         
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

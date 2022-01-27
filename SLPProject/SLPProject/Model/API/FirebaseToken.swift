@@ -32,7 +32,7 @@ class FirebaseToken {
     }
     
     func updateIDToken(completion: @escaping () -> Void) {
-        let currentUser = Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { token, error in
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { token, error in
             if let error = error {
                 print(error)
                 return;

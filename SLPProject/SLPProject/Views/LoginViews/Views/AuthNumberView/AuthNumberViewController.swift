@@ -38,7 +38,7 @@ class AuthNumberViewController: BaseViewController {
                 // 만약 API가 호출&디코딩을 성공적으로 했다면 홈화면으로 이동
                 switch state {
                 case .alreadyRegister:
-                    self?.changeRootView(HomeViewController())
+                    self?.changeRootView(HomeTabBarController())
                 case .noRegister:
                     self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
                 case .invalidToken: // 나중에 처리
@@ -118,6 +118,8 @@ class AuthNumberViewController: BaseViewController {
                             view.makeToast("많은 요청")
                         case .unknownError:
                             view.makeToast("알수 없는 오류")
+                        case .invalidVerificationCode:
+                            view.makeToast("전화번호 인증 실패")
                         }
                     }
                 } else {

@@ -12,6 +12,7 @@ import RxSwift
 import RxRelay
 
 private enum UserEnum: Int {
+    case noConnectinon = 0   // enum 처리
     case success = 200
     case noRegister = 201
     case invalidNickname = 202
@@ -51,15 +52,20 @@ class UserAPI {
     
     // 기본 코드
     fileprivate func baseUserAPIRequest(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, UserEnum) -> Void) {
-        RxAlamofire.requestData(method, url, parameters: parameters, headers: header)
-            .debug()
-            .subscribe { (header, data) in
-                // APIState를 Enum으로 변경
-                let apiState = UserEnum(rawValue: header.statusCode)!
-                
-                completion(data, apiState)
-            }
-            .disposed(by: disposeBag)
+        if NetworkMonitor.shared.isConnected {
+            RxAlamofire.requestData(method, url, parameters: parameters, headers: header)
+                .debug()
+                .subscribe { (header, data) in
+                    // APIState를 Enum으로 변경
+                    let apiState = UserEnum(rawValue: header.statusCode)!
+                    
+                    completion(data, apiState)
+                }
+                .disposed(by: disposeBag)
+        }else{
+            completion(nil, .noConnectinon)
+        }
+
     }
     
     // 유저가 이미 있는지 확인
@@ -98,16 +104,6 @@ class UserAPI {
                 // 토큰 재발급, 재시도
                 print(apiState.rawValue)
                 FirebaseToken.shared.updateIDToken {
-//                    baseUserAPIRequest(method: .get, url: UserURL.user.url, parameters: nil, header: header) { [self] (data, apiState) in
-//                        switch apiState {
-//                        case .success, :
-//                            state.accept(.success)
-//                        case .firebaseTokenError:
-//                            state.accept(.invalidToken)
-//                        default:
-//                            state.accept(.unknownError)
-//                        }
-//                    }
                     checkUserExist()
                 }
             case .serverError:
@@ -116,6 +112,8 @@ class UserAPI {
             case .clientError:
                 // 클라이언트 오류
                 print(apiState.rawValue)
+            case .noConnectinon:
+                state.accept(.noConnection)
             default:
                 print("안됨")
             }
@@ -125,14 +123,16 @@ class UserAPI {
     // 회원가입
     func registerUser() {
         let user = UserModel.shared
-        let parameters: Parameters = [
-            "phoneNumber" : "+82" + user.phoneNumber.value,
-            "FCMtoken" : FirebaseToken.shared.fcmToken,
-            "nick": user.nickname.value,
-            "birth": "\(user.birthday.value)",
-            "email": user.email.value,
-            "gender" : user.gender.value.rawValue
-        ]
+        var parameters: Parameters {
+            [
+                "phoneNumber" : "+82" + user.phoneNumber.value,
+                "FCMtoken" : FirebaseToken.shared.fcmToken,
+                "nick": user.nickname.value,
+                "birth": "\(user.birthday.value)",
+                "email": user.email.value,
+                "gender" : user.gender.value.rawValue
+            ]
+        }
         
         baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: parameters, header: header) { [self] (data, apiState) in
             switch apiState {
@@ -163,14 +163,17 @@ class UserAPI {
     
     // 회원탈퇴
     func withdrawUser() {
-        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: nil, header: header) { (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: nil, header: header) { [weak self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 print("성공")
             case .alreadyWithdraw:
                 print("이미 회원탈퇴함")
-            case .firebaseTokenError: break
+            case .firebaseTokenError:
                 // 토큰 재발급, 재시도
+                FirebaseToken.shared.updateIDToken {
+                    self?.withdrawUser()
+                }
             case .serverError: break
                 // 서버 오류
             default:
@@ -181,12 +184,21 @@ class UserAPI {
     
     // FCM 토큰 갱신
     func updateFCMToken() {
-        baseUserAPIRequest(method: .post, url: UserURL.updateFCMToken.url, parameters: nil, header: header) { (data, apiState) in
+        var parameters: Parameters {
+            [
+                "FCMToken": FirebaseToken.shared.fcmToken
+            ]
+        }
+        
+        baseUserAPIRequest(method: .put, url: UserURL.updateFCMToken.url, parameters: parameters, header: header) { [weak self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 print("성공")
-            case .firebaseTokenError: break
+            case .firebaseTokenError:
                 // 토큰 재발급, 재시도
+                FirebaseToken.shared.updateIDToken {
+                    self?.updateFCMToken()
+                }
             case .serverError: break
                 // 서버 오류
             default:

@@ -46,7 +46,8 @@ class MyInfoViewController: BaseViewController {
         mainView.tableView
             .rx.itemSelected
             .subscribe { [weak self] indexPath in
-                self?.view.makeToast(self?.data.value[indexPath.row])
+//                self?.view.makeToast(self?.data.value[indexPath.row])
+                self?.navigationController?.pushViewController(InformationManagementViewController(), animated: true)
             }
             .disposed(by: disposeBag)
 

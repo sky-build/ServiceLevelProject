@@ -63,9 +63,15 @@ class UserViewModel {
         
         Auth.auth().signIn(with: credential) { [self] authResult, error in
             if let error = error {
-                let authError = error as NSError
-                print(authError.description)
-                completion(.unknownError)
+                // AuthErrorCode로 변환
+                let state = AuthErrorCode(rawValue: error._code)
+                
+                switch state {
+                case .invalidVerificationCode:  // 인증번호가 틀렸을 경우
+                    completion(.invalidVerificationCode)
+                default:
+                    completion(.unknownError)
+                }
                 return
             }
             // User is signed in

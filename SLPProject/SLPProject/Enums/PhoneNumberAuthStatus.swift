@@ -8,5 +8,6 @@
 enum PhoneNumberAuthStatus {
     case success
     case tooManyRequests
+    case invalidVerificationCode
     case unknownError
 }

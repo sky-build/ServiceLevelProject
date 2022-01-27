@@ -53,14 +53,12 @@
 		D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459362799809900EB983B /* CustomTextFieldView.swift */; };
 		D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334593A2799A7C800EB983B /* BaseViewController.swift */; };
 		D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C88B279E8BDA001D51D9 /* RxAlamofire */; };
-		D351C88E279E8C19001D51D9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D351C88D279E8C19001D51D9 /* TestViewController.swift */; };
 		D351C891279E96ED001D51D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C890279E96ED001D51D9 /* Alamofire */; };
 		D362F8F3279EC07900409DF2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D362F8F2279EC07900409DF2 /* FirebaseAuth */; };
 		D362F8F5279EC07900409DF2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D362F8F4279EC07900409DF2 /* FirebaseMessaging */; };
 		D362F8F8279EF1D300409DF2 /* FirebaseToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */; };
 		D362F8FA279EF5F700409DF2 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F8F9279EF5F700409DF2 /* UserAPI.swift */; };
 		D362F8FE279FD1D300409DF2 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F8FD279FD1D300409DF2 /* UserInformation.swift */; };
-		D362F902279FEF0500409DF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F901279FEF0500409DF2 /* HomeViewController.swift */; };
 		D362F906279FF0E600409DF2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F905279FF0E600409DF2 /* UIViewController+Extension.swift */; };
 		D362F90927A019D800409DF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F90827A019D800409DF2 /* UserModel.swift */; };
 		D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F90A27A0493400409DF2 /* UserAPIResult.swift */; };
@@ -70,6 +68,10 @@
 		D362F91427A1A71600409DF2 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91327A1A71600409DF2 /* ShopViewController.swift */; };
 		D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91527A1A73600409DF2 /* FriendsViewController.swift */; };
 		D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91B27A1AF8700409DF2 /* MyInfoView.swift */; };
+		D362F91E27A2772B00409DF2 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F91D27A2772B00409DF2 /* NetworkMonitor.swift */; };
+		D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92027A2936300409DF2 /* InformationManagementViewController.swift */; };
+		D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92227A297DF00409DF2 /* InformationManagementView.swift */; };
+		D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92427A297F700409DF2 /* ProfileCustomView.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -119,11 +121,9 @@
 		D3345934279970FA00EB983B /* ExplainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainLabel.swift; sourceTree = "<group>"; };
 		D33459362799809900EB983B /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		D334593A2799A7C800EB983B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		D351C88D279E8C19001D51D9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseToken.swift; sourceTree = "<group>"; };
 		D362F8F9279EF5F700409DF2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		D362F8FD279FD1D300409DF2 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
-		D362F901279FEF0500409DF2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D362F905279FF0E600409DF2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D362F90827A019D800409DF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D362F90A27A0493400409DF2 /* UserAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIResult.swift; sourceTree = "<group>"; };
@@ -133,6 +133,10 @@
 		D362F91327A1A71600409DF2 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D362F91527A1A73600409DF2 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		D362F91B27A1AF8700409DF2 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		D362F91D27A2772B00409DF2 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		D362F92027A2936300409DF2 /* InformationManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementViewController.swift; sourceTree = "<group>"; };
+		D362F92227A297DF00409DF2 /* InformationManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementView.swift; sourceTree = "<group>"; };
+		D362F92427A297F700409DF2 /* ProfileCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomView.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -363,7 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				D362F8FB279EF6A500409DF2 /* API */,
-				D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +375,8 @@
 			isa = PBXGroup;
 			children = (
 				D362F8FC279EF6AB00409DF2 /* User */,
+				D362F91D27A2772B00409DF2 /* NetworkMonitor.swift */,
+				D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -398,7 +403,6 @@
 			children = (
 				D362F90C27A1A10600409DF2 /* HomeTabBarController.swift */,
 				D362F90E27A1A15600409DF2 /* TabBarViews */,
-				D362F901279FEF0500409DF2 /* HomeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -449,10 +453,21 @@
 		D362F91A27A1AF1100409DF2 /* MyInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				D362F91F27A2932500409DF2 /* InformationManagementView */,
 				D362F91B27A1AF8700409DF2 /* MyInfoView.swift */,
 				D362F90F27A1A16F00409DF2 /* MyInfoViewController.swift */,
 			);
 			path = MyInfoView;
+			sourceTree = "<group>";
+		};
+		D362F91F27A2932500409DF2 /* InformationManagementView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
+				D362F92227A297DF00409DF2 /* InformationManagementView.swift */,
+				D362F92027A2936300409DF2 /* InformationManagementViewController.swift */,
+			);
+			path = InformationManagementView;
 			sourceTree = "<group>";
 		};
 		D36958A9279669AF00924F5A = {
@@ -483,7 +498,6 @@
 				D362F8F6279EF1B300409DF2 /* Model */,
 				D33458F1279695D800EB983B /* Views */,
 				D36958B5279669AF00924F5A /* AppDelegate.swift */,
-				D351C88D279E8C19001D51D9 /* TestViewController.swift */,
 				D36958B7279669AF00924F5A /* SceneDelegate.swift */,
 				D36958B9279669AF00924F5A /* ViewController.swift */,
 				D334593A2799A7C800EB983B /* BaseViewController.swift */,
@@ -599,7 +613,6 @@
 				D301DC50279D03B200E4BD08 /* DateView.swift in Sources */,
 				D362F91027A1A16F00409DF2 /* MyInfoViewController.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
-				D362F902279FEF0500409DF2 /* HomeViewController.swift in Sources */,
 				D362F8FE279FD1D300409DF2 /* UserInformation.swift in Sources */,
 				D301DC52279D0C0400E4BD08 /* DateType.swift in Sources */,
 				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
@@ -613,9 +626,9 @@
 				D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */,
 				D301DC4C279C793C00E4BD08 /* BirtydayViewController.swift in Sources */,
 				D362F8FA279EF5F700409DF2 /* UserAPI.swift in Sources */,
+				D362F91E27A2772B00409DF2 /* NetworkMonitor.swift in Sources */,
 				D362F90927A019D800409DF2 /* UserModel.swift in Sources */,
 				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
-				D351C88E279E8C19001D51D9 /* TestViewController.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
@@ -637,9 +650,12 @@
 				D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */,
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
+				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
 				D301DC6A279D70A800E4BD08 /* GenderStackView.swift in Sources */,
 				D301DC59279D5F1700E4BD08 /* EmailView.swift in Sources */,
+				D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */,
+				D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */,
 				D33459052796E1F500EB983B /* CustomTextField.swift in Sources */,
 				D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */,
 				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,
