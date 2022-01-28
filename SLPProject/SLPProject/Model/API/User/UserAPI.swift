@@ -184,6 +184,7 @@ class UserAPI {
     
     // FCM 토큰 갱신
     func updateFCMToken() {
+        // 연산 프로퍼티
         var parameters: Parameters {
             [
                 "FCMToken": FirebaseToken.shared.fcmToken

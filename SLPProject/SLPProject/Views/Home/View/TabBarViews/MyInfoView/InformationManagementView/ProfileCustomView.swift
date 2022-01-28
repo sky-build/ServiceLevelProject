@@ -12,7 +12,7 @@ class ProfileCustomView: UIView, FetchViews {
     
     let backgroundImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "background")
+        image.image = UIImage(named: "sesac_background_1")
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
         return image
@@ -33,10 +33,11 @@ class ProfileCustomView: UIView, FetchViews {
         return view
     }()
     
-    let profileView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .slpBlack
-        return view
+    let userNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "김새싹"
+        label.font = .Title1_M16
+        return label
     }()
     
     // 크기 늘였다 줄였다하는 버튼
@@ -46,6 +47,8 @@ class ProfileCustomView: UIView, FetchViews {
         button.setImage(UIImage(named: "button.down"), for: .normal)
         return button
     }()
+    
+    let sesacTitleView = SeSACTitleView()
     
     let testView: UIView = {
         let view = UIView()
@@ -70,10 +73,11 @@ class ProfileCustomView: UIView, FetchViews {
         self.addSubview(backgroundImageView)
         self.addSubview(profileImage)
         self.addSubview(profileFrame)
-        profileFrame.addSubview(profileView)
+        profileFrame.addSubview(userNameLabel)
         profileFrame.addSubview(stratchButton)
         // 테스트뷰
-        self.addSubview(testView)
+        profileFrame.addSubview(testView)
+        profileFrame.addSubview(sesacTitleView)
     }
     
     func makeConstraints() {
@@ -83,34 +87,41 @@ class ProfileCustomView: UIView, FetchViews {
         }
         
         profileImage.snp.makeConstraints {
-            $0.centerX.equalTo(backgroundImageView)
-            $0.top.equalTo(backgroundImageView.snp.top).offset(19)
+            $0.centerX.equalTo(backgroundImageView).offset(-10)
+            $0.top.equalTo(backgroundImageView.snp.top).inset(19)
             $0.width.height.equalTo(184)
         }
         
         profileFrame.snp.makeConstraints {
             $0.top.equalTo(backgroundImageView.snp.bottom)
             $0.leading.trailing.equalTo(backgroundImageView)
-//            $0.height.equalTo(58)
-            $0.bottom.equalTo(profileView)
+            $0.height.equalTo(58)
         }
         
-        profileView.snp.makeConstraints {
-            $0.top.leading.equalTo(profileFrame).inset(20)
-            $0.width.height.equalTo(20)
+        userNameLabel.snp.makeConstraints {
+            $0.top.leading.equalTo(profileFrame).inset(16)
+            $0.trailing.equalToSuperview().inset(40)
         }
         
         stratchButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(20)
-            $0.width.equalTo(12)
-            $0.height.equalTo(6)
+            $0.trailing.equalToSuperview().inset(26)
+            $0.width.height.equalTo(12)
+            $0.centerY.equalTo(userNameLabel)
         }
         
-        // 테스트뷰
-        testView.snp.makeConstraints {
-            $0.top.equalTo(profileView.snp.bottom).offset(50)
-            $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(100)
+//        // 테스트뷰
+//        testView.snp.makeConstraints {
+//            $0.top.equalTo(userNameLabel.snp.bottom).offset(50)
+//            $0.centerX.equalToSuperview()
+//            $0.width.height.equalTo(100)
+////            $0.bottom.equalToSuperview()
+//        }
+        
+        sesacTitleView.snp.makeConstraints {
+            $0.top.equalTo(userNameLabel.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(400)
+//            $0.bottom.equalToSuperview()
         }
     }
     
@@ -118,12 +129,14 @@ class ProfileCustomView: UIView, FetchViews {
         if sender.currentImage == UIImage(named: "button.down") {
             sender.setImage(UIImage(named: "button.up"), for: .normal)
             profileFrame.snp.updateConstraints {
-                $0.bottom.equalTo(testView.snp.bottom)
+//                $0.bottom.equalTo(testView.snp.bottom)
+                $0.height.equalTo(400)
             }
         } else {
             sender.setImage(UIImage(named: "button.down"), for: .normal)
             profileFrame.snp.updateConstraints {
-                $0.bottom.equalTo(profileView.snp.bottom)
+//                $0.bottom.equalTo(profileView.snp.bottom)
+                $0.height.equalTo(58)
             }
         }
     }

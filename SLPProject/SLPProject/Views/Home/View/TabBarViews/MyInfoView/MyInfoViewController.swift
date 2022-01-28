@@ -29,6 +29,7 @@ class MyInfoViewController: BaseViewController {
         super.viewDidLoad()
         
         mainView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         data
             .asDriver(onErrorJustReturn: [])
             .drive(mainView.tableView.rx.items) { [weak self] (tableView, row, element) in

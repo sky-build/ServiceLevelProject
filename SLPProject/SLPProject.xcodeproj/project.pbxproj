@@ -72,6 +72,8 @@
 		D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92027A2936300409DF2 /* InformationManagementViewController.swift */; };
 		D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92227A297DF00409DF2 /* InformationManagementView.swift */; };
 		D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92427A297F700409DF2 /* ProfileCustomView.swift */; };
+		D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */; };
+		D362F92927A3BF9700409DF2 /* SeSACTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -137,6 +139,8 @@
 		D362F92027A2936300409DF2 /* InformationManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementViewController.swift; sourceTree = "<group>"; };
 		D362F92227A297DF00409DF2 /* InformationManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementView.swift; sourceTree = "<group>"; };
 		D362F92427A297F700409DF2 /* ProfileCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomView.swift; sourceTree = "<group>"; };
+		D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleViewCell.swift; sourceTree = "<group>"; };
+		D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTitleView.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -463,6 +467,8 @@
 		D362F91F27A2932500409DF2 /* InformationManagementView */ = {
 			isa = PBXGroup;
 			children = (
+				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
+				D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */,
 				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
 				D362F92227A297DF00409DF2 /* InformationManagementView.swift */,
 				D362F92027A2936300409DF2 /* InformationManagementViewController.swift */,
@@ -610,6 +616,7 @@
 				D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */,
 				D334591F27971D3500EB983B /* PhoneNumberAuthStatus.swift in Sources */,
 				D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */,
+				D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */,
 				D301DC50279D03B200E4BD08 /* DateView.swift in Sources */,
 				D362F91027A1A16F00409DF2 /* MyInfoViewController.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
@@ -632,6 +639,7 @@
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
+				D362F92927A3BF9700409DF2 /* SeSACTitleView.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,

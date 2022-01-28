@@ -58,3 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
 }
 
+//extension AppDelegate: Messaging {
+//    
+//}

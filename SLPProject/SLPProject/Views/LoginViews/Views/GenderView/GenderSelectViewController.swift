@@ -42,7 +42,6 @@ class GenderSelectViewController: BaseViewController {
                     break
                 case .invalidNickname:  // 닉네임 부적절할때
                     // 닉네임 뷰컨트롤러로 돌아가는 코드
-                    
                     if let vc = self?.navigationController?.viewControllers.last(where: { $0.isKind(of: NicknameViewController.self) }) {
                         vc.view.makeToast("해당 닉네임은 사용할 수 없습니다.")
                         self?.navigationController?.popToViewController(vc, animated: true)

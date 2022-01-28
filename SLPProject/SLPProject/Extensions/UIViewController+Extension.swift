@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    // rootView를 바꿔줌
+    // rootView를 바꿔주기
     func changeRootView(_ viewController: UIViewController) {
         // Root 뷰컨트롤러를 바꿔줌
         let rootVC = UINavigationController(rootViewController: viewController)
