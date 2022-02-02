@@ -20,7 +20,7 @@ class ProfileCustomView: UIView, FetchViews {
     
     let profileImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "face_01")
+        image.image = UIImage(named: "sesac_face_1")
         return image
     }()
     
@@ -50,12 +50,6 @@ class ProfileCustomView: UIView, FetchViews {
     
     let sesacTitleView = SeSACTitleView()
     
-    let testView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .slpGreen
-        return view
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -75,8 +69,6 @@ class ProfileCustomView: UIView, FetchViews {
         self.addSubview(profileFrame)
         profileFrame.addSubview(userNameLabel)
         profileFrame.addSubview(stratchButton)
-        // 테스트뷰
-        profileFrame.addSubview(testView)
         profileFrame.addSubview(sesacTitleView)
     }
     
@@ -109,19 +101,10 @@ class ProfileCustomView: UIView, FetchViews {
             $0.centerY.equalTo(userNameLabel)
         }
         
-//        // 테스트뷰
-//        testView.snp.makeConstraints {
-//            $0.top.equalTo(userNameLabel.snp.bottom).offset(50)
-//            $0.centerX.equalToSuperview()
-//            $0.width.height.equalTo(100)
-////            $0.bottom.equalToSuperview()
-//        }
-        
         sesacTitleView.snp.makeConstraints {
-            $0.top.equalTo(userNameLabel.snp.bottom).offset(20)
+            $0.top.equalTo(userNameLabel.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(400)
-//            $0.bottom.equalToSuperview()
         }
     }
     

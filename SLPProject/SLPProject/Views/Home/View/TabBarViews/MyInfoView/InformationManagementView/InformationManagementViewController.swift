@@ -24,9 +24,8 @@ class InformationManagementViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.profileView.sesacTitleView.titleViews.delegate = self
-        mainView.profileView.sesacTitleView.titleViews.dataSource = self
-        mainView.profileView.sesacTitleView.titleViews.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
+        // 컬렉션뷰 기본 설정
+        setCollectionView()
         
 //        mainView.profileView.profileFrame.rx.tapGesture()
 //            .when(.recognized)
@@ -53,25 +52,33 @@ class InformationManagementViewController: BaseViewController {
 
     }
     
+    // 컬렉션뷰 기본 설정
+    private func setCollectionView() {
+        mainView.profileView.sesacTitleView.titleCollectionViews.delegate = self
+        mainView.profileView.sesacTitleView.titleCollectionViews.dataSource = self
+        mainView.profileView.sesacTitleView.titleCollectionViews.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
+    }
+    
 }
 
-extension InformationManagementViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+extension InformationManagementViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return mainView.profileView.sesacTitleView.cellTexts.count
+//        return 6
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
-        
+
         cell.state = indexPath.row % 2 == 0
-        cell.label.text = "\(indexPath.row) 번째입니다."
-        
+        cell.label.text = mainView.profileView.sesacTitleView.cellTexts[indexPath.row]
+
         return cell
     }
-    
-    // 셀 크기 설정(전체화면)
+
+    // 셀 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 151, height: 32)
+        return CGSize(width: (UIScreen.main.bounds.width - 64) / 2 * 0.97, height: 32)
     }
 }

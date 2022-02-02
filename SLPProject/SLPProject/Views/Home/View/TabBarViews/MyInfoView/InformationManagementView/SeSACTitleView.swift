@@ -10,12 +10,23 @@ import SnapKit
 
 class SeSACTitleView: UIView, FetchViews {
     
-    let titleViews: UICollectionView = {
+    let cellTexts = ["좋은 매너", "정확한 시간 약속", "빠른 응답", "친절한 성격", "능숙한 취미 실력", "유익한 시간"]
+    
+    let titleText: UILabel = {
+        let label = UILabel()
+        label.text = "타이틀"
+        label.font = .Title6_R12
+        return label
+    }()
+    
+    let titleCollectionViews: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        layout.minimumLineSpacing = 8
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         return collectionView
     }()
     
@@ -32,12 +43,19 @@ class SeSACTitleView: UIView, FetchViews {
     }
     
     func addViews() {
-        self.addSubview(titleViews)
+        self.addSubview(titleText)
+        self.addSubview(titleCollectionViews)
     }
     
     func makeConstraints() {
-        titleViews.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        titleText.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().offset(40-24)
+        }
+        
+        titleCollectionViews.snp.makeConstraints {
+            $0.top.equalTo(titleText.snp.bottom).offset(8)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     

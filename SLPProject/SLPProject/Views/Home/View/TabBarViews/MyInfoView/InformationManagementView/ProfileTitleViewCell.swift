@@ -52,6 +52,7 @@ class ProfileTitleViewCell: UICollectionViewCell, FetchViews {
     
     func makeConstraints() {
         label.snp.makeConstraints {
+            $0.edges.equalToSuperview()
             $0.center.equalToSuperview()
         }
     }
