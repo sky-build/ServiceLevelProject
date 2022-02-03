@@ -36,10 +36,10 @@ class ProfileCustomView: UIView, FetchViews {
         return view
     }()
     
-    let profileTitleView = ProfileTitleView()
+    let profileUserNameView = ProfileUserNameView()
     
-    let sesacTitleView: SeSACTitleView = {
-        let view = SeSACTitleView()
+    let profileTitleView: ProfileTitleView = {
+        let view = ProfileTitleView()
         view.isHidden = true
         return view
     }()
@@ -47,13 +47,14 @@ class ProfileCustomView: UIView, FetchViews {
     let profileCommentView: ProfileCommentView = {
         let view = ProfileCommentView()
         view.isHidden = true
+        view.commentState = .zero
         return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        profileTitleView.stratchButton.addTarget(self, action: #selector(stratchButtonClicked(_:)), for: .touchUpInside)
+        profileUserNameView.stratchButton.addTarget(self, action: #selector(stratchButtonClicked(_:)), for: .touchUpInside)
         
         addViews()
         makeConstraints()
@@ -67,7 +68,7 @@ class ProfileCustomView: UIView, FetchViews {
         self.addSubview(backgroundImageView)
         self.addSubview(profileImage)
         self.addSubview(profileFrame)
-        [profileTitleView, sesacTitleView, profileCommentView].forEach {
+        [profileUserNameView, profileTitleView, profileCommentView].forEach {
             profileFrame.addArrangedSubview($0)
         }
     }
@@ -90,11 +91,11 @@ class ProfileCustomView: UIView, FetchViews {
             $0.bottom.equalToSuperview()
         }
         
-        profileTitleView.snp.makeConstraints {
+        profileUserNameView.snp.makeConstraints {
             $0.height.equalTo(52)
         }
         
-        sesacTitleView.snp.makeConstraints {
+        profileTitleView.snp.makeConstraints {
             $0.height.equalTo(165)
         }
         
@@ -106,11 +107,11 @@ class ProfileCustomView: UIView, FetchViews {
     @objc func stratchButtonClicked(_ sender: UIButton) {
         if sender.currentImage == UIImage(named: "button.down") {
             sender.setImage(UIImage(named: "button.up"), for: .normal)
-            sesacTitleView.isHidden = false
+            profileTitleView.isHidden = false
             profileCommentView.isHidden = false
         } else {
             sender.setImage(UIImage(named: "button.down"), for: .normal)
-            sesacTitleView.isHidden = true
+            profileTitleView.isHidden = true
             profileCommentView.isHidden = true
         }
     }

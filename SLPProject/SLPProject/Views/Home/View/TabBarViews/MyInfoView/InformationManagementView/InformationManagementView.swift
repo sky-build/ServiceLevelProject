@@ -10,28 +10,25 @@ import SnapKit
 
 class InformationManagerView: UIView, FetchViews {
     
+    // 프로필 뷰
     let profileView = ProfileCustomView()
     
     // 성별 선택 뷰
-    let selectGenderView = UIView()
-    let genderTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "내 성별"
-        label.font = .Title4_R14
-        return label
-    }()
-    let manButton: CusomButton = {
-        let button = CusomButton()
-        button.setTitle("남자", for: .normal)
-        button.buttonState = false
-        return button
-    }()
-    let womanButton: CusomButton = {
-        let button = CusomButton()
-        button.setTitle("여자", for: .normal)
-        button.buttonState = false
-        return button
-    }()
+    let selectGenderView = MyInfoGenderSelectView()
+    
+    // 자주 하는 취미
+    let favoriteHabitView = MyInfoFavoriteHabitView()
+    
+    // 검색 허용
+    let phoneSearchView = MyInfoPhoneSearchEnableView()
+    
+    // 유효 나이
+    let searchAgeView = MyInfoSearchAgeView()
+    
+    // 회원 탈퇴
+    let deRegisterView = MyInfoDeRegisterView()
+    
+    let scrollView = UIScrollView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,16 +42,58 @@ class InformationManagerView: UIView, FetchViews {
     }
     
     func addViews() {
-        self.addSubview(profileView)
+        self.addSubview(scrollView)
         
-        [genderTitleLabel, manButton, womanButton].forEach {
-            selectGenderView.addSubview($0)
+        [profileView, selectGenderView, favoriteHabitView, phoneSearchView, searchAgeView, deRegisterView].forEach {
+            scrollView.addSubview($0)
         }
     }
     
     func makeConstraints() {
+        
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.centerX.equalToSuperview()
+        }
+        
         profileView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
+        
+        selectGenderView.snp.makeConstraints {
+            $0.top.equalTo(profileView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(60)
+            $0.centerX.equalToSuperview()
+        }
+        
+        favoriteHabitView.snp.makeConstraints {
+            $0.top.equalTo(selectGenderView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(60)
+            $0.centerX.equalToSuperview()
+        }
+        
+        phoneSearchView.snp.makeConstraints {
+            $0.top.equalTo(favoriteHabitView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(60)
+            $0.centerX.equalToSuperview()
+        }
+        
+        searchAgeView.snp.makeConstraints {
+            $0.top.equalTo(phoneSearchView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.centerX.equalToSuperview()
+        }
+        
+        deRegisterView.snp.makeConstraints {
+            $0.top.equalTo(searchAgeView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(60)
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
     }
     

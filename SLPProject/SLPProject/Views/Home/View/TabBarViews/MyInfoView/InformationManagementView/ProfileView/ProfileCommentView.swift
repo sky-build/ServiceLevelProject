@@ -8,7 +8,29 @@
 import UIKit
 import SnapKit
 
+enum Comment {
+    case zero
+    case one
+    case morethenTwo
+}
+
 class ProfileCommentView: UIView, FetchViews {
+    
+    var commentState: Comment = .zero {
+        didSet {
+            switch commentState {
+            case .zero:
+                comment.textColor = .slpGray6
+                commentButton.isHidden = true
+            case .one:
+                comment.textColor = .slpBlack
+                commentButton.isHidden = true
+            case .morethenTwo:
+                comment.textColor = .slpBlack
+                commentButton.isHidden = false
+            }
+        }
+    }
     
     let commentTitle: UILabel = {
         let label = UILabel()
@@ -19,11 +41,18 @@ class ProfileCommentView: UIView, FetchViews {
     
     let comment: UILabel = {
         let label = UILabel()
-        label.text = "첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!첫 리뷰를 기다리는 중이에요!"
-        
+        label.text = "첫 리뷰를 기다리는 중이에요!"
+
         label.numberOfLines = 0
         label.font = .Body3_R14
         return label
+    }()
+    
+    let commentButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(named: "more_arrow"), for: .normal)
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -38,11 +67,11 @@ class ProfileCommentView: UIView, FetchViews {
     }
     
     func addViews() {
-        [commentTitle, comment].forEach {
+        [commentTitle, comment, commentButton].forEach {
             self.addSubview($0)
         }
     }
-    
+    // lkjhlkjhlkjhlkjh
     func makeConstraints() {
         commentTitle.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(16)
@@ -52,6 +81,12 @@ class ProfileCommentView: UIView, FetchViews {
             $0.top.equalTo(commentTitle.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(16)
+        }
+        
+        commentButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.width.height.equalTo(15)
+            $0.centerY.equalTo(commentTitle)
         }
     }
 }

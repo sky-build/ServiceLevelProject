@@ -12,18 +12,23 @@ class CusomButton: UIButton {
     var buttonState = false {
         didSet {
             if buttonState {
-                self.backgroundColor = .slpGreen
-                self.tintColor = .slpWhite
+                layer.borderWidth = 0
+                backgroundColor = .slpGreen
+                setTitleColor(.slpWhite, for: .normal)
             } else {
-                self.backgroundColor = .white
-                self.tintColor = .slpBlack
+                layer.borderWidth = 1
+                backgroundColor = .white
+                setTitleColor(.slpBlack, for: .normal)
             }
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    
+        self.layer.borderColor = UIColor.slpGray6.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 8
         self.titleLabel?.font = .Body3_R14
     }
     

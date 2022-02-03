@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileTitleView: UIView, FetchViews {
+class ProfileUserNameView: UIView, FetchViews {
     
     let userNameLabel: UILabel = {
         let label = UILabel()

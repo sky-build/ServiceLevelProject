@@ -11,12 +11,30 @@
         }
       },
       {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+          "version": "5.5.0"
+        }
+      },
+      {
         "package": "AnyFormatKit",
         "repositoryURL": "https://github.com/luximetr/AnyFormatKit.git",
         "state": {
           "branch": null,
           "revision": "27b35c984c1c81e74c8be5273f7b2dc5250cb5cc",
           "version": "2.5.1"
+        }
+      },
+      {
+        "package": "AvailableHapticFeedback",
+        "repositoryURL": "https://github.com/yonat/AvailableHapticFeedback",
+        "state": {
+          "branch": null,
+          "revision": "f9ae6d54af1fb06fff0ddb16246091c6de22f989",
+          "version": "1.0.2"
         }
       },
       {
@@ -83,12 +101,30 @@
         }
       },
       {
+        "package": "IQKeyboardManagerSwift",
+        "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager.git",
+        "state": {
+          "branch": null,
+          "revision": "1e442766a41e2948df25559eb03ab752c6d3aad0",
+          "version": "6.5.0"
+        }
+      },
+      {
         "package": "leveldb",
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {
           "branch": null,
           "revision": "0706abcc6b0bd9cedfbb015ba840e4a780b5159b",
           "version": "1.22.2"
+        }
+      },
+      {
+        "package": "MultiSlider",
+        "repositoryURL": "https://github.com/yonat/MultiSlider.git",
+        "state": {
+          "branch": null,
+          "revision": "6606775df4274b4e545c169320344ffb6fdd3e37",
+          "version": "1.11.2"
         }
       },
       {
@@ -152,6 +188,15 @@
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SweeterSwift",
+        "repositoryURL": "https://github.com/yonat/SweeterSwift",
+        "state": {
+          "branch": null,
+          "revision": "23997b3f33cc213a9fb15064c609bf29787c0653",
+          "version": "1.2.0"
         }
       },
       {

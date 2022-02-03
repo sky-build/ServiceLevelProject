@@ -73,10 +73,17 @@
 		D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92227A297DF00409DF2 /* InformationManagementView.swift */; };
 		D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92427A297F700409DF2 /* ProfileCustomView.swift */; };
 		D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */; };
-		D362F92927A3BF9700409DF2 /* SeSACTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */; };
-		D362F92B27ABAC3D00409DF2 /* ProfileTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92A27ABAC3D00409DF2 /* ProfileTitleView.swift */; };
+		D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */; };
+		D362F92B27ABAC3D00409DF2 /* ProfileUserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */; };
 		D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */; };
 		D362F92F27ABBEF300409DF2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92E27ABBEF300409DF2 /* CustomButton.swift */; };
+		D362F93327AC0B7900409DF2 /* MyInfoGenderSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F93227AC0B7900409DF2 /* MyInfoGenderSelectView.swift */; };
+		D362F93527AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F93427AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift */; };
+		D362F93827AC1E5600409DF2 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D362F93727AC1E5600409DF2 /* IQKeyboardManagerSwift */; };
+		D362F93A27AC1EFC00409DF2 /* MyInfoPhoneSearchEnableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F93927AC1EFC00409DF2 /* MyInfoPhoneSearchEnableView.swift */; };
+		D362F93C27AC217500409DF2 /* MyInfoSearchAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F93B27AC217500409DF2 /* MyInfoSearchAgeView.swift */; };
+		D362F94227AC299300409DF2 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = D362F94127AC299300409DF2 /* MultiSlider */; };
+		D362F94427AC364200409DF2 /* MyInfoDeRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F94327AC364200409DF2 /* MyInfoDeRegisterView.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -143,10 +150,15 @@
 		D362F92227A297DF00409DF2 /* InformationManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementView.swift; sourceTree = "<group>"; };
 		D362F92427A297F700409DF2 /* ProfileCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomView.swift; sourceTree = "<group>"; };
 		D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleViewCell.swift; sourceTree = "<group>"; };
-		D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTitleView.swift; sourceTree = "<group>"; };
-		D362F92A27ABAC3D00409DF2 /* ProfileTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleView.swift; sourceTree = "<group>"; };
+		D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleView.swift; sourceTree = "<group>"; };
+		D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNameView.swift; sourceTree = "<group>"; };
 		D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCommentView.swift; sourceTree = "<group>"; };
 		D362F92E27ABBEF300409DF2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D362F93227AC0B7900409DF2 /* MyInfoGenderSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoGenderSelectView.swift; sourceTree = "<group>"; };
+		D362F93427AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoFavoriteHabitView.swift; sourceTree = "<group>"; };
+		D362F93927AC1EFC00409DF2 /* MyInfoPhoneSearchEnableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoPhoneSearchEnableView.swift; sourceTree = "<group>"; };
+		D362F93B27AC217500409DF2 /* MyInfoSearchAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoSearchAgeView.swift; sourceTree = "<group>"; };
+		D362F94327AC364200409DF2 /* MyInfoDeRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDeRegisterView.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D301DC6D279D769900E4BD08 /* RxCocoa in Frameworks */,
+				D362F94227AC299300409DF2 /* MultiSlider in Frameworks */,
 				D334592C27987ECE00EB983B /* AnyFormatKit in Frameworks */,
 				D362F8F5279EC07900409DF2 /* FirebaseMessaging in Frameworks */,
 				D301DC72279D771400E4BD08 /* RxGesture in Frameworks */,
@@ -171,6 +184,7 @@
 				D351C891279E96ED001D51D9 /* Alamofire in Frameworks */,
 				D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */,
 				D33458F02796951A00EB983B /* SnapKit in Frameworks */,
+				D362F93827AC1E5600409DF2 /* IQKeyboardManagerSwift in Frameworks */,
 				D301DC6F279D769900E4BD08 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,15 +488,36 @@
 		D362F91F27A2932500409DF2 /* InformationManagementView */ = {
 			isa = PBXGroup;
 			children = (
-				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
-				D362F92A27ABAC3D00409DF2 /* ProfileTitleView.swift */,
-				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
-				D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */,
-				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
+				D362F93127AC0AC800409DF2 /* InfoCustomView */,
+				D362F93027AC0AAA00409DF2 /* ProfileView */,
 				D362F92227A297DF00409DF2 /* InformationManagementView.swift */,
 				D362F92027A2936300409DF2 /* InformationManagementViewController.swift */,
 			);
 			path = InformationManagementView;
+			sourceTree = "<group>";
+		};
+		D362F93027AC0AAA00409DF2 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
+				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
+				D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */,
+				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
+				D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		D362F93127AC0AC800409DF2 /* InfoCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				D362F93227AC0B7900409DF2 /* MyInfoGenderSelectView.swift */,
+				D362F93427AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift */,
+				D362F93927AC1EFC00409DF2 /* MyInfoPhoneSearchEnableView.swift */,
+				D362F93B27AC217500409DF2 /* MyInfoSearchAgeView.swift */,
+				D362F94327AC364200409DF2 /* MyInfoDeRegisterView.swift */,
+			);
+			path = InfoCustomView;
 			sourceTree = "<group>";
 		};
 		D36958A9279669AF00924F5A = {
@@ -552,6 +587,8 @@
 				D351C890279E96ED001D51D9 /* Alamofire */,
 				D362F8F2279EC07900409DF2 /* FirebaseAuth */,
 				D362F8F4279EC07900409DF2 /* FirebaseMessaging */,
+				D362F93727AC1E5600409DF2 /* IQKeyboardManagerSwift */,
+				D362F94127AC299300409DF2 /* MultiSlider */,
 			);
 			productName = SLPProject;
 			productReference = D36958B2279669AF00924F5A /* SLPProject.app */;
@@ -590,6 +627,8 @@
 				D351C88A279E8BDA001D51D9 /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 				D351C88F279E96ED001D51D9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D362F8F1279EC07900409DF2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D362F93627AC1E5600409DF2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				D362F94027AC299300409DF2 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 			);
 			productRefGroup = D36958B3279669AF00924F5A /* Products */;
 			projectDirPath = "";
@@ -620,6 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D362F93A27AC1EFC00409DF2 /* MyInfoPhoneSearchEnableView.swift in Sources */,
 				D301DC36279C55E100E4BD08 /* OnboardingViewModel.swift in Sources */,
 				D301DC64279D65C800E4BD08 /* GenderSelectViewController.swift in Sources */,
 				D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */,
@@ -645,12 +685,14 @@
 				D362F91E27A2772B00409DF2 /* NetworkMonitor.swift in Sources */,
 				D362F90927A019D800409DF2 /* UserModel.swift in Sources */,
 				D362F92F27ABBEF300409DF2 /* CustomButton.swift in Sources */,
+				D362F94427AC364200409DF2 /* MyInfoDeRegisterView.swift in Sources */,
+				D362F93327AC0B7900409DF2 /* MyInfoGenderSelectView.swift in Sources */,
 				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
 				D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
-				D362F92927A3BF9700409DF2 /* SeSACTitleView.swift in Sources */,
+				D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
@@ -667,6 +709,7 @@
 				D3345935279970FA00EB983B /* ExplainLabel.swift in Sources */,
 				D301DC62279D65C100E4BD08 /* GenderSelectView.swift in Sources */,
 				D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */,
+				D362F93527AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift in Sources */,
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
@@ -675,9 +718,10 @@
 				D301DC59279D5F1700E4BD08 /* EmailView.swift in Sources */,
 				D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */,
 				D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */,
+				D362F93C27AC217500409DF2 /* MyInfoSearchAgeView.swift in Sources */,
 				D33459052796E1F500EB983B /* CustomTextField.swift in Sources */,
 				D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */,
-				D362F92B27ABAC3D00409DF2 /* ProfileTitleView.swift in Sources */,
+				D362F92B27ABAC3D00409DF2 /* ProfileUserNameView.swift in Sources */,
 				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,
 				D301DC40279C646B00E4BD08 /* NicknameViewController.swift in Sources */,
 				D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */,
@@ -960,6 +1004,22 @@
 				version = 8.9.1;
 			};
 		};
+		D362F93627AC1E5600409DF2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+		D362F94027AC299300409DF2 /* XCRemoteSwiftPackageReference "MultiSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/MultiSlider.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.11.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1012,6 +1072,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D362F8F1279EC07900409DF2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		D362F93727AC1E5600409DF2 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D362F93627AC1E5600409DF2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		D362F94127AC299300409DF2 /* MultiSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D362F94027AC299300409DF2 /* XCRemoteSwiftPackageReference "MultiSlider" */;
+			productName = MultiSlider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

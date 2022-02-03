@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SeSACTitleView: UIView, FetchViews {
+class ProfileTitleView: UIView, FetchViews {
     
     let cellTexts = ["좋은 매너", "정확한 시간 약속", "빠른 응답", "친절한 성격", "능숙한 취미 실력", "유익한 시간"]
     
@@ -26,6 +26,7 @@ class SeSACTitleView: UIView, FetchViews {
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isScrollEnabled = false
         
         return collectionView
     }()
@@ -56,6 +57,7 @@ class SeSACTitleView: UIView, FetchViews {
         titleCollectionViews.snp.makeConstraints {
             $0.top.equalTo(titleText.snp.bottom).offset(8)
             $0.leading.trailing.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
