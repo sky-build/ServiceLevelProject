@@ -74,6 +74,9 @@
 		D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92427A297F700409DF2 /* ProfileCustomView.swift */; };
 		D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */; };
 		D362F92927A3BF9700409DF2 /* SeSACTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */; };
+		D362F92B27ABAC3D00409DF2 /* ProfileTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92A27ABAC3D00409DF2 /* ProfileTitleView.swift */; };
+		D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */; };
+		D362F92F27ABBEF300409DF2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92E27ABBEF300409DF2 /* CustomButton.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -141,6 +144,9 @@
 		D362F92427A297F700409DF2 /* ProfileCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomView.swift; sourceTree = "<group>"; };
 		D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleViewCell.swift; sourceTree = "<group>"; };
 		D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTitleView.swift; sourceTree = "<group>"; };
+		D362F92A27ABAC3D00409DF2 /* ProfileTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleView.swift; sourceTree = "<group>"; };
+		D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCommentView.swift; sourceTree = "<group>"; };
+		D362F92E27ABBEF300409DF2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 				D33459362799809900EB983B /* CustomTextFieldView.swift */,
 				D33459042796E1F500EB983B /* CustomTextField.swift */,
 				D3345934279970FA00EB983B /* ExplainLabel.swift */,
+				D362F92E27ABBEF300409DF2 /* CustomButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -467,6 +474,8 @@
 		D362F91F27A2932500409DF2 /* InformationManagementView */ = {
 			isa = PBXGroup;
 			children = (
+				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
+				D362F92A27ABAC3D00409DF2 /* ProfileTitleView.swift */,
 				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
 				D362F92827A3BF9700409DF2 /* SeSACTitleView.swift */,
 				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
@@ -635,8 +644,10 @@
 				D362F8FA279EF5F700409DF2 /* UserAPI.swift in Sources */,
 				D362F91E27A2772B00409DF2 /* NetworkMonitor.swift in Sources */,
 				D362F90927A019D800409DF2 /* UserModel.swift in Sources */,
+				D362F92F27ABBEF300409DF2 /* CustomButton.swift in Sources */,
 				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
+				D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
 				D362F92927A3BF9700409DF2 /* SeSACTitleView.swift in Sources */,
@@ -666,6 +677,7 @@
 				D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */,
 				D33459052796E1F500EB983B /* CustomTextField.swift in Sources */,
 				D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */,
+				D362F92B27ABAC3D00409DF2 /* ProfileTitleView.swift in Sources */,
 				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,
 				D301DC40279C646B00E4BD08 /* NicknameViewController.swift in Sources */,
 				D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */,

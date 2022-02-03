@@ -24,9 +24,10 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_text" translatesAutoresizingMaskIntoConstraints="NO" id="wRW-Oq-qzg">
-                                <rect key="frame" x="41" y="530.5" width="332" height="101"/>
+                                <rect key="frame" x="61" y="530.5" width="292" height="101"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="Y7z-Ms-KGq"/>
+                                    <constraint firstAttribute="height" constant="101" id="GDY-Hc-6Zr"/>
+                                    <constraint firstAttribute="width" constant="292" id="GJc-Yt-cfN"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -35,10 +36,8 @@
                         <constraints>
                             <constraint firstItem="cW9-Dn-oC8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3fw-Xb-qvI"/>
                             <constraint firstItem="cW9-Dn-oC8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="206" id="BFu-ni-WJE"/>
-                            <constraint firstItem="wRW-Oq-qzg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CXn-Y9-8rG"/>
-                            <constraint firstItem="wRW-Oq-qzg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="41" id="MGc-PZ-AP2"/>
-                            <constraint firstItem="wRW-Oq-qzg" firstAttribute="top" secondItem="cW9-Dn-oC8" secondAttribute="bottom" constant="17.120000000000001" id="Ydb-RV-z9b"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wRW-Oq-qzg" secondAttribute="trailing" constant="41" id="xyc-IE-upt"/>
+                            <constraint firstItem="wRW-Oq-qzg" firstAttribute="top" secondItem="cW9-Dn-oC8" secondAttribute="bottom" constant="17" id="Jw9-Nc-Tqy"/>
+                            <constraint firstItem="wRW-Oq-qzg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hyd-5Z-ww0"/>
                         </constraints>
                     </view>
                 </viewController>

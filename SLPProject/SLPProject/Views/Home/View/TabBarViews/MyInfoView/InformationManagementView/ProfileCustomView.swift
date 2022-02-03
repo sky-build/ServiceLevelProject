@@ -24,8 +24,11 @@ class ProfileCustomView: UIView, FetchViews {
         return image
     }()
     
-    let profileFrame: UIView = {
-        let view = UIView()
+    let profileFrame: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fill
+        view.alignment = .fill    // 가운데 채움
         view.backgroundColor = .slpWhite
         view.layer.cornerRadius = 10
         view.layer.borderWidth = 1
@@ -33,27 +36,24 @@ class ProfileCustomView: UIView, FetchViews {
         return view
     }()
     
-    let userNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "김새싹"
-        label.font = .Title1_M16
-        return label
+    let profileTitleView = ProfileTitleView()
+    
+    let sesacTitleView: SeSACTitleView = {
+        let view = SeSACTitleView()
+        view.isHidden = true
+        return view
     }()
     
-    // 크기 늘였다 줄였다하는 버튼
-    let stratchButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("", for: .normal)
-        button.setImage(UIImage(named: "button.down"), for: .normal)
-        return button
+    let profileCommentView: ProfileCommentView = {
+        let view = ProfileCommentView()
+        view.isHidden = true
+        return view
     }()
-    
-    let sesacTitleView = SeSACTitleView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        stratchButton.addTarget(self, action: #selector(stratchButtonClicked(_:)), for: .touchUpInside)
+        profileTitleView.stratchButton.addTarget(self, action: #selector(stratchButtonClicked(_:)), for: .touchUpInside)
         
         addViews()
         makeConstraints()
@@ -67,9 +67,9 @@ class ProfileCustomView: UIView, FetchViews {
         self.addSubview(backgroundImageView)
         self.addSubview(profileImage)
         self.addSubview(profileFrame)
-        profileFrame.addSubview(userNameLabel)
-        profileFrame.addSubview(stratchButton)
-        profileFrame.addSubview(sesacTitleView)
+        [profileTitleView, sesacTitleView, profileCommentView].forEach {
+            profileFrame.addArrangedSubview($0)
+        }
     }
     
     func makeConstraints() {
@@ -87,40 +87,31 @@ class ProfileCustomView: UIView, FetchViews {
         profileFrame.snp.makeConstraints {
             $0.top.equalTo(backgroundImageView.snp.bottom)
             $0.leading.trailing.equalTo(backgroundImageView)
-            $0.height.equalTo(58)
+            $0.bottom.equalToSuperview()
         }
         
-        userNameLabel.snp.makeConstraints {
-            $0.top.leading.equalTo(profileFrame).inset(16)
-            $0.trailing.equalToSuperview().inset(40)
-        }
-        
-        stratchButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(26)
-            $0.width.height.equalTo(12)
-            $0.centerY.equalTo(userNameLabel)
+        profileTitleView.snp.makeConstraints {
+            $0.height.equalTo(52)
         }
         
         sesacTitleView.snp.makeConstraints {
-            $0.top.equalTo(userNameLabel.snp.bottom).offset(24)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(400)
+            $0.height.equalTo(165)
+        }
+        
+        profileCommentView.snp.makeConstraints {
+            $0.bottom.equalTo(profileFrame.snp.bottom)
         }
     }
     
     @objc func stratchButtonClicked(_ sender: UIButton) {
         if sender.currentImage == UIImage(named: "button.down") {
             sender.setImage(UIImage(named: "button.up"), for: .normal)
-            profileFrame.snp.updateConstraints {
-//                $0.bottom.equalTo(testView.snp.bottom)
-                $0.height.equalTo(400)
-            }
+            sesacTitleView.isHidden = false
+            profileCommentView.isHidden = false
         } else {
             sender.setImage(UIImage(named: "button.down"), for: .normal)
-            profileFrame.snp.updateConstraints {
-//                $0.bottom.equalTo(profileView.snp.bottom)
-                $0.height.equalTo(58)
-            }
+            sesacTitleView.isHidden = true
+            profileCommentView.isHidden = true
         }
     }
 }

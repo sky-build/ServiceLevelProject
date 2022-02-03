@@ -65,14 +65,14 @@ extension InformationManagementViewController: UICollectionViewDelegate, UIColle
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mainView.profileView.sesacTitleView.cellTexts.count
-//        return 6
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
-
-        cell.state = indexPath.row % 2 == 0
-        cell.label.text = mainView.profileView.sesacTitleView.cellTexts[indexPath.row]
+        
+        let row = indexPath.row
+        cell.state = row == 0 || row == 3 || row == 4 || row == 5
+        cell.label.text = mainView.profileView.sesacTitleView.cellTexts[row]
 
         return cell
     }
