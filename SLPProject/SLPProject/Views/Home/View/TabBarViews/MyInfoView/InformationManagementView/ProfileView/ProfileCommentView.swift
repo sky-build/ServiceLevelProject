@@ -32,6 +32,22 @@ class ProfileCommentView: UIView, FetchViews {
         }
     }
     
+    var comments: [String] = [] {
+        didSet {
+            if comments.count == 0 {
+                commentState = .zero
+            } else if comments.count == 1 {
+                commentState = .one
+            } else if comments.count > 1 {
+                commentState = .morethenTwo
+            }
+            
+            if comments.count >= 1 {
+                fetchReview(comments[0])
+            }
+        }
+    }
+    
     let commentTitle: UILabel = {
         let label = UILabel()
         label.text = "새싹 리뷰"
@@ -71,7 +87,7 @@ class ProfileCommentView: UIView, FetchViews {
             self.addSubview($0)
         }
     }
-    // lkjhlkjhlkjhlkjh
+    
     func makeConstraints() {
         commentTitle.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(16)
@@ -88,5 +104,10 @@ class ProfileCommentView: UIView, FetchViews {
             $0.width.height.equalTo(15)
             $0.centerY.equalTo(commentTitle)
         }
+    }
+    
+    // 리뷰 반영
+    private func fetchReview(_ commentContent: String) {
+        comment.text = commentContent
     }
 }

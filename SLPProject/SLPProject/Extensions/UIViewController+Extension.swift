@@ -8,10 +8,16 @@
 import UIKit
 
 extension UIViewController {
-    // rootView를 바꿔주기
+    // rootView를 NavigationController로 바꿔줌
+    func changeRootView(_ navigationController: UINavigationController) {
+        let rootVC = UINavigationController(rootViewController: navigationController)
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
+        sceneDelegate.window?.rootViewController = rootVC
+    }
+    
+    // rootView를 ViewController로 바꿔줌
     func changeRootView(_ viewController: UIViewController) {
-        // Root 뷰컨트롤러를 바꿔줌
-        let rootVC = UINavigationController(rootViewController: viewController)
+        let rootVC = viewController
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         sceneDelegate.window?.rootViewController = rootVC
     }

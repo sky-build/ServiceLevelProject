@@ -12,7 +12,6 @@ import UIKit
 
 class UserViewModel {
     
-    // 싱글톤
     let userAPI = UserAPI()
     
     let user = UserModel.shared

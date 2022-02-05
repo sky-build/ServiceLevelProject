@@ -17,6 +17,13 @@ class MyInfoSearchAgeView: UIView, FetchViews {
         }
     }
     
+    var sliderValue: [CGFloat] = [18, 65] {
+        didSet {
+            ageSlider.value = sliderValue
+            averageAge = sliderValue.map { Int($0) }
+        }
+    }
+    
     let searchAgeTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "상대방 연령대"
@@ -33,25 +40,27 @@ class MyInfoSearchAgeView: UIView, FetchViews {
     
     let ageSlider: MultiSlider = {
         let slider = MultiSlider()
+        
         slider.orientation = .horizontal
         
-        slider.minimumValue = 18.1    // default is 0.0
-        slider.maximumValue = 65.1    // default is 1.0
+        slider.minimumValue = 18    // default is 0.0
+        slider.maximumValue = 65    // default is 1.0
+        
+        slider.snapStepSize = 1
 
         // 슬라이더간 최소 너비를 정해주는 코드(이부분 팀빌딩 해보기)
         slider.distanceBetweenThumbs = 0
         
         // 슬라이더가 있는 위치
-        slider.value = [18.1, 65.1]
-        
-        slider.disabledThumbIndices = [20, 40]
+        slider.value = [18, 65]
         
         slider.outerTrackColor = .slpGray2
         slider.tintColor = .slpGreen
         slider.trackWidth = 4
+        slider.thumbImage = UIImage(named: "Ellipse")
         
-        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged) // continuous changes
-//        slider.addTarget(self, action: #selector(sliderDragEnded(_:)), for: . touchUpInside) // sent when drag ends
+//        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged) // continuous changes
+        
         return slider
     }()
     
@@ -91,10 +100,10 @@ class MyInfoSearchAgeView: UIView, FetchViews {
         }
     }
     
-    // 슬라이더 값 변경되었을 때
-    @objc func sliderChanged(_ sender: MultiSlider) {
-        averageAge = sender.value.map { Int($0) }
-    }
+//    // 슬라이더 값 변경되었을 때
+//    @objc func sliderChanged(_ sender: MultiSlider) {
+//        averageAge = sender.value.map { Int($0) }
+//    }
     
     // 변경된 값 라벨에 반영
     private func changeAgeLabel() {

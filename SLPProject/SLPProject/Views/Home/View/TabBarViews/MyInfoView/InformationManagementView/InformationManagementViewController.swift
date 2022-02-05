@@ -8,10 +8,16 @@
 import UIKit
 import RxSwift
 import RxGesture
+import MultiSlider
+import Toast
 
 class InformationManagementViewController: BaseViewController {
     
     let mainView = InformationManagerView()
+    
+    let viewModel = UserViewModel()
+    
+    let userInformation = InformationManagementModel.shared
     
     var disposeBag = DisposeBag()
     
@@ -24,8 +30,139 @@ class InformationManagementViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // state 변수 구독
+        viewModel.userAPI.state
+            .subscribe(onNext: { [weak self] state in
+                switch state {
+                case .success:
+                    self?.view.makeToast("성공")
+                    self?.navigationController?.popViewController(animated: true)
+                case .successDeRegister:
+                    self?.changeRootView(OnboardingViewController())
+                default:
+                    print("기본")
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // 상태정보 바인딩
+        bindState()
+        
+        // 사용자 정보 가져오기
+        setUserInformation()
+        
+        // 내비게이션바 설정
+        setNavigationBar()
+        
         // 컬렉션뷰 기본 설정
         setCollectionView()
+
+        // 성별 버튼 클릭 처리
+        setGenderButton()
+        
+        // 회원탈퇴버튼 클릭
+        setDeRegisterButton()
+    }
+    
+    // 상태정보 바인딩
+    private func bindState() {
+        
+        userInformation.userName
+            .subscribe { [self] value in
+                // 이름 변경
+                mainView.profileView.profileUserNameView.userNameLabel.text = value
+            }
+            .disposed(by: disposeBag)
+        
+        userInformation.reputation
+            .subscribe { [self] value in
+                // 새싹 타이틀
+                mainView.profileView.profileTitleView.cellState = value
+            }
+            .disposed(by: disposeBag)
+        
+        userInformation.comments
+            .subscribe { [self] value in
+                // 새싹 리뷰
+                mainView.profileView.profileCommentView.comments = value
+            }
+            .disposed(by: disposeBag)
+        
+        userInformation.gender
+            .subscribe { [self] value in
+                // 내 성별
+                mainView.selectGenderView.genderState = value
+            }
+            .disposed(by: disposeBag)
+        
+        userInformation.hobby
+            .subscribe { [self] value in
+                // 자주 하는 취미
+                mainView.favoriteHabitView.habitTextField.textField.text = value
+            }
+            .disposed(by: disposeBag)
+        
+        // 자주 하는 취미 입력하면 뷰모델 데이터 업데이트
+        mainView.favoriteHabitView.habitTextField.textField.rx.text
+            .orEmpty
+            .bind { [self] in userInformation.hobby.accept($0) }
+            .disposed(by: disposeBag)
+        
+        userInformation.toggleState
+            .subscribe { [self] value in
+                // 검색 허용
+                mainView.phoneSearchView.toggleSwitch.isOn = value == 1
+            }
+            .disposed(by: disposeBag)
+        
+        // 검색 변경되었을 때
+        mainView.phoneSearchView.toggleSwitch.addTarget(self, action: #selector(toggleButtonChange(_:)), for: .valueChanged)
+        
+        userInformation.age
+            .subscribe { [self] value in
+                // 상대방 연령대
+                mainView.searchAgeView.sliderValue = value.map { CGFloat($0) }
+            }
+            .disposed(by: disposeBag)
+        
+        // 연령대 변경되었을 때
+        mainView.searchAgeView.ageSlider.addTarget(self, action: #selector(ageSliderValueChanged(_:)), for: .valueChanged)
+        
+        viewModel.userAPI.userResult
+            .subscribe(onNext: { [self] user in
+                // 이름 변경
+                userInformation.userName.accept(user.nick)
+                
+                // 새싹 타이틀
+                userInformation.reputation.accept(user.reputation)
+                
+                // 새싹 리뷰
+                userInformation.comments.accept(user.comment)
+                
+                // 내 성별
+                userInformation.gender.accept(GenderType(rawValue: user.gender)!)
+                
+                // 자주 하는 취미
+                userInformation.hobby.accept(user.hobby)
+                
+                // 검색 허용
+                userInformation.toggleState.accept(user.searchable)
+                
+                // 상대방 연령대
+                userInformation.age.accept([user.ageMin, user.ageMax])
+
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // 사용자 정보 가져오기
+    private func setUserInformation() {
+        viewModel.userAPI.checkUserExist()
+    }
+    
+    // 내비게이션바 설정
+    private func setNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked(_:)))
     }
     
     // 컬렉션뷰 기본 설정
@@ -35,6 +172,53 @@ class InformationManagementViewController: BaseViewController {
         mainView.profileView.profileTitleView.titleCollectionViews.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
     }
     
+    // 성별 버튼 클릭 처리
+    private func setGenderButton() {
+        mainView.selectGenderView.manButton.addTarget(self, action: #selector(genderButtonClicked(_:)), for: .touchUpInside)
+        mainView.selectGenderView.womanButton.addTarget(self, action: #selector(genderButtonClicked(_:)), for: .touchUpInside)
+    }
+    
+    // 성별버튼 클릭했을 때
+    @objc private func genderButtonClicked(_ sender: UIButton) {
+        if sender.titleLabel?.text == "남자" {
+            userInformation.gender.accept(.man)
+        } else {
+            userInformation.gender.accept(.woman)
+        }
+    }
+    
+    // 토글버튼 변경했을 때
+    @objc private func toggleButtonChange(_ sender: UISwitch) {
+        userInformation.toggleState.accept(sender.isOn ? 1 : 0)
+    }
+    
+    // 슬라이더 변경했을 때
+    @objc private func ageSliderValueChanged(_ sender: MultiSlider) {
+        userInformation.age.accept(sender.value.map { Int($0) })
+    }
+    
+    // 회원탈퇴버튼 클릭
+    private func setDeRegisterButton() {
+        mainView.deRegisterView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe { [weak self] _ in
+                // 회원탈퇴
+                self?.viewModel.userAPI.withdrawUser()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+}
+
+extension InformationManagementViewController {
+    @objc func saveButtonClicked(_ sender: UIBarButtonItem) {
+        viewModel.userAPI.updateMyPage()
+        
+        print(userInformation.gender.value)
+        print(userInformation.hobby.value)
+        print(userInformation.toggleState.value)
+        print(userInformation.age.value)
+    }
 }
 
 extension InformationManagementViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -47,7 +231,7 @@ extension InformationManagementViewController: UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
         
         let row = indexPath.row
-        cell.state = row == 0 || row == 3 || row == 4 || row == 5
+        cell.state = mainView.profileView.profileTitleView.cellState[row] == 1
         cell.label.text = mainView.profileView.profileTitleView.cellTexts[row]
 
         return cell

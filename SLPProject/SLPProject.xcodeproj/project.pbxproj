@@ -32,6 +32,7 @@
 		D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC73279D78B300E4BD08 /* GenderType.swift */; };
 		D301DC7B279E656600E4BD08 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC7A279E656600E4BD08 /* Typealias.swift */; };
 		D301DC7E279E827E00E4BD08 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301DC7D279E827E00E4BD08 /* UserViewModel.swift */; };
+		D332A95527AEB0200093FB65 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95427AEB0200093FB65 /* MyInfoTableViewCell.swift */; };
 		D33458F02796951A00EB983B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D33458EF2796951A00EB983B /* SnapKit */; };
 		D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */; };
 		D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */; };
@@ -84,6 +85,7 @@
 		D362F93C27AC217500409DF2 /* MyInfoSearchAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F93B27AC217500409DF2 /* MyInfoSearchAgeView.swift */; };
 		D362F94227AC299300409DF2 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = D362F94127AC299300409DF2 /* MultiSlider */; };
 		D362F94427AC364200409DF2 /* MyInfoDeRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F94327AC364200409DF2 /* MyInfoDeRegisterView.swift */; };
+		D362F94727AC52BC00409DF2 /* InformationManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F94627AC52BC00409DF2 /* InformationManagementModel.swift */; };
 		D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B5279669AF00924F5A /* AppDelegate.swift */; };
 		D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B7279669AF00924F5A /* SceneDelegate.swift */; };
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
@@ -115,6 +117,7 @@
 		D301DC73279D78B300E4BD08 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
 		D301DC7A279E656600E4BD08 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		D301DC7D279E827E00E4BD08 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		D332A95427AEB0200093FB65 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthViewController.swift; sourceTree = "<group>"; };
 		D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthView.swift; sourceTree = "<group>"; };
 		D33458FA2796A54500EB983B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -159,6 +162,7 @@
 		D362F93927AC1EFC00409DF2 /* MyInfoPhoneSearchEnableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoPhoneSearchEnableView.swift; sourceTree = "<group>"; };
 		D362F93B27AC217500409DF2 /* MyInfoSearchAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoSearchAgeView.swift; sourceTree = "<group>"; };
 		D362F94327AC364200409DF2 /* MyInfoDeRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDeRegisterView.swift; sourceTree = "<group>"; };
+		D362F94627AC52BC00409DF2 /* InformationManagementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementModel.swift; sourceTree = "<group>"; };
 		D36958B2279669AF00924F5A /* SLPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36958B5279669AF00924F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36958B7279669AF00924F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -479,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				D362F91F27A2932500409DF2 /* InformationManagementView */,
+				D332A95427AEB0200093FB65 /* MyInfoTableViewCell.swift */,
 				D362F91B27A1AF8700409DF2 /* MyInfoView.swift */,
 				D362F90F27A1A16F00409DF2 /* MyInfoViewController.swift */,
 			);
@@ -488,6 +493,7 @@
 		D362F91F27A2932500409DF2 /* InformationManagementView */ = {
 			isa = PBXGroup;
 			children = (
+				D362F94527AC52A500409DF2 /* Model */,
 				D362F93127AC0AC800409DF2 /* InfoCustomView */,
 				D362F93027AC0AAA00409DF2 /* ProfileView */,
 				D362F92227A297DF00409DF2 /* InformationManagementView.swift */,
@@ -518,6 +524,14 @@
 				D362F94327AC364200409DF2 /* MyInfoDeRegisterView.swift */,
 			);
 			path = InfoCustomView;
+			sourceTree = "<group>";
+		};
+		D362F94527AC52A500409DF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D362F94627AC52BC00409DF2 /* InformationManagementModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D36958A9279669AF00924F5A = {
@@ -704,12 +718,14 @@
 				D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */,
 				D362F906279FF0E600409DF2 /* UIViewController+Extension.swift in Sources */,
 				D33458FE2796B05100EB983B /* CustomNextButton.swift in Sources */,
+				D332A95527AEB0200093FB65 /* MyInfoTableViewCell.swift in Sources */,
 				D301DC56279D4C9C00E4BD08 /* Date+Extension.swift in Sources */,
 				D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */,
 				D3345935279970FA00EB983B /* ExplainLabel.swift in Sources */,
 				D301DC62279D65C100E4BD08 /* GenderSelectView.swift in Sources */,
 				D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */,
 				D362F93527AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift in Sources */,
+				D362F94727AC52BC00409DF2 /* InformationManagementModel.swift in Sources */,
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,

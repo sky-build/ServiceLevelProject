@@ -12,7 +12,6 @@ class MyInfoGenderSelectView: UIView, FetchViews {
     
     var genderState: GenderType = .none {
         didSet {
-            print("변경")
             switch genderState {
             case .none:
                 manButton.buttonState = false

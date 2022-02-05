@@ -17,4 +17,7 @@ class UserModel {
     let birthday = BehaviorRelay<Date>(value: Date())
     let email = BehaviorRelay<String>(value: "email@gmail.com")
     let gender = BehaviorRelay<GenderType>(value: .none)
+    
+    // 싱글톤으로 처리할 때는 외부에서 인스턴스화 시키면 안되기 때문에 private로 생성자를 적어줘야함
+    private init() { }
 }

@@ -29,6 +29,7 @@ class InformationManagerView: UIView, FetchViews {
     let deRegisterView = MyInfoDeRegisterView()
     
     let scrollView = UIScrollView()
+    let contentView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,9 +44,10 @@ class InformationManagerView: UIView, FetchViews {
     
     func addViews() {
         self.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
         [profileView, selectGenderView, favoriteHabitView, phoneSearchView, searchAgeView, deRegisterView].forEach {
-            scrollView.addSubview($0)
+            contentView.addSubview($0)
         }
     }
     
@@ -53,39 +55,38 @@ class InformationManagerView: UIView, FetchViews {
         
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.width.centerX.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
         
         profileView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.centerX.equalToSuperview()
         }
         
         selectGenderView.snp.makeConstraints {
             $0.top.equalTo(profileView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(60)
-            $0.centerX.equalToSuperview()
         }
         
         favoriteHabitView.snp.makeConstraints {
             $0.top.equalTo(selectGenderView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(60)
-            $0.centerX.equalToSuperview()
         }
         
         phoneSearchView.snp.makeConstraints {
             $0.top.equalTo(favoriteHabitView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(60)
-            $0.centerX.equalToSuperview()
         }
         
         searchAgeView.snp.makeConstraints {
             $0.top.equalTo(phoneSearchView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.centerX.equalToSuperview()
         }
         
         deRegisterView.snp.makeConstraints {
@@ -93,7 +94,6 @@ class InformationManagerView: UIView, FetchViews {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(60)
             $0.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
         }
     }
     

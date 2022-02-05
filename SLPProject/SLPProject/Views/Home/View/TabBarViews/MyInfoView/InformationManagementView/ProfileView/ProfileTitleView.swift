@@ -11,6 +11,11 @@ import SnapKit
 class ProfileTitleView: UIView, FetchViews {
     
     let cellTexts = ["좋은 매너", "정확한 시간 약속", "빠른 응답", "친절한 성격", "능숙한 취미 실력", "유익한 시간"]
+    var cellState = [0, 0, 0, 0, 0, 0] {
+        didSet {
+            titleCollectionViews.reloadData()
+        }
+    }
     
     let titleText: UILabel = {
         let label = UILabel()
@@ -33,7 +38,6 @@ class ProfileTitleView: UIView, FetchViews {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         addViews()
         makeConstraints()

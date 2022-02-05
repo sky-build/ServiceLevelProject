@@ -10,7 +10,11 @@ import SnapKit
 
 class MyInfoView: UIView, FetchViews {
     
-    let tableView = UITableView()
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.isScrollEnabled = false
+        return tableView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -42,7 +42,7 @@ class OnboardingViewController: BaseViewController {
     
     // 시작하기 버튼 클릭했을 떄
     @objc func startButtonClicked(_ sender: UIButton) {
-        changeRootView(PhoneNumberAuthViewController())
+        changeRootView(UINavigationController(rootViewController: PhoneNumberAuthViewController()))
     }
     
     // 페이지 변경되었을 때 설정

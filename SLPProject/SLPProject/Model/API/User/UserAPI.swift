@@ -26,6 +26,7 @@ private enum UserURL: String {
     case user = "user"
     case withdraw = "user/withdraw"
     case updateFCMToken = "user/update_fcm_token"
+    case updateMyPage = "user/update/mypage"
 }
 
 extension UserURL {
@@ -37,7 +38,7 @@ extension UserURL {
 class UserAPI {
     
     // 연산 프로퍼티 사용해야 idToken값이 지속적으로 변경됨
-    var header: HTTPHeaders {
+    private var header: HTTPHeaders {
         [
             "Content-Type": "application/x-www-form-urlencoded",
             "idtoken": FirebaseToken.shared.idToken
@@ -62,7 +63,7 @@ class UserAPI {
                     completion(data, apiState)
                 }
                 .disposed(by: disposeBag)
-        }else{
+        } else {
             completion(nil, .noConnectinon)
         }
 
@@ -163,10 +164,11 @@ class UserAPI {
     
     // 회원탈퇴
     func withdrawUser() {
-        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: nil, header: header) { [weak self] (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.withdraw.url, parameters: nil, header: header) { [weak self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 print("성공")
+                self?.state.accept(.successDeRegister)
             case .alreadyWithdraw:
                 print("이미 회원탈퇴함")
             case .firebaseTokenError:
@@ -177,7 +179,46 @@ class UserAPI {
             case .serverError: break
                 // 서버 오류
             default:
-                print("defualt")
+                print(apiState.rawValue)
+            }
+        }
+    }
+    
+    // 회원정보 갱신
+    func updateMyPage() {
+        var parameters: Parameters {
+            [
+                "searchable" : InformationManagementModel.shared.toggleState.value,
+                "ageMin" : InformationManagementModel.shared.age.value[0],
+                "ageMax" : InformationManagementModel.shared.age.value[1],
+                "gender" : InformationManagementModel.shared.gender.value.rawValue,
+                "hobby" : InformationManagementModel.shared.hobby.value
+            ]
+        }
+        
+        baseUserAPIRequest(method: .post, url: UserURL.updateMyPage.url, parameters: parameters, header: header) { [weak self] (data, apiState) in
+            switch apiState {
+            case .noConnectinon:
+                print("연결안됨")
+            case .success:
+                print("success")
+                self?.state.accept(.success)
+            case .noRegister:
+                print("noRegister")
+            case .invalidNickname:
+                print("invalidNickname")
+            case .firebaseTokenError:
+                // 토큰 재발급, 재시도
+                FirebaseToken.shared.updateIDToken {
+                    self?.updateMyPage()
+                }
+                print("firebaseTokenError")
+            case .alreadyWithdraw:
+                print("alreadyWithdraw")
+            case .serverError:
+                print("serverError")
+            case .clientError:
+                print("clientError")
             }
         }
     }
