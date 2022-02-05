@@ -18,6 +18,8 @@ class MyInfoViewController: BaseViewController {
     let images = [UIImage(named: "notice"), UIImage(named: "notice"), UIImage(named: "faq"), UIImage(named: "qna"), UIImage(named: "setting_alarm"), UIImage(named: "permit")]
     let data = BehaviorRelay<[String]>(value: ["", "공지사항", "자주 묻는 질문", "1:1 채팅", "알림 설정", "이용 약관"])
     
+    let viewModel = UserViewModel()
+    
     var disposeBag = DisposeBag()
     
     override func loadView() {
@@ -29,6 +31,35 @@ class MyInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 닉네임 정보 가져오기
+        setNickname()
+        
+        // 테이블뷰 설정
+        setTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.userAPI.getUser()
+    }
+    
+    // 닉네임 정보 가져오기
+    private func setNickname() {
+        viewModel.user.nickname
+            .subscribe { [self] value in
+                var dataArray = data.value
+                dataArray.removeFirst()
+                dataArray.insert(viewModel.user.nickname.value, at: 0)
+                print("이름은 ", viewModel.user.nickname.value)
+                data.accept(dataArray)
+            }
+            .disposed(by: disposeBag)
+
+    }
+    
+    // 테이블뷰 설정
+    private func setTableView() {
         mainView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         mainView.tableView.register(MyInfoTableViewCell.self, forCellReuseIdentifier: MyInfoTableViewCell.identifier)
         // seperator 양쪽 Inset 15씩 줌(top, bottom은 값 상관없음)
@@ -44,7 +75,7 @@ class MyInfoViewController: BaseViewController {
                 if row == 0 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: MyInfoTableViewCell.identifier) as! MyInfoTableViewCell
                     
-                    cell.userName.text = UserModel.shared.nickname.value
+                    cell.userName.text = self?.data.value[row]
                     
                     return cell
                 } else {

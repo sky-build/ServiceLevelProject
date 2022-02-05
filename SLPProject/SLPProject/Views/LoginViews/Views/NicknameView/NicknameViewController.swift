@@ -25,6 +25,7 @@ class NicknameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel.nicknameViewModel = self
         
         // 데이터 바인딩

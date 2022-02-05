@@ -41,9 +41,6 @@ class AuthNumberViewController: BaseViewController {
                     self?.changeRootView(HomeTabBarController())
                 case .noRegister:
                     self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
-                case .invalidToken: // 나중에 처리
-                    self?.view.makeToast("토큰 업데이트")
-//                    FirebaseToken.shared.updateIDToken()
                 default:
                     break
                 }
@@ -113,7 +110,7 @@ class AuthNumberViewController: BaseViewController {
                     viewModel.authToken { state in
                         switch state {
                         case .success:
-                            viewModel.userAPI.checkUserExist()
+                            viewModel.userAPI.getUser()
                         case .tooManyRequests:
                             view.makeToast("많은 요청")
                         case .unknownError:

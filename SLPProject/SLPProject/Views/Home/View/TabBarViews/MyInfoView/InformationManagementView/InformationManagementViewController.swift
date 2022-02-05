@@ -17,8 +17,6 @@ class InformationManagementViewController: BaseViewController {
     
     let viewModel = UserViewModel()
     
-    let userInformation = InformationManagementModel.shared
-    
     var disposeBag = DisposeBag()
     
     override func loadView() {
@@ -67,35 +65,35 @@ class InformationManagementViewController: BaseViewController {
     // 상태정보 바인딩
     private func bindState() {
         
-        userInformation.userName
+        viewModel.user.nickname
             .subscribe { [self] value in
                 // 이름 변경
                 mainView.profileView.profileUserNameView.userNameLabel.text = value
             }
             .disposed(by: disposeBag)
         
-        userInformation.reputation
+        viewModel.user.reputation
             .subscribe { [self] value in
                 // 새싹 타이틀
                 mainView.profileView.profileTitleView.cellState = value
             }
             .disposed(by: disposeBag)
         
-        userInformation.comments
+        viewModel.user.comments
             .subscribe { [self] value in
                 // 새싹 리뷰
                 mainView.profileView.profileCommentView.comments = value
             }
             .disposed(by: disposeBag)
         
-        userInformation.gender
+        viewModel.user.gender
             .subscribe { [self] value in
                 // 내 성별
                 mainView.selectGenderView.genderState = value
             }
             .disposed(by: disposeBag)
         
-        userInformation.hobby
+        viewModel.user.hobby
             .subscribe { [self] value in
                 // 자주 하는 취미
                 mainView.favoriteHabitView.habitTextField.textField.text = value
@@ -105,10 +103,10 @@ class InformationManagementViewController: BaseViewController {
         // 자주 하는 취미 입력하면 뷰모델 데이터 업데이트
         mainView.favoriteHabitView.habitTextField.textField.rx.text
             .orEmpty
-            .bind { [self] in userInformation.hobby.accept($0) }
+            .bind { [self] in viewModel.user.hobby.accept($0) }
             .disposed(by: disposeBag)
         
-        userInformation.toggleState
+        viewModel.user.toggleState
             .subscribe { [self] value in
                 // 검색 허용
                 mainView.phoneSearchView.toggleSwitch.isOn = value == 1
@@ -118,7 +116,7 @@ class InformationManagementViewController: BaseViewController {
         // 검색 변경되었을 때
         mainView.phoneSearchView.toggleSwitch.addTarget(self, action: #selector(toggleButtonChange(_:)), for: .valueChanged)
         
-        userInformation.age
+        viewModel.user.age
             .subscribe { [self] value in
                 // 상대방 연령대
                 mainView.searchAgeView.sliderValue = value.map { CGFloat($0) }
@@ -131,25 +129,25 @@ class InformationManagementViewController: BaseViewController {
         viewModel.userAPI.userResult
             .subscribe(onNext: { [self] user in
                 // 이름 변경
-                userInformation.userName.accept(user.nick)
+                viewModel.user.nickname.accept(user.nick)
                 
                 // 새싹 타이틀
-                userInformation.reputation.accept(user.reputation)
+                viewModel.user.reputation.accept(user.reputation)
                 
                 // 새싹 리뷰
-                userInformation.comments.accept(user.comment)
+                viewModel.user.comments.accept(user.comment)
                 
                 // 내 성별
-                userInformation.gender.accept(GenderType(rawValue: user.gender)!)
+                viewModel.user.gender.accept(GenderType(rawValue: user.gender)!)
                 
                 // 자주 하는 취미
-                userInformation.hobby.accept(user.hobby)
+                viewModel.user.hobby.accept(user.hobby)
                 
                 // 검색 허용
-                userInformation.toggleState.accept(user.searchable)
+                viewModel.user.toggleState.accept(user.searchable)
                 
                 // 상대방 연령대
-                userInformation.age.accept([user.ageMin, user.ageMax])
+                viewModel.user.age.accept([user.ageMin, user.ageMax])
 
             })
             .disposed(by: disposeBag)
@@ -157,7 +155,7 @@ class InformationManagementViewController: BaseViewController {
     
     // 사용자 정보 가져오기
     private func setUserInformation() {
-        viewModel.userAPI.checkUserExist()
+        viewModel.userAPI.getUser()
     }
     
     // 내비게이션바 설정
@@ -181,20 +179,20 @@ class InformationManagementViewController: BaseViewController {
     // 성별버튼 클릭했을 때
     @objc private func genderButtonClicked(_ sender: UIButton) {
         if sender.titleLabel?.text == "남자" {
-            userInformation.gender.accept(.man)
+            viewModel.user.gender.accept(.man)
         } else {
-            userInformation.gender.accept(.woman)
+            viewModel.user.gender.accept(.woman)
         }
     }
     
     // 토글버튼 변경했을 때
     @objc private func toggleButtonChange(_ sender: UISwitch) {
-        userInformation.toggleState.accept(sender.isOn ? 1 : 0)
+        viewModel.user.toggleState.accept(sender.isOn ? 1 : 0)
     }
     
     // 슬라이더 변경했을 때
     @objc private func ageSliderValueChanged(_ sender: MultiSlider) {
-        userInformation.age.accept(sender.value.map { Int($0) })
+        viewModel.user.age.accept(sender.value.map { Int($0) })
     }
     
     // 회원탈퇴버튼 클릭
@@ -214,10 +212,10 @@ extension InformationManagementViewController {
     @objc func saveButtonClicked(_ sender: UIBarButtonItem) {
         viewModel.userAPI.updateMyPage()
         
-        print(userInformation.gender.value)
-        print(userInformation.hobby.value)
-        print(userInformation.toggleState.value)
-        print(userInformation.age.value)
+        print(viewModel.user.gender.value)
+        print(viewModel.user.hobby.value)
+        print(viewModel.user.toggleState.value)
+        print(viewModel.user.age.value)
     }
 }
 

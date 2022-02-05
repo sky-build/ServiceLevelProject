@@ -16,12 +16,6 @@ class UserViewModel {
     
     let user = UserModel.shared
     
-//    var phoneNumber = BehaviorRelay<String>(value: "")
-//    var authNumber = BehaviorRelay<String>(value: "")
-//    var nickname = BehaviorRelay<String>(value: "")
-//    let birthday = BehaviorRelay<Date>(value: Date())
-//    var email = BehaviorRelay<String>(value: "")
-//    var gender = BehaviorRelay<GenderType>(value: .none)
     var nicknameViewModel: UIViewController?
     
     // 휴대폰 인증 전송 코드
@@ -73,9 +67,11 @@ class UserViewModel {
                 }
                 return
             }
+            // 인증하고 UserDefault 업데이트
+            UserDefaultValues.registerState = .phoneAuth
             // User is signed in
             // 유저인지 체크
-            userAPI.checkUserExist()
+            userAPI.getUser()
             completion(.success)
         }
     }

@@ -17,6 +17,14 @@ class HomeTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserViewModel().userAPI.getUser()
+        
+        // 탭바 설정
+        setTabBar()
+    }
+    
+    // 탭바 설정
+    private func setTabBar() {
         view.backgroundColor = .white
         
         homeNavigationController = UINavigationController(rootViewController: MainViewController())
@@ -34,5 +42,6 @@ class HomeTabBarController: UITabBarController {
         // 탭바 나타나는 색상 설정
         UITabBar.appearance().tintColor = .slpGreen
     }
+    
     
 }
