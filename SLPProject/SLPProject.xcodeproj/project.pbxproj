@@ -36,6 +36,10 @@
 		D332A95727AED9390093FB65 /* UserRegisterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95627AED9390093FB65 /* UserRegisterState.swift */; };
 		D332A95927AEDFC90093FB65 /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95827AEDFC90093FB65 /* UserDefaultValues.swift */; };
 		D332A95B27AF9A7A0093FB65 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95A27AF9A7A0093FB65 /* CustomAlertViewController.swift */; };
+		D332A95D27B02ADD0093FB65 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95C27B02ADD0093FB65 /* MainView.swift */; };
+		D332A95F27B02C860093FB65 /* CustomFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95E27B02C860093FB65 /* CustomFilterButton.swift */; };
+		D332A96127B02E770093FB65 /* MainFilterButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96027B02E770093FB65 /* MainFilterButtons.swift */; };
+		D332A96327B030F90093FB65 /* MainViewFilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96227B030F90093FB65 /* MainViewFilterState.swift */; };
 		D33458F02796951A00EB983B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D33458EF2796951A00EB983B /* SnapKit */; };
 		D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */; };
 		D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */; };
@@ -123,6 +127,10 @@
 		D332A95627AED9390093FB65 /* UserRegisterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterState.swift; sourceTree = "<group>"; };
 		D332A95827AEDFC90093FB65 /* UserDefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
 		D332A95A27AF9A7A0093FB65 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		D332A95C27B02ADD0093FB65 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D332A95E27B02C860093FB65 /* CustomFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterButton.swift; sourceTree = "<group>"; };
+		D332A96027B02E770093FB65 /* MainFilterButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterButtons.swift; sourceTree = "<group>"; };
+		D332A96227B030F90093FB65 /* MainViewFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewFilterState.swift; sourceTree = "<group>"; };
 		D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthViewController.swift; sourceTree = "<group>"; };
 		D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthView.swift; sourceTree = "<group>"; };
 		D33458FA2796A54500EB983B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -345,6 +353,7 @@
 				D33459042796E1F500EB983B /* CustomTextField.swift */,
 				D3345934279970FA00EB983B /* ExplainLabel.swift */,
 				D362F92E27ABBEF300409DF2 /* CustomButton.swift */,
+				D332A95E27B02C860093FB65 /* CustomFilterButton.swift */,
 				D332A95A27AF9A7A0093FB65 /* CustomAlertViewController.swift */,
 			);
 			path = CustomView;
@@ -366,6 +375,7 @@
 				D301DC73279D78B300E4BD08 /* GenderType.swift */,
 				D362F90A27A0493400409DF2 /* UserAPIResult.swift */,
 				D332A95627AED9390093FB65 /* UserRegisterState.swift */,
+				D332A96227B030F90093FB65 /* MainViewFilterState.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -465,6 +475,8 @@
 		D362F91727A1AEF400409DF2 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D332A96027B02E770093FB65 /* MainFilterButtons.swift */,
+				D332A95C27B02ADD0093FB65 /* MainView.swift */,
 				D362F91127A1A6E800409DF2 /* MainViewController.swift */,
 			);
 			path = MainView;
@@ -676,6 +688,7 @@
 				D301DC64279D65C800E4BD08 /* GenderSelectViewController.swift in Sources */,
 				D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */,
 				D334591F27971D3500EB983B /* PhoneNumberAuthStatus.swift in Sources */,
+				D332A95D27B02ADD0093FB65 /* MainView.swift in Sources */,
 				D332A95727AED9390093FB65 /* UserRegisterState.swift in Sources */,
 				D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */,
 				D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */,
@@ -695,6 +708,7 @@
 				D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */,
 				D301DC4C279C793C00E4BD08 /* BirtydayViewController.swift in Sources */,
 				D362F8FA279EF5F700409DF2 /* UserAPI.swift in Sources */,
+				D332A96327B030F90093FB65 /* MainViewFilterState.swift in Sources */,
 				D362F91E27A2772B00409DF2 /* NetworkMonitor.swift in Sources */,
 				D362F90927A019D800409DF2 /* UserModel.swift in Sources */,
 				D332A95B27AF9A7A0093FB65 /* CustomAlertViewController.swift in Sources */,
@@ -708,8 +722,10 @@
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
 				D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
+				D332A96127B02E770093FB65 /* MainFilterButtons.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
+				D332A95F27B02C860093FB65 /* CustomFilterButton.swift in Sources */,
 				D301DC2C279BF94900E4BD08 /* EndPoint.swift in Sources */,
 				D33458FB2796A54500EB983B /* UIColor+Extension.swift in Sources */,
 				D301DC4A279C793000E4BD08 /* BirthdayView.swift in Sources */,
