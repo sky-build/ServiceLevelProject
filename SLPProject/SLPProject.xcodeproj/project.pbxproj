@@ -40,6 +40,10 @@
 		D332A95F27B02C860093FB65 /* CustomFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95E27B02C860093FB65 /* CustomFilterButton.swift */; };
 		D332A96127B02E770093FB65 /* MainFilterButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96027B02E770093FB65 /* MainFilterButtons.swift */; };
 		D332A96327B030F90093FB65 /* MainViewFilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96227B030F90093FB65 /* MainViewFilterState.swift */; };
+		D332A96827B038850093FB65 /* QueueAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96727B038850093FB65 /* QueueAPI.swift */; };
+		D332A96A27B038B20093FB65 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96927B038B20093FB65 /* BaseAPI.swift */; };
+		D332A96C27B03EA40093FB65 /* QueueAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96B27B03EA40093FB65 /* QueueAPIResult.swift */; };
+		D332A97127B043920093FB65 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97027B043920093FB65 /* MainViewModel.swift */; };
 		D33458F02796951A00EB983B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D33458EF2796951A00EB983B /* SnapKit */; };
 		D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */; };
 		D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */; };
@@ -131,6 +135,10 @@
 		D332A95E27B02C860093FB65 /* CustomFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterButton.swift; sourceTree = "<group>"; };
 		D332A96027B02E770093FB65 /* MainFilterButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterButtons.swift; sourceTree = "<group>"; };
 		D332A96227B030F90093FB65 /* MainViewFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewFilterState.swift; sourceTree = "<group>"; };
+		D332A96727B038850093FB65 /* QueueAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPI.swift; sourceTree = "<group>"; };
+		D332A96927B038B20093FB65 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		D332A96B27B03EA40093FB65 /* QueueAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPIResult.swift; sourceTree = "<group>"; };
+		D332A97027B043920093FB65 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthViewController.swift; sourceTree = "<group>"; };
 		D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthView.swift; sourceTree = "<group>"; };
 		D33458FA2796A54500EB983B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -312,6 +320,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D332A96627B0385B0093FB65 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				D332A96727B038850093FB65 /* QueueAPI.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		D332A96F27B043830093FB65 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D332A97027B043920093FB65 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D33458F1279695D800EB983B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +400,7 @@
 				D362F90A27A0493400409DF2 /* UserAPIResult.swift */,
 				D332A95627AED9390093FB65 /* UserRegisterState.swift */,
 				D332A96227B030F90093FB65 /* MainViewFilterState.swift */,
+				D332A96B27B03EA40093FB65 /* QueueAPIResult.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -420,7 +445,9 @@
 		D362F8FB279EF6A500409DF2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				D332A96927B038B20093FB65 /* BaseAPI.swift */,
 				D362F8FC279EF6AB00409DF2 /* User */,
+				D332A96627B0385B0093FB65 /* Queue */,
 				D362F91D27A2772B00409DF2 /* NetworkMonitor.swift */,
 				D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */,
 			);
@@ -475,6 +502,7 @@
 		D362F91727A1AEF400409DF2 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D332A96F27B043830093FB65 /* ViewModel */,
 				D332A96027B02E770093FB65 /* MainFilterButtons.swift */,
 				D332A95C27B02ADD0093FB65 /* MainView.swift */,
 				D362F91127A1A6E800409DF2 /* MainViewController.swift */,
@@ -688,6 +716,7 @@
 				D301DC64279D65C800E4BD08 /* GenderSelectViewController.swift in Sources */,
 				D362F91627A1A73600409DF2 /* FriendsViewController.swift in Sources */,
 				D334591F27971D3500EB983B /* PhoneNumberAuthStatus.swift in Sources */,
+				D332A97127B043920093FB65 /* MainViewModel.swift in Sources */,
 				D332A95D27B02ADD0093FB65 /* MainView.swift in Sources */,
 				D332A95727AED9390093FB65 /* UserRegisterState.swift in Sources */,
 				D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */,
@@ -704,6 +733,7 @@
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
 				D301DC7B279E656600E4BD08 /* Typealias.swift in Sources */,
 				D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */,
+				D332A96A27B038B20093FB65 /* BaseAPI.swift in Sources */,
 				D362F8F8279EF1D300409DF2 /* FirebaseToken.swift in Sources */,
 				D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */,
 				D301DC4C279C793C00E4BD08 /* BirtydayViewController.swift in Sources */,
@@ -720,6 +750,7 @@
 				D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
+				D332A96C27B03EA40093FB65 /* QueueAPIResult.swift in Sources */,
 				D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D332A96127B02E770093FB65 /* MainFilterButtons.swift in Sources */,
@@ -727,6 +758,7 @@
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
 				D332A95F27B02C860093FB65 /* CustomFilterButton.swift in Sources */,
 				D301DC2C279BF94900E4BD08 /* EndPoint.swift in Sources */,
+				D332A96827B038850093FB65 /* QueueAPI.swift in Sources */,
 				D33458FB2796A54500EB983B /* UIColor+Extension.swift in Sources */,
 				D301DC4A279C793000E4BD08 /* BirthdayView.swift in Sources */,
 				D362F91427A1A71600409DF2 /* ShopViewController.swift in Sources */,

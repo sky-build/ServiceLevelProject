@@ -31,19 +31,11 @@ private enum UserURL: String {
 
 extension UserURL {
     var url: URL {
-        URL(string: "http://test.monocoding.com:35484/" + self.rawValue)!
+        URL(string: BaseAPI.baseURL + self.rawValue)!
     }
 }
 
 class UserAPI {
-    
-    // 연산 프로퍼티 사용해야 idToken값이 지속적으로 변경됨
-    private var header: HTTPHeaders {
-        [
-            "Content-Type": "application/x-www-form-urlencoded",
-            "idtoken": FirebaseToken.shared.idToken
-        ]
-    }
     
     // API상태 업데이트
     let state = PublishRelay<UserAPIResult>()
@@ -54,7 +46,7 @@ class UserAPI {
     // 기본 코드
     fileprivate func baseUserAPIRequest(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, UserEnum) -> Void) {
         if NetworkMonitor.shared.isConnected {
-            RxAlamofire.requestData(method, url, parameters: parameters, headers: header)
+            RxAlamofire.requestData(method, url, parameters: parameters, headers: BaseAPI.header)
                 .debug()
                 .subscribe { (header, data) in
                     // APIState를 Enum으로 변경
@@ -71,7 +63,7 @@ class UserAPI {
     
     // 유저정보 받아오는 코드
     func getUser() {
-        baseUserAPIRequest(method: .get, url: UserURL.user.url, parameters: nil, header: header) { [self] (data, apiState) in
+        baseUserAPIRequest(method: .get, url: UserURL.user.url, parameters: nil, header: BaseAPI.header) { [self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 guard let data = data else { return }
@@ -130,7 +122,7 @@ class UserAPI {
             ]
         }
         
-        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: parameters, header: header) { [self] (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.user.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 state.accept(.success)
@@ -155,7 +147,7 @@ class UserAPI {
     
     // 회원탈퇴
     func withdrawUser() {
-        baseUserAPIRequest(method: .post, url: UserURL.withdraw.url, parameters: nil, header: header) { [weak self] (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.withdraw.url, parameters: nil, header: BaseAPI.header) { [weak self] (data, apiState) in
             switch apiState {
             case .success:  // 성공했을때
                 UserDefaultValues.registerState = .beginner
@@ -185,7 +177,7 @@ class UserAPI {
             ]
         }
         
-        baseUserAPIRequest(method: .post, url: UserURL.updateMyPage.url, parameters: parameters, header: header) { [weak self] (data, apiState) in
+        baseUserAPIRequest(method: .post, url: UserURL.updateMyPage.url, parameters: parameters, header: BaseAPI.header) { [weak self] (data, apiState) in
             switch apiState {
             case .success:
                 self?.state.accept(.success)
@@ -209,7 +201,7 @@ class UserAPI {
             ]
         }
         
-        baseUserAPIRequest(method: .put, url: UserURL.updateFCMToken.url, parameters: parameters, header: header) { [weak self] (data, apiState) in
+        baseUserAPIRequest(method: .put, url: UserURL.updateFCMToken.url, parameters: parameters, header: BaseAPI.header) { [weak self] (data, apiState) in
             switch apiState {
             case .firebaseTokenError:
                 // 토큰 재발급, 재시도
