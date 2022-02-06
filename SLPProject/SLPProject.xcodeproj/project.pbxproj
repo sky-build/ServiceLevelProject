@@ -35,6 +35,7 @@
 		D332A95527AEB0200093FB65 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95427AEB0200093FB65 /* MyInfoTableViewCell.swift */; };
 		D332A95727AED9390093FB65 /* UserRegisterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95627AED9390093FB65 /* UserRegisterState.swift */; };
 		D332A95927AEDFC90093FB65 /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95827AEDFC90093FB65 /* UserDefaultValues.swift */; };
+		D332A95B27AF9A7A0093FB65 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A95A27AF9A7A0093FB65 /* CustomAlertViewController.swift */; };
 		D33458F02796951A00EB983B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D33458EF2796951A00EB983B /* SnapKit */; };
 		D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */; };
 		D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */; };
@@ -121,6 +122,7 @@
 		D332A95427AEB0200093FB65 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D332A95627AED9390093FB65 /* UserRegisterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterState.swift; sourceTree = "<group>"; };
 		D332A95827AEDFC90093FB65 /* UserDefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
+		D332A95A27AF9A7A0093FB65 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthViewController.swift; sourceTree = "<group>"; };
 		D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthView.swift; sourceTree = "<group>"; };
 		D33458FA2796A54500EB983B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				D33459042796E1F500EB983B /* CustomTextField.swift */,
 				D3345934279970FA00EB983B /* ExplainLabel.swift */,
 				D362F92E27ABBEF300409DF2 /* CustomButton.swift */,
+				D332A95A27AF9A7A0093FB65 /* CustomAlertViewController.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				D362F8FA279EF5F700409DF2 /* UserAPI.swift in Sources */,
 				D362F91E27A2772B00409DF2 /* NetworkMonitor.swift in Sources */,
 				D362F90927A019D800409DF2 /* UserModel.swift in Sources */,
+				D332A95B27AF9A7A0093FB65 /* CustomAlertViewController.swift in Sources */,
 				D362F92F27ABBEF300409DF2 /* CustomButton.swift in Sources */,
 				D362F94427AC364200409DF2 /* MyInfoDeRegisterView.swift in Sources */,
 				D362F93327AC0B7900409DF2 /* MyInfoGenderSelectView.swift in Sources */,

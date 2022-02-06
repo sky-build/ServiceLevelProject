@@ -197,11 +197,21 @@ class InformationManagementViewController: BaseViewController {
     
     // 회원탈퇴버튼 클릭
     private func setDeRegisterButton() {
+        let vc = CustomAlertViewController()
+        vc.state
+            .subscribe(onNext: { [weak self] state in
+                if state {
+                    // 회원탈퇴
+                    self?.viewModel.userAPI.withdrawUser()
+                }
+            })
+            .disposed(by: disposeBag)
+        
         mainView.deRegisterView.rx.tapGesture()
             .when(.recognized)
             .subscribe { [weak self] _ in
-                // 회원탈퇴
-                self?.viewModel.userAPI.withdrawUser()
+                vc.modalPresentationStyle = .overCurrentContext
+                self?.present(vc, animated: false, completion: nil)
             }
             .disposed(by: disposeBag)
     }

@@ -25,7 +25,7 @@ class CusomButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
+        
         self.layer.borderColor = UIColor.slpGray6.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 8
