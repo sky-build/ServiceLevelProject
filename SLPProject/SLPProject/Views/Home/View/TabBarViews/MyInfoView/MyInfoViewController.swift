@@ -97,7 +97,9 @@ class MyInfoViewController: BaseViewController {
             .rx.itemSelected
             .filter { $0.row == 0 }    // row 가 0인것만 클릭 가능
             .subscribe { [weak self] _ in
-                self?.navigationController?.pushViewController(InformationManagementViewController(), animated: true)
+                let vc = InformationManagementViewController()
+                vc.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }
