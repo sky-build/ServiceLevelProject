@@ -27,6 +27,7 @@ private enum QueueEnum: Int {
 
 private enum QueueURL: String {
     case queue = "queue"
+    case onqueue = "queue/onqueue"
 }
 
 extension QueueURL {
@@ -95,6 +96,47 @@ class QueueAPI {
                 state.accept(.serverError)
             case .clientError:
                 state.accept(.clientError)
+            }
+        }
+    }
+    
+    func onQueue() {
+        let parameters: Parameters = [
+            "region": 1274830692,
+            "lat": 37.482733667903865,
+            "long": 126.92983890550006
+        ]
+        
+        baseQueueAPIRequest(method: .post, url: QueueURL.onqueue.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
+            switch apiState {
+            case .noConnectinon:
+                state.accept(.noConnectinon)
+            case .success:
+                guard let data = data else { return }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let decodeData = try decoder.decode(FriendsData.self, from: data)
+                    // 모델에 값 변경해줌
+                    MainModel.shared.nearFriends.accept(decodeData.fromQueueDB)
+                    MainModel.shared.fromRecomend.accept(decodeData.fromRecommend)
+                    
+                    // 그리고 구독하라고 설정
+                    state.accept(.success)
+                } catch {
+                    print("decode error")
+                }
+                state.accept(.success)
+            case .firebaseTokenError:
+                state.accept(.firebaseTokenError)
+            case .noRegisterUser:
+                state.accept(.noRegisterUser)
+            case .serverError:
+                state.accept(.serverError)
+            case .clientError:
+                state.accept(.clientError)
+            default:
+                break
             }
         }
     }

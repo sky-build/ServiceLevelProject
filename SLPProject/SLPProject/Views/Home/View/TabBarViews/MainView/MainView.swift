@@ -23,7 +23,14 @@ class MainView: UIView, FetchViews {
         return button
     }()
     
-    let mapKit = MKMapView()
+    let mainStatusButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(named: "default"), for: .normal)
+        return button
+    }()
+    
+    let mapView = MKMapView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,13 +44,13 @@ class MainView: UIView, FetchViews {
     }
     
     func addViews() {
-        [mapKit, filterButton, placeButton].forEach {
+        [mapView, filterButton, placeButton, mainStatusButton].forEach {
             self.addSubview($0)
         }
     }
     
     func makeConstraints() {
-        mapKit.snp.makeConstraints {
+        mapView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.bottom.equalTo(super.safeAreaLayoutGuide)
         }
@@ -58,6 +65,11 @@ class MainView: UIView, FetchViews {
             $0.top.equalTo(filterButton.snp.bottom).offset(16)
             $0.width.height.equalTo(48)
             $0.centerX.equalTo(filterButton)
+        }
+        
+        mainStatusButton.snp.makeConstraints {
+            $0.bottom.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
+            $0.size.equalTo(64)
         }
     }
 }

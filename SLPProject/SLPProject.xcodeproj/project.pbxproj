@@ -44,6 +44,12 @@
 		D332A96A27B038B20093FB65 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96927B038B20093FB65 /* BaseAPI.swift */; };
 		D332A96C27B03EA40093FB65 /* QueueAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A96B27B03EA40093FB65 /* QueueAPIResult.swift */; };
 		D332A97127B043920093FB65 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97027B043920093FB65 /* MainViewModel.swift */; };
+		D332A97527B116660093FB65 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97427B116660093FB65 /* MainSearchViewController.swift */; };
+		D332A97727B1166D0093FB65 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97627B1166D0093FB65 /* MainSearchView.swift */; };
+		D332A97927B188760093FB65 /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97827B188760093FB65 /* FriendsData.swift */; };
+		D332A97C27B188F60093FB65 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97B27B188F60093FB65 /* MainModel.swift */; };
+		D332A97E27B18CFB0093FB65 /* HobbyUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97D27B18CFB0093FB65 /* HobbyUICollectionView.swift */; };
+		D332A98027B18D070093FB65 /* HobbyUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332A97F27B18D070093FB65 /* HobbyUICollectionViewCell.swift */; };
 		D33458F02796951A00EB983B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D33458EF2796951A00EB983B /* SnapKit */; };
 		D33458F62796966800EB983B /* PhoneNumberAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */; };
 		D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */; };
@@ -102,6 +108,7 @@
 		D36958BF279669B200924F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36958BE279669B200924F5A /* Assets.xcassets */; };
 		D36958C2279669B200924F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36958C0279669B200924F5A /* LaunchScreen.storyboard */; };
 		D39B6965279678E8005B1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D39B6964279678E8005B1EBB /* GoogleService-Info.plist */; };
+		D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +146,12 @@
 		D332A96927B038B20093FB65 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		D332A96B27B03EA40093FB65 /* QueueAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPIResult.swift; sourceTree = "<group>"; };
 		D332A97027B043920093FB65 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D332A97427B116660093FB65 /* MainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		D332A97627B1166D0093FB65 /* MainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
+		D332A97827B188760093FB65 /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
+		D332A97B27B188F60093FB65 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		D332A97D27B18CFB0093FB65 /* HobbyUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyUICollectionView.swift; sourceTree = "<group>"; };
+		D332A97F27B18D070093FB65 /* HobbyUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyUICollectionViewCell.swift; sourceTree = "<group>"; };
 		D33458F52796966800EB983B /* PhoneNumberAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthViewController.swift; sourceTree = "<group>"; };
 		D33458F727969C7D00EB983B /* PhoneNumberAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberAuthView.swift; sourceTree = "<group>"; };
 		D33458FA2796A54500EB983B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -191,6 +204,7 @@
 		D36958C1279669B200924F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36958C3279669B200924F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39B6964279678E8005B1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapview+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,16 +338,36 @@
 			isa = PBXGroup;
 			children = (
 				D332A96727B038850093FB65 /* QueueAPI.swift */,
+				D332A97827B188760093FB65 /* FriendsData.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
 		};
-		D332A96F27B043830093FB65 /* ViewModel */ = {
+		D332A97227B116290093FB65 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				D332A97027B043920093FB65 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D332A97327B116380093FB65 /* MainSearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D332A97F27B18D070093FB65 /* HobbyUICollectionViewCell.swift */,
+				D332A97D27B18CFB0093FB65 /* HobbyUICollectionView.swift */,
+				D332A97627B1166D0093FB65 /* MainSearchView.swift */,
+				D332A97427B116660093FB65 /* MainSearchViewController.swift */,
+			);
+			path = MainSearchView;
+			sourceTree = "<group>";
+		};
+		D332A97A27B188EC0093FB65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D332A97B27B188F60093FB65 /* MainModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D33458F1279695D800EB983B /* Views */ = {
@@ -365,6 +399,7 @@
 				D33459272797D55300EB983B /* UIFont+Extension.swift */,
 				D301DC55279D4C9C00E4BD08 /* Date+Extension.swift */,
 				D362F905279FF0E600409DF2 /* UIViewController+Extension.swift */,
+				D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -466,6 +501,8 @@
 		D362F8FF279FEEE700409DF2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D332A97A27B188EC0093FB65 /* Model */,
+				D332A97227B116290093FB65 /* ViewModel */,
 				D362F900279FEEFB00409DF2 /* View */,
 			);
 			path = Home;
@@ -502,7 +539,7 @@
 		D362F91727A1AEF400409DF2 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				D332A96F27B043830093FB65 /* ViewModel */,
+				D332A97327B116380093FB65 /* MainSearchView */,
 				D332A96027B02E770093FB65 /* MainFilterButtons.swift */,
 				D332A95C27B02ADD0093FB65 /* MainView.swift */,
 				D362F91127A1A6E800409DF2 /* MainViewController.swift */,
@@ -719,12 +756,14 @@
 				D332A97127B043920093FB65 /* MainViewModel.swift in Sources */,
 				D332A95D27B02ADD0093FB65 /* MainView.swift in Sources */,
 				D332A95727AED9390093FB65 /* UserRegisterState.swift in Sources */,
+				D332A97527B116660093FB65 /* MainSearchViewController.swift in Sources */,
 				D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */,
 				D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */,
 				D301DC50279D03B200E4BD08 /* DateView.swift in Sources */,
 				D362F91027A1A16F00409DF2 /* MyInfoViewController.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
 				D362F8FE279FD1D300409DF2 /* UserInformation.swift in Sources */,
+				D332A98027B18D070093FB65 /* HobbyUICollectionViewCell.swift in Sources */,
 				D301DC52279D0C0400E4BD08 /* DateType.swift in Sources */,
 				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
 				D362F90D27A1A10600409DF2 /* HomeTabBarController.swift in Sources */,
@@ -765,6 +804,7 @@
 				D301DC7E279E827E00E4BD08 /* UserViewModel.swift in Sources */,
 				D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */,
 				D362F906279FF0E600409DF2 /* UIViewController+Extension.swift in Sources */,
+				D332A97E27B18CFB0093FB65 /* HobbyUICollectionView.swift in Sources */,
 				D33458FE2796B05100EB983B /* CustomNextButton.swift in Sources */,
 				D332A95527AEB0200093FB65 /* MyInfoTableViewCell.swift in Sources */,
 				D301DC56279D4C9C00E4BD08 /* Date+Extension.swift in Sources */,
@@ -773,12 +813,14 @@
 				D301DC62279D65C100E4BD08 /* GenderSelectView.swift in Sources */,
 				D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */,
 				D362F93527AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift in Sources */,
+				D332A97C27B188F60093FB65 /* MainModel.swift in Sources */,
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
 				D301DC6A279D70A800E4BD08 /* GenderStackView.swift in Sources */,
 				D301DC59279D5F1700E4BD08 /* EmailView.swift in Sources */,
+				D332A97727B1166D0093FB65 /* MainSearchView.swift in Sources */,
 				D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */,
 				D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */,
 				D362F93C27AC217500409DF2 /* MyInfoSearchAgeView.swift in Sources */,
@@ -787,6 +829,8 @@
 				D362F92B27ABAC3D00409DF2 /* ProfileUserNameView.swift in Sources */,
 				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,
 				D301DC40279C646B00E4BD08 /* NicknameViewController.swift in Sources */,
+				D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */,
+				D332A97927B188760093FB65 /* FriendsData.swift in Sources */,
 				D332A95927AEDFC90093FB65 /* UserDefaultValues.swift in Sources */,
 				D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */,
 			);

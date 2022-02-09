@@ -6,6 +6,9 @@
 //
 
 class MainViewModel {
+    
+    let model = MainModel.shared
+    
     let queueAPI = QueueAPI()
     
     

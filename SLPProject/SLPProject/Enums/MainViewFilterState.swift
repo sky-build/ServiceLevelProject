@@ -8,7 +8,7 @@
 import Foundation
 
 enum MainViewFilterState: String {
-    case all
-    case man
-    case woman
+    case all = "전체"
+    case man = "남자"
+    case woman = "여자"
 }
