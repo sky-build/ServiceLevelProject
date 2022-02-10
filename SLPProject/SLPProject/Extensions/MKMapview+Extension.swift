@@ -9,7 +9,7 @@ import MapKit
 
 extension MKMapView {
     
-    func markAnnotation(_ coordinate: CLLocationCoordinate2D) {
+    func markAnnotation(_ coordinate: CLLocationCoordinate2D, region: Bool = true) {
         self.removeAnnotations(self.annotations)
         
         let annotation = MKPointAnnotation()
@@ -17,9 +17,16 @@ extension MKMapView {
         self.addAnnotation(annotation)
         
         // 위치 설정
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: coordinate, span: span)
-        self.setRegion(region, animated: true)
+        if region {
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            self.setRegion(region, animated: true)
+            
+        }
     }
     
+//    private func calculateRegion() -> String {
+//        self.
+//    }
+
 }

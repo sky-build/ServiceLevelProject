@@ -85,7 +85,6 @@ class MainViewController: BaseViewController {
     }
     
     @objc private func gpsButtonClicked(_ sender: UIButton) {
-        let annotation = MKPointAnnotation()
         if let coordinate = locationManager.location?.coordinate {
             mainView.mapView.markAnnotation(coordinate)
         } else {
@@ -97,12 +96,7 @@ class MainViewController: BaseViewController {
 extension MainViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        mapView.removeAnnotations(mapView.annotations)
-        
-        let annotation = MKPointAnnotation()
-        let coordinate = mapView.centerCoordinate
-        annotation.coordinate = coordinate
-        mainView.mapView.addAnnotation(annotation)
+        mapView.markAnnotation(mapView.centerCoordinate, region: false)
     }
 }
 
@@ -110,15 +104,8 @@ extension MainViewController: CLLocationManagerDelegate {
     
     // 위치가 업데이트 될 때
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let annotation = MKPointAnnotation()
         if let coordinate = manager.location?.coordinate {
-            annotation.coordinate = coordinate
-            mainView.mapView.addAnnotation(annotation)
-            
-            // 위치 설정
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: coordinate, span: span)
-            mainView.mapView.setRegion(region, animated: true)
+            mainView.mapView.markAnnotation(coordinate)
         }
     }
     
