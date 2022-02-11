@@ -30,7 +30,7 @@ class MainFilterButtons: UIStackView, FetchViews {
     
     let allButton: CustomFilterButton = {
         let button = CustomFilterButton()
-        button.buttonState = false
+        button.buttonState = true
         button.setTitle("전체", for: .normal)
         return button
     }()

@@ -64,9 +64,9 @@ class QueueAPI {
     func queue() {
         let parameters: Parameters = [
               "type": 2,
-              "region": 1274830692,
-              "long": 126.92983890550006,
-              "lat": 37.482733667903865,
+              "region": 1275130688,
+              "long": MainModel.shared.currentPosition.value[1],
+              "lat": MainModel.shared.currentPosition.value[0],
               "hf": ["Anything", "coding"]
         ]
         
@@ -100,12 +100,27 @@ class QueueAPI {
         }
     }
     
+    private func region(_ lat: Double, _ long: Double) -> Int {
+        let latString = String(lat + 90).replacingOccurrences(of: ".", with: "")
+        let endIndex = latString.index(latString.startIndex, offsetBy: 5)
+        let latValue = latString[..<endIndex]
+        
+        let longString = String(long + 180).replacingOccurrences(of: ".", with: "")
+        let longEndIndex = longString.index(longString.startIndex, offsetBy: 5)
+        let longValue = longString[..<longEndIndex]
+        
+        print("regions = ", Int(latValue + longValue)!)
+        return Int(latValue + longValue)!
+    }
+    
     func onQueue() {
-        let parameters: Parameters = [
-            "region": 1274830692,
-            "lat": 37.482733667903865,
-            "long": 126.92983890550006
-        ]
+        var parameters: Parameters {
+            [
+                "region": region(MainModel.shared.currentPosition.value[0], MainModel.shared.currentPosition.value[1]),
+                "lat": MainModel.shared.currentPosition.value[0],
+                "long": MainModel.shared.currentPosition.value[1],
+            ]
+        }
         
         baseQueueAPIRequest(method: .post, url: QueueURL.onqueue.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
             switch apiState {
@@ -117,8 +132,10 @@ class QueueAPI {
                 do {
                     let decoder = JSONDecoder()
                     let decodeData = try decoder.decode(FriendsData.self, from: data)
+                    print(decodeData)
                     // 모델에 값 변경해줌
                     MainModel.shared.nearFriends.accept(decodeData.fromQueueDB)
+                    MainModel.shared.requestNearFriends.accept(decodeData.fromQueueDBRequested)
                     MainModel.shared.fromRecomend.accept(decodeData.fromRecommend)
                     
                     // 그리고 구독하라고 설정
@@ -128,7 +145,10 @@ class QueueAPI {
                 }
                 state.accept(.success)
             case .firebaseTokenError:
-                state.accept(.firebaseTokenError)
+//                state.accept(.firebaseTokenError)
+                FirebaseToken.shared.updateIDToken {
+                    onQueue()
+                }
             case .noRegisterUser:
                 state.accept(.noRegisterUser)
             case .serverError:

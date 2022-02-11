@@ -11,5 +11,4 @@ class MainViewModel {
     
     let queueAPI = QueueAPI()
     
-    
 }
