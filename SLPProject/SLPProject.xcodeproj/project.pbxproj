@@ -70,8 +70,9 @@
 		D3345935279970FA00EB983B /* ExplainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3345934279970FA00EB983B /* ExplainLabel.swift */; };
 		D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33459362799809900EB983B /* CustomTextFieldView.swift */; };
 		D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334593A2799A7C800EB983B /* BaseViewController.swift */; };
-		D3348E9727B6305200C3AFB6 /* MainFriendsAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9627B6305200C3AFB6 /* MainFriendsAnnotationView.swift */; };
+		D3348E9727B6305200C3AFB6 /* MainManAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9627B6305200C3AFB6 /* MainManAnnotationView.swift */; };
 		D3348E9927B6527800C3AFB6 /* MainMyAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9827B6527700C3AFB6 /* MainMyAnnotationView.swift */; };
+		D3348E9B27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9A27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift */; };
 		D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C88B279E8BDA001D51D9 /* RxAlamofire */; };
 		D351C891279E96ED001D51D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C890279E96ED001D51D9 /* Alamofire */; };
 		D362F8F3279EC07900409DF2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D362F8F2279EC07900409DF2 /* FirebaseAuth */; };
@@ -172,8 +173,9 @@
 		D3345934279970FA00EB983B /* ExplainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainLabel.swift; sourceTree = "<group>"; };
 		D33459362799809900EB983B /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		D334593A2799A7C800EB983B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		D3348E9627B6305200C3AFB6 /* MainFriendsAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFriendsAnnotationView.swift; sourceTree = "<group>"; };
+		D3348E9627B6305200C3AFB6 /* MainManAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManAnnotationView.swift; sourceTree = "<group>"; };
 		D3348E9827B6527700C3AFB6 /* MainMyAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMyAnnotationView.swift; sourceTree = "<group>"; };
+		D3348E9A27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWomanAnnotationView.swift; sourceTree = "<group>"; };
 		D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseToken.swift; sourceTree = "<group>"; };
 		D362F8F9279EF5F700409DF2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		D362F8FD279FD1D300409DF2 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
@@ -544,7 +546,8 @@
 			isa = PBXGroup;
 			children = (
 				D332A97327B116380093FB65 /* MainSearchView */,
-				D3348E9627B6305200C3AFB6 /* MainFriendsAnnotationView.swift */,
+				D3348E9627B6305200C3AFB6 /* MainManAnnotationView.swift */,
+				D3348E9A27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift */,
 				D3348E9827B6527700C3AFB6 /* MainMyAnnotationView.swift */,
 				D332A96027B02E770093FB65 /* MainFilterButtons.swift */,
 				D332A95C27B02ADD0093FB65 /* MainView.swift */,
@@ -774,7 +777,7 @@
 				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
 				D362F90D27A1A10600409DF2 /* HomeTabBarController.swift in Sources */,
 				D301DC5B279D5F2500E4BD08 /* EmailViewController.swift in Sources */,
-				D3348E9727B6305200C3AFB6 /* MainFriendsAnnotationView.swift in Sources */,
+				D3348E9727B6305200C3AFB6 /* MainManAnnotationView.swift in Sources */,
 				D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */,
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
 				D301DC7B279E656600E4BD08 /* Typealias.swift in Sources */,
@@ -807,6 +810,7 @@
 				D332A96827B038850093FB65 /* QueueAPI.swift in Sources */,
 				D33458FB2796A54500EB983B /* UIColor+Extension.swift in Sources */,
 				D301DC4A279C793000E4BD08 /* BirthdayView.swift in Sources */,
+				D3348E9B27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift in Sources */,
 				D362F91427A1A71600409DF2 /* ShopViewController.swift in Sources */,
 				D301DC7E279E827E00E4BD08 /* UserViewModel.swift in Sources */,
 				D33459072796E21800EB983B /* UITextField+Extension.swift in Sources */,

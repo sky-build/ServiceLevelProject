@@ -89,7 +89,8 @@ class MainViewController: BaseViewController {
         // 회전 못하게 설정
         mainView.mapView.isRotateEnabled = false
         
-        mainView.mapView.register(MainFriendsAnnotationView.self, forAnnotationViewWithReuseIdentifier: MainFriendsAnnotationView.identifier)
+        mainView.mapView.register(MainManAnnotationView.self, forAnnotationViewWithReuseIdentifier: MainManAnnotationView.identifier)
+        mainView.mapView.register(MainWomanAnnotationView.self, forAnnotationViewWithReuseIdentifier: MainWomanAnnotationView.identifier)
         mainView.mapView.register(MainMyAnnotationView.self, forAnnotationViewWithReuseIdentifier: MainMyAnnotationView.identifier)
     }
     
@@ -145,17 +146,15 @@ extension MainViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-        
-//        let annotationVite: MKAnnotationView?
         
         if annotation.title == "my" {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MainMyAnnotationView.identifier) as! MainMyAnnotationView
             return annotationView
+        } else if annotation.title == "여자" {
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MainManAnnotationView.identifier) as! MainManAnnotationView
+            return annotationView
         } else {
-            let annotationView = MainFriendsAnnotationView()
-            //mapView.dequeueReusableAnnotationView(withIdentifier: MainFriendsAnnotationView.identifier) as! MainFriendsAnnotationView
-            annotationView.imageState = annotation.title == "여자" ? .two : .five
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MainWomanAnnotationView.identifier) as! MainWomanAnnotationView
             return annotationView
         }
     }

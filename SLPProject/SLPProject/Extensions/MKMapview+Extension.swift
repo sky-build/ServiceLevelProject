@@ -37,6 +37,7 @@ extension MKMapView {
                 let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
                 annotation.title = userGender == .woman ? "여자" : "남자"
                 annotation.coordinate = coordinate
+                
                 self.addAnnotation(annotation)
             }
         }
