@@ -18,6 +18,9 @@ class MainModel {
     
     let fromRecomend = BehaviorRelay<[String]>(value: [])
     
+    // 내 관심
+    let myHobby = BehaviorRelay<[String]>(value: [])
+    
     let currentPosition = BehaviorRelay<[Double]>(value: [37.482733667903865, 126.92983890550006])
     
     let filterState = BehaviorRelay<MainViewFilterState>(value: .all)

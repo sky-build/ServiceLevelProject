@@ -65,6 +65,9 @@ class HobbyUICollectionViewCell: UICollectionViewCell, FetchViews {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // height 고정
+//        self.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        
         addViews()
         makeConstraints()
     }
