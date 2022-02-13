@@ -11,13 +11,6 @@ import RxSwift
 
 class MainSearchViewController: BaseViewController {
     
-    let data = [
-        "요가",
-        "독서모임",
-        "SeSAC",
-        "코딩"
-    ]
-    
     let viewModel = MainViewModel()
     
     let mainView = MainSearchView()
@@ -48,6 +41,7 @@ class MainSearchViewController: BaseViewController {
         mainView.myFavoriteCollectionView.delegate = self
         mainView.myFavoriteCollectionView.dataSource = self
 
+        searchBar.delegate = self
         
         mainView.nearHobbyCollectionView.rx.itemSelected
             .asDriver()
@@ -63,6 +57,28 @@ class MainSearchViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         }
+}
+
+extension MainSearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        
+        var list = viewModel.model.myHobby.value
+        let inputList = text
+                            .split(separator: " ")
+                            .map { String($0) }
+                            .filter { !list.contains($0) }
+        
+        inputList.forEach {
+            if list.count < 8 {
+                list.append($0)
+                viewModel.model.myHobby.accept(list)
+                mainView.myFavoriteCollectionView.reloadData()
+            }
+        }
+        
+        searchBar.text = nil
+    }
 }
 
 extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
