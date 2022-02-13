@@ -120,7 +120,7 @@ class MainSearchView: UIView, FetchViews {
         nearHobbyCollectionView.snp.makeConstraints {
             $0.top.equalTo(recommandCollectionView.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
-            $0.height.greaterThanOrEqualTo(50)
+            $0.height.greaterThanOrEqualTo(200)
         }
         
         myFavoriteLabel.snp.makeConstraints {
@@ -131,7 +131,7 @@ class MainSearchView: UIView, FetchViews {
         myFavoriteCollectionView.snp.makeConstraints {
             $0.top.equalTo(myFavoriteLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.greaterThanOrEqualTo(50)
+            $0.height.greaterThanOrEqualTo(200)
             $0.bottom.equalToSuperview()
 //            $0.height.equalTo(150)
         }

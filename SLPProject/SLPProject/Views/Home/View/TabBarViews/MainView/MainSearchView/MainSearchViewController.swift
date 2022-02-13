@@ -41,34 +41,28 @@ class MainSearchViewController: BaseViewController {
         
         mainView.recommandCollectionView.delegate = self
         mainView.recommandCollectionView.dataSource = self
-//        mainView.recommandCollectionView.layoutIfNeeded()
         
         mainView.nearHobbyCollectionView.delegate = self
         mainView.nearHobbyCollectionView.dataSource = self
         
         mainView.myFavoriteCollectionView.delegate = self
         mainView.myFavoriteCollectionView.dataSource = self
-        
-//        viewModel.model.fromRecomend
-//            .bind(to: mainView.recommandCollectionView.rx.items(cellIdentifier: HobbyUICollectionViewCell.identifier)) { row, element, cell in
-//                cell
-//
-//            }
-//            .disposed(by: disposeBag)
+
         
         mainView.nearHobbyCollectionView.rx.itemSelected
             .asDriver()
             .drive { [self] indexPath in
-                print(viewModel.model.nearFriends.value[indexPath.row].hf[0])
+                let value = viewModel.model.nearFriends.value[indexPath.row].hf[0]
+                print(value)
                 var list = viewModel.model.myHobby.value
-                list.append(viewModel.model.nearFriends.value[indexPath.row].hf[0])
-                viewModel.model.myHobby.accept(list)
-                mainView.myFavoriteCollectionView.reloadData()
+                if list.count < 8 && !list.contains(value) {
+                    list.append(value)
+                    viewModel.model.myHobby.accept(list)
+                    mainView.myFavoriteCollectionView.reloadData()
+                }
             }
             .disposed(by: disposeBag)
-
-        
-    }
+        }
 }
 
 extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -101,6 +95,15 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.hobbyLabel.text = viewModel.model.nearFriends.value[indexPath.row].hf[0]
         case .green:
             cell.hobbyLabel.text = viewModel.model.myHobby.value[indexPath.row]
+            cell.deleteButton.rx.tap
+                .single()
+                .subscribe { [self] _ in
+                    var hobbyList = viewModel.model.myHobby.value
+                    hobbyList.remove(at: indexPath.row)
+                    viewModel.model.myHobby.accept(hobbyList)
+                    mainView.myFavoriteCollectionView.reloadData()
+                }
+                .disposed(by: disposeBag)
         }
         
         return cell
