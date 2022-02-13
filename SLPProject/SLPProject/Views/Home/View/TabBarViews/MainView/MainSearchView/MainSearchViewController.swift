@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Toast
 
 class MainSearchViewController: BaseViewController {
     
@@ -26,12 +27,15 @@ class MainSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = false
+        // collectionView 설정
+        setCollectionView()
         
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
-        self.navigationItem.titleView = searchBar
-        
+        // searchBar 설정
+        setSearchBar()
+    }
+    
+    // collectionView 설정
+    private func setCollectionView() {
         mainView.recommandCollectionView.delegate = self
         mainView.recommandCollectionView.dataSource = self
         
@@ -40,7 +44,22 @@ class MainSearchViewController: BaseViewController {
         
         mainView.myFavoriteCollectionView.delegate = self
         mainView.myFavoriteCollectionView.dataSource = self
-
+        
+        viewModel.model.myHobby
+            .subscribe { [self] value in
+                mainView.myFavoriteCollectionView.reloadData()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    // searchBar 설정
+    private func setSearchBar() {
+        navigationController?.navigationBar.isHidden = false
+        
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        self.navigationItem.titleView = searchBar
+        
         searchBar.delegate = self
         
         mainView.nearHobbyCollectionView.rx.itemSelected
@@ -52,11 +71,27 @@ class MainSearchViewController: BaseViewController {
                 if list.count < 8 && !list.contains(value) {
                     list.append(value)
                     viewModel.model.myHobby.accept(list)
-                    mainView.myFavoriteCollectionView.reloadData()
+                } else {
+                    view.makeToast("추가할 수 없습니다.")
                 }
             }
             .disposed(by: disposeBag)
-        }
+        
+        mainView.recommandCollectionView.rx.itemSelected
+            .asDriver()
+            .drive { [self] indexPath in
+                let value = viewModel.model.fromRecomend.value[indexPath.row]
+                
+                var list = viewModel.model.myHobby.value
+                if list.count < 8 && !list.contains(value) {
+                    list.append(value)
+                    viewModel.model.myHobby.accept(list)
+                } else {
+                    view.makeToast("추가할 수 없습니다.")
+                }
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 extension MainSearchViewController: UISearchBarDelegate {
@@ -73,8 +108,11 @@ extension MainSearchViewController: UISearchBarDelegate {
             if list.count < 8 {
                 list.append($0)
                 viewModel.model.myHobby.accept(list)
-                mainView.myFavoriteCollectionView.reloadData()
             }
+        }
+        
+        if inputList.count + list.count > 8 {
+            view.makeToast("8개 이상 추가할 수 없습니다.")
         }
         
         searchBar.text = nil
@@ -90,7 +128,7 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
         case .red:
             return viewModel.model.fromRecomend.value.count
         case .black:
-            return viewModel.model.nearFriends.value.count
+            return viewModel.model.nearFriends.value.count > 8 ? 8 : viewModel.model.nearFriends.value.count
         case .green:
             return viewModel.model.myHobby.value.count
         }
