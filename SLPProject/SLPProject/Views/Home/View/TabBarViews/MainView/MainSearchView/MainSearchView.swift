@@ -72,6 +72,12 @@ class MainSearchView: UIView, FetchViews {
         return view
     }()
     
+    let bottomButton: CustomNextButton = {
+        let button = CustomNextButton()
+        button.setTitle("새싹 찾기", for: .normal)
+        return button
+    }()
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
     
@@ -87,7 +93,9 @@ class MainSearchView: UIView, FetchViews {
     }
     
     func addViews() {
-        self.addSubview(scrollView)
+        [scrollView, bottomButton].forEach {
+            self.addSubview($0)
+        }
         
         scrollView.addSubview(contentView)
         
@@ -98,7 +106,8 @@ class MainSearchView: UIView, FetchViews {
     
     func makeConstraints() {
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(bottomButton)
         }
         
         contentView.snp.makeConstraints {
@@ -115,12 +124,14 @@ class MainSearchView: UIView, FetchViews {
             $0.top.equalTo(nowSurroundLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
             $0.height.greaterThanOrEqualTo(50)
+//            $0.height.equalTo(50)
         }
         
         nearHobbyCollectionView.snp.makeConstraints {
             $0.top.equalTo(recommandCollectionView.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
-            $0.height.greaterThanOrEqualTo(200)
+            $0.height.greaterThanOrEqualTo(100)
+//            $0.height.equalTo(200)
         }
         
         myFavoriteLabel.snp.makeConstraints {
@@ -131,9 +142,14 @@ class MainSearchView: UIView, FetchViews {
         myFavoriteCollectionView.snp.makeConstraints {
             $0.top.equalTo(myFavoriteLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.greaterThanOrEqualTo(200)
+//            $0.height.greaterThanOrEqualTo(200)
             $0.bottom.equalToSuperview()
-//            $0.height.equalTo(150)
+            $0.height.equalTo(200)
+        }
+        
+        bottomButton.snp.makeConstraints {
+            $0.bottom.equalTo(super.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

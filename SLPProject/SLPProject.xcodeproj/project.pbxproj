@@ -73,6 +73,7 @@
 		D3348E9727B6305200C3AFB6 /* MainManAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9627B6305200C3AFB6 /* MainManAnnotationView.swift */; };
 		D3348E9927B6527800C3AFB6 /* MainMyAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9827B6527700C3AFB6 /* MainMyAnnotationView.swift */; };
 		D3348E9B27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9A27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift */; };
+		D3348E9E27B8E16800C3AFB6 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = D3348E9D27B8E16800C3AFB6 /* RxKeyboard */; };
 		D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C88B279E8BDA001D51D9 /* RxAlamofire */; };
 		D351C891279E96ED001D51D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C890279E96ED001D51D9 /* Alamofire */; };
 		D362F8F3279EC07900409DF2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D362F8F2279EC07900409DF2 /* FirebaseAuth */; };
@@ -221,6 +222,7 @@
 				D301DC6D279D769900E4BD08 /* RxCocoa in Frameworks */,
 				D362F94227AC299300409DF2 /* MultiSlider in Frameworks */,
 				D334592C27987ECE00EB983B /* AnyFormatKit in Frameworks */,
+				D3348E9E27B8E16800C3AFB6 /* RxKeyboard in Frameworks */,
 				D362F8F5279EC07900409DF2 /* FirebaseMessaging in Frameworks */,
 				D301DC72279D771400E4BD08 /* RxGesture in Frameworks */,
 				D33459142796F97900EB983B /* Toast in Frameworks */,
@@ -687,6 +689,7 @@
 				D362F8F4279EC07900409DF2 /* FirebaseMessaging */,
 				D362F93727AC1E5600409DF2 /* IQKeyboardManagerSwift */,
 				D362F94127AC299300409DF2 /* MultiSlider */,
+				D3348E9D27B8E16800C3AFB6 /* RxKeyboard */,
 			);
 			productName = SLPProject;
 			productReference = D36958B2279669AF00924F5A /* SLPProject.app */;
@@ -727,6 +730,7 @@
 				D362F8F1279EC07900409DF2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D362F93627AC1E5600409DF2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D362F94027AC299300409DF2 /* XCRemoteSwiftPackageReference "MultiSlider" */,
+				D3348E9C27B8E16800C3AFB6 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 			);
 			productRefGroup = D36958B3279669AF00924F5A /* Products */;
 			projectDirPath = "";
@@ -1100,6 +1104,14 @@
 				version = 2.5.1;
 			};
 		};
+		D3348E9C27B8E16800C3AFB6 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D351C88A279E8BDA001D51D9 /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
@@ -1172,6 +1184,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D334592A27987ECD00EB983B /* XCRemoteSwiftPackageReference "AnyFormatKit" */;
 			productName = AnyFormatKit;
+		};
+		D3348E9D27B8E16800C3AFB6 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3348E9C27B8E16800C3AFB6 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
 		};
 		D351C88B279E8BDA001D51D9 /* RxAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;

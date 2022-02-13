@@ -8,6 +8,8 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxKeyboard
+import SnapKit
 import Toast
 
 class MainSearchViewController: BaseViewController {
@@ -32,6 +34,10 @@ class MainSearchViewController: BaseViewController {
         
         // searchBar 설정
         setSearchBar()
+        
+        // 키보드 설정
+        setKeyboard()
+
     }
     
     // collectionView 설정
@@ -50,6 +56,10 @@ class MainSearchViewController: BaseViewController {
                 mainView.myFavoriteCollectionView.reloadData()
             }
             .disposed(by: disposeBag)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     // searchBar 설정
@@ -92,6 +102,30 @@ class MainSearchViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    // 키보드 설정
+    private func setKeyboard() {
+        RxKeyboard.instance.visibleHeight
+            .drive { [self] height in
+                if height == 0 {
+                    mainView.bottomButton.layer.cornerRadius = 8
+                    mainView.bottomButton.snp.updateConstraints {
+                        $0.bottom.equalTo(view.safeAreaLayoutGuide)
+                        $0.leading.trailing.equalToSuperview().inset(16)
+                    }
+                } else {
+                    mainView.bottomButton.layer.cornerRadius = 0
+                    mainView.bottomButton.snp.updateConstraints {
+                        $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(height - view.safeAreaInsets.bottom)
+                        $0.leading.trailing.equalToSuperview()
+                    }
+                }
+                // 애니메이션
+                view.layoutIfNeeded()
+            }
+            .disposed(by: disposeBag)
+    }
+    
 }
 
 extension MainSearchViewController: UISearchBarDelegate {
