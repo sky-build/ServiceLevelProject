@@ -62,15 +62,19 @@ class QueueAPI {
     }
     
     func queue() {
-        let parameters: Parameters = [
-              "type": 2,
-              "region": 1275130688,
-              "long": MainModel.shared.currentPosition.value[1],
-              "lat": MainModel.shared.currentPosition.value[0],
-              "hf": ["Anything", "coding"]
-        ]
+        var parameters: Parameters {
+            [
+                "type": 2,
+                "region": region(MainModel.shared.currentPosition.value[0], MainModel.shared.currentPosition.value[1]),
+                "long": MainModel.shared.currentPosition.value[1],
+                "lat": MainModel.shared.currentPosition.value[0],
+                "hf": MainModel.shared.myHobby.value
+            ]
+        }
+            
         
         baseQueueAPIRequest(method: .post, url: QueueURL.queue.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
+            print("apiState = ", apiState.rawValue)
             switch apiState {
             case .noConnectinon:
                 break
@@ -118,7 +122,7 @@ class QueueAPI {
             [
                 "region": region(MainModel.shared.currentPosition.value[0], MainModel.shared.currentPosition.value[1]),
                 "lat": MainModel.shared.currentPosition.value[0],
-                "long": MainModel.shared.currentPosition.value[1],
+                "long": MainModel.shared.currentPosition.value[1]
             ]
         }
         

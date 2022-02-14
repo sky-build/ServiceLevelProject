@@ -18,7 +18,7 @@ class MainSearchView: UIView, FetchViews {
     }()
     
     let recommandCollectionView: HobbyUICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         
         // 컬렉션뷰 크기 다이나믹하게 설정
@@ -34,7 +34,7 @@ class MainSearchView: UIView, FetchViews {
     }()
     
     let nearHobbyCollectionView: HobbyUICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         
         // 컬렉션뷰 크기 다이나믹하게 설정
@@ -57,7 +57,7 @@ class MainSearchView: UIView, FetchViews {
     }()
     
     let myFavoriteCollectionView: HobbyUICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         
         // 컬렉션뷰 크기 다이나믹하게 설정
@@ -158,7 +158,7 @@ class MainSearchView: UIView, FetchViews {
 class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func layoutAttributesForElements(in rect: CGRect) ->  [UICollectionViewLayoutAttributes]? {
         let attributes = super.layoutAttributesForElements(in: rect)?.map { $0.copy() as! UICollectionViewLayoutAttributes }
-        var leftMargin: CGFloat = 15.0
+        var leftMargin: CGFloat = sectionInset.left
         var maxY: CGFloat = -1.0
     
         attributes?.forEach { layoutAttribute in
@@ -167,7 +167,7 @@ class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
             }
 
             if layoutAttribute.frame.origin.y >= maxY {
-                leftMargin = 15.0
+                leftMargin = sectionInset.left
             }
             layoutAttribute.frame.origin.x = leftMargin
             leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing

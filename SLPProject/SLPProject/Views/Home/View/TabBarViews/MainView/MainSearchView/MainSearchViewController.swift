@@ -12,7 +12,7 @@ import RxKeyboard
 import SnapKit
 import Toast
 
-class MainSearchViewController: BaseViewController {
+final class MainSearchViewController: BaseViewController {
     
     let viewModel = MainViewModel()
     
@@ -37,7 +37,9 @@ class MainSearchViewController: BaseViewController {
         
         // 키보드 설정
         setKeyboard()
-
+        
+        // 버튼 설정
+        setButton()
     }
     
     // collectionView 설정
@@ -124,6 +126,17 @@ class MainSearchViewController: BaseViewController {
                 view.layoutIfNeeded()
             }
             .disposed(by: disposeBag)
+    }
+    
+    // 버튼 설정
+    private func setButton() {
+        mainView.bottomButton.rx.tap
+            .subscribe { [self] _ in
+                viewModel.queueAPI.queue()
+                navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+
     }
     
 }
