@@ -46,7 +46,7 @@ class QueueAPI {
     // 기본 코드
     fileprivate func baseQueueAPIRequest(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, QueueEnum) -> Void) {
         if NetworkMonitor.shared.isConnected {
-            RxAlamofire.requestData(method, url, parameters: parameters, headers: header)
+            RxAlamofire.requestData(method, url, parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets), headers: header)
                 .debug()
                 .subscribe { (header, data) in
                     // APIState를 Enum으로 변경
@@ -71,7 +71,12 @@ class QueueAPI {
                 "hf": MainModel.shared.myHobby.value
             ]
         }
-            
+        
+        print(parameters)
+//        print("region", region(MainModel.shared.currentPosition.value[0], MainModel.shared.currentPosition.value[1]))
+//        print("long", MainModel.shared.currentPosition.value[1])
+//        print("lat", MainModel.shared.currentPosition.value[0])
+//        print("hf", MainModel.shared.myHobby.value)
         
         baseQueueAPIRequest(method: .post, url: QueueURL.queue.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
             print("apiState = ", apiState.rawValue)
@@ -113,7 +118,6 @@ class QueueAPI {
         let longEndIndex = longString.index(longString.startIndex, offsetBy: 5)
         let longValue = longString[..<longEndIndex]
         
-        print("regions = ", Int(latValue + longValue)!)
         return Int(latValue + longValue)!
     }
     

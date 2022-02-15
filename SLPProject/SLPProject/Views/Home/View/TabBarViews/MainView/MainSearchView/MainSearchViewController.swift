@@ -44,20 +44,76 @@ final class MainSearchViewController: BaseViewController {
     
     // collectionView 설정
     private func setCollectionView() {
-        mainView.recommandCollectionView.delegate = self
-        mainView.recommandCollectionView.dataSource = self
-        
-        mainView.nearHobbyCollectionView.delegate = self
-        mainView.nearHobbyCollectionView.dataSource = self
-        
-        mainView.myFavoriteCollectionView.delegate = self
-        mainView.myFavoriteCollectionView.dataSource = self
+        mainView.collectionView.delegate = self
+        mainView.collectionView.dataSource = self
         
         viewModel.model.myHobby
             .subscribe { [self] value in
-                mainView.myFavoriteCollectionView.reloadData()
+                print("데이터", viewModel.model.myHobby.value)
+                mainView.collectionView.reloadData()
             }
             .disposed(by: disposeBag)
+        
+        mainView.collectionView.rx.itemSelected
+            .filter { $0.section != 2 }
+            .subscribe(onNext: { [self] indexPath in
+                print("클릭한 데이터")
+                print(indexPath.section, indexPath.row)
+                if indexPath.section == 0 {
+                    let value = viewModel.model.fromRecomend.value[indexPath.row]
+                    
+                    var list = viewModel.model.myHobby.value
+                    if list.count < 8 && !list.contains(value) {
+                        list.append(value)
+                        viewModel.model.myHobby.accept(list)
+                    } else {
+                        view.makeToast("추가할 수 없습니다.")
+                    }
+                } else if indexPath.section == 1 {
+                    let value = viewModel.model.nearFriends.value[indexPath.row].hf[0]
+                    
+                    var list = viewModel.model.myHobby.value
+                    if list.count < 8 && !list.contains(value) {
+                        list.append(value)
+                        viewModel.model.myHobby.accept(list)
+                    } else {
+                        view.makeToast("추가할 수 없습니다.")
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+
+    
+        
+//        mainView.nearHobbyCollectionView.rx.itemSelected
+//            .asDriver()
+//            .drive { [self] indexPath in
+//                let value = viewModel.model.nearFriends.value[indexPath.row].hf[0]
+//                print(value)
+//                var list = viewModel.model.myHobby.value
+//                if list.count < 8 && !list.contains(value) {
+//                    list.append(value)
+//                    viewModel.model.myHobby.accept(list)
+//                } else {
+//                    view.makeToast("추가할 수 없습니다.")
+//                }
+//            }
+//            .disposed(by: disposeBag)
+//
+//        mainView.recommandCollectionView.rx.itemSelected
+//            .asDriver()
+//            .drive { [self] indexPath in
+//                let value = viewModel.model.fromRecomend.value[indexPath.row]
+//
+//                var list = viewModel.model.myHobby.value
+//                if list.count < 8 && !list.contains(value) {
+//                    list.append(value)
+//                    viewModel.model.myHobby.accept(list)
+//                } else {
+//                    view.makeToast("추가할 수 없습니다.")
+//                }
+//            }
+//            .disposed(by: disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -73,36 +129,6 @@ final class MainSearchViewController: BaseViewController {
         self.navigationItem.titleView = searchBar
         
         searchBar.delegate = self
-        
-        mainView.nearHobbyCollectionView.rx.itemSelected
-            .asDriver()
-            .drive { [self] indexPath in
-                let value = viewModel.model.nearFriends.value[indexPath.row].hf[0]
-                print(value)
-                var list = viewModel.model.myHobby.value
-                if list.count < 8 && !list.contains(value) {
-                    list.append(value)
-                    viewModel.model.myHobby.accept(list)
-                } else {
-                    view.makeToast("추가할 수 없습니다.")
-                }
-            }
-            .disposed(by: disposeBag)
-        
-        mainView.recommandCollectionView.rx.itemSelected
-            .asDriver()
-            .drive { [self] indexPath in
-                let value = viewModel.model.fromRecomend.value[indexPath.row]
-                
-                var list = viewModel.model.myHobby.value
-                if list.count < 8 && !list.contains(value) {
-                    list.append(value)
-                    viewModel.model.myHobby.accept(list)
-                } else {
-                    view.makeToast("추가할 수 없습니다.")
-                }
-            }
-            .disposed(by: disposeBag)
     }
     
     // 키보드 설정
@@ -133,7 +159,6 @@ final class MainSearchViewController: BaseViewController {
         mainView.bottomButton.rx.tap
             .subscribe { [self] _ in
                 viewModel.queueAPI.queue()
-                navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
 
@@ -168,45 +193,54 @@ extension MainSearchViewController: UISearchBarDelegate {
 
 extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let state = (collectionView as! HobbyUICollectionView).state
         
-        switch state {
-        case .red:
+        switch section {
+        case 0:
             return viewModel.model.fromRecomend.value.count
-        case .black:
+        case 1:
             return viewModel.model.nearFriends.value.count > 8 ? 8 : viewModel.model.nearFriends.value.count
-        case .green:
+        case 2:
+            print(viewModel.model.myHobby.value.count)
             return viewModel.model.myHobby.value.count
+        default:
+            return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("수정")
         
-        let state = (collectionView as! HobbyUICollectionView).state
+        let cell = mainView.collectionView.dequeueReusableCell(withReuseIdentifier: HobbyUICollectionViewCell.identifier, for: indexPath) as! HobbyUICollectionViewCell
         
-        let cell = mainView.recommandCollectionView.dequeueReusableCell(withReuseIdentifier: HobbyUICollectionViewCell.identifier, for: indexPath) as! HobbyUICollectionViewCell
-        
-        cell.state = state
-        
-        switch state {
-        case .red:
+        switch indexPath.section {
+        case 0:
             cell.hobbyLabel.text = viewModel.model.fromRecomend.value[indexPath.row]
-        case .black:
+            cell.state = .red
+        case 1:
             cell.hobbyLabel.text = viewModel.model.nearFriends.value[indexPath.row].hf[0]
-        case .green:
+            cell.state = .black
+        case 2:
             cell.hobbyLabel.text = viewModel.model.myHobby.value[indexPath.row]
-            cell.deleteButton.rx.tap
-                .single()
-                .subscribe { [self] _ in
-                    var hobbyList = viewModel.model.myHobby.value
-                    hobbyList.remove(at: indexPath.row)
-                    viewModel.model.myHobby.accept(hobbyList)
-                    mainView.myFavoriteCollectionView.reloadData()
-                }
-                .disposed(by: disposeBag)
+            cell.state = .green
+            cell.deleteButton.isHidden = false
+            cell.deleteButton.tag = indexPath.row
+            cell.deleteButton.addTarget(self, action: #selector(deleteButtonClicked(_:)), for: .touchUpInside)
+        default:
+            break
         }
         
         return cell
+    }
+    
+    @objc func deleteButtonClicked(_ sender : UIButton) {
+        mainView.collectionView.deleteItems(at: [IndexPath.init(row: sender.tag, section: 2)])
+        var hobbyList = viewModel.model.myHobby.value
+        hobbyList.remove(at: sender.tag)
+        viewModel.model.myHobby.accept(hobbyList)
     }
 }

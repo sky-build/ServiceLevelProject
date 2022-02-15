@@ -13,6 +13,8 @@ class FirebaseToken {
     
     static let shared = FirebaseToken()
     
+    private init() { }
+    
     var idToken: String {
         get {
             UserDefaults.standard.string(forKey: "idToken") ?? ""

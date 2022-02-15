@@ -18,7 +18,7 @@ class HobbyUICollectionViewCell: UICollectionViewCell, FetchViews {
     
     static let identifier = "HobbyUICollectionViewCell"
     
-    var state: HobbyColor = .black {
+    var state: HobbyColor = .green {
         didSet {
             switch state {
             case .red:
