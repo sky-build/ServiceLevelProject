@@ -50,61 +50,12 @@ class MainSearchView: UIView, FetchViews {
         [collectionView, bottomButton].forEach {
             self.addSubview($0)
         }
-        
-//        scrollView.addSubview(contentView)
-//
-//        //[nowSurroundLabel, recommandCollectionView, nearHobbyCollectionView, myFavoriteLabel, myFavoriteCollectionView]
-//        [collectionView].forEach {
-//            contentView.addSubview($0)
-//        }
     }
     
     func makeConstraints() {
-//        scrollView.snp.makeConstraints {
-//            $0.top.leading.trailing.equalToSuperview()
-//            $0.bottom.equalTo(bottomButton)
-//        }
-//
-//        contentView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//            $0.centerX.equalToSuperview()
-//        }
         
-//        nowSurroundLabel.snp.makeConstraints {
-//            $0.top.equalTo(super.safeAreaLayoutGuide).inset(32)
-//            $0.leading.trailing.equalToSuperview().inset(16)
-//        }
-//
-//        recommandCollectionView.snp.makeConstraints {
-//            $0.top.equalTo(nowSurroundLabel.snp.bottom).offset(16)
-//            $0.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
-//            $0.height.greaterThanOrEqualTo(50)
-////            $0.height.equalTo(50)
-//        }
-//
-//        nearHobbyCollectionView.snp.makeConstraints {
-//            $0.top.equalTo(recommandCollectionView.snp.bottom).offset(16)
-//            $0.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
-//            $0.height.greaterThanOrEqualTo(100)
-////            $0.height.equalTo(200)
-//        }
-//
-//        myFavoriteLabel.snp.makeConstraints {
-//            $0.top.equalTo(nearHobbyCollectionView.snp.bottom).offset(16)
-//            $0.leading.trailing.equalToSuperview().inset(16)
-//        }
-//
-//        myFavoriteCollectionView.snp.makeConstraints {
-//            $0.top.equalTo(myFavoriteLabel.snp.bottom).offset(16)
-//            $0.leading.trailing.equalToSuperview().inset(16)
-////            $0.height.greaterThanOrEqualTo(200)
-//            $0.bottom.equalToSuperview()
-//            $0.height.equalTo(200)
-//        }
-        
-        collectionView.backgroundColor = .slpGray7
         collectionView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()//.inset(16)
+            $0.top.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(bottomButton.snp.top).inset(-16)
         }
         

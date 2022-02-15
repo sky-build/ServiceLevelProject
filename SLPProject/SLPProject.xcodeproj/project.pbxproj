@@ -74,6 +74,7 @@
 		D3348E9927B6527800C3AFB6 /* MainMyAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9827B6527700C3AFB6 /* MainMyAnnotationView.swift */; };
 		D3348E9B27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9A27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift */; };
 		D3348E9E27B8E16800C3AFB6 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = D3348E9D27B8E16800C3AFB6 /* RxKeyboard */; };
+		D3348EA027BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348E9F27BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift */; };
 		D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C88B279E8BDA001D51D9 /* RxAlamofire */; };
 		D351C891279E96ED001D51D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C890279E96ED001D51D9 /* Alamofire */; };
 		D362F8F3279EC07900409DF2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D362F8F2279EC07900409DF2 /* FirebaseAuth */; };
@@ -177,6 +178,7 @@
 		D3348E9627B6305200C3AFB6 /* MainManAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManAnnotationView.swift; sourceTree = "<group>"; };
 		D3348E9827B6527700C3AFB6 /* MainMyAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMyAnnotationView.swift; sourceTree = "<group>"; };
 		D3348E9A27B67BAD00C3AFB6 /* MainWomanAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWomanAnnotationView.swift; sourceTree = "<group>"; };
+		D3348E9F27BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCollectionViewHeader.swift; sourceTree = "<group>"; };
 		D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseToken.swift; sourceTree = "<group>"; };
 		D362F8F9279EF5F700409DF2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		D362F8FD279FD1D300409DF2 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		D332A97327B116380093FB65 /* MainSearchView */ = {
 			isa = PBXGroup;
 			children = (
+				D3348E9F27BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift */,
 				D332A97F27B18D070093FB65 /* HobbyUICollectionViewCell.swift */,
 				D332A97D27B18CFB0093FB65 /* HobbyUICollectionView.swift */,
 				D332A97627B1166D0093FB65 /* MainSearchView.swift */,
@@ -834,6 +837,7 @@
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
+				D3348EA027BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift in Sources */,
 				D301DC6A279D70A800E4BD08 /* GenderStackView.swift in Sources */,
 				D301DC59279D5F1700E4BD08 /* EmailView.swift in Sources */,
 				D332A97727B1166D0093FB65 /* MainSearchView.swift in Sources */,

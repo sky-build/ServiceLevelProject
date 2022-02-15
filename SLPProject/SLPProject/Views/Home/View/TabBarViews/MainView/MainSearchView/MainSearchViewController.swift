@@ -47,6 +47,8 @@ final class MainSearchViewController: BaseViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
         
+        mainView.collectionView.register(HobbyCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HobbyCollectionViewHeader.identifier)
+        
         viewModel.model.myHobby
             .subscribe { [self] value in
                 print("데이터", viewModel.model.myHobby.value)
@@ -82,42 +84,6 @@ final class MainSearchViewController: BaseViewController {
                 }
             })
             .disposed(by: disposeBag)
-
-    
-        
-//        mainView.nearHobbyCollectionView.rx.itemSelected
-//            .asDriver()
-//            .drive { [self] indexPath in
-//                let value = viewModel.model.nearFriends.value[indexPath.row].hf[0]
-//                print(value)
-//                var list = viewModel.model.myHobby.value
-//                if list.count < 8 && !list.contains(value) {
-//                    list.append(value)
-//                    viewModel.model.myHobby.accept(list)
-//                } else {
-//                    view.makeToast("추가할 수 없습니다.")
-//                }
-//            }
-//            .disposed(by: disposeBag)
-//
-//        mainView.recommandCollectionView.rx.itemSelected
-//            .asDriver()
-//            .drive { [self] indexPath in
-//                let value = viewModel.model.fromRecomend.value[indexPath.row]
-//
-//                var list = viewModel.model.myHobby.value
-//                if list.count < 8 && !list.contains(value) {
-//                    list.append(value)
-//                    viewModel.model.myHobby.accept(list)
-//                } else {
-//                    view.makeToast("추가할 수 없습니다.")
-//                }
-//            }
-//            .disposed(by: disposeBag)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
     }
     
     // searchBar 설정
@@ -195,6 +161,23 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerview = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HobbyCollectionViewHeader.identifier, for: indexPath) as! HobbyCollectionViewHeader
+        
+        if indexPath.section == 0 { headerview.title.text = "지금 주변에는" }
+        else if indexPath.section == 2 { headerview.title.text = "내가 하고 싶은" }
+        else { headerview.title.text = nil }
+        
+        return headerview
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 1 {
+            return CGSize(width: collectionView.frame.width, height: 8)
+        }
+        return CGSize(width: collectionView.frame.width, height: 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
