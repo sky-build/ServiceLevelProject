@@ -35,6 +35,7 @@ class HobbyUICollectionViewCell: UICollectionViewCell, FetchViews {
                 self.layer.borderColor = UIColor.slpGreen.cgColor
                 hobbyLabel.textColor = .slpGreen
                 deleteButton.tintColor = .slpGreen
+                deleteButton.isHidden = false
             }
         }
     }

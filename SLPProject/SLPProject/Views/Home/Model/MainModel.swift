@@ -16,6 +16,8 @@ class MainModel {
     
     let requestNearFriends = BehaviorRelay<[FromQueueDB]>(value: [])
     
+    let tableViewState = BehaviorRelay<[Bool]>(value: [])
+    
     let fromRecomend = BehaviorRelay<[String]>(value: [])
     
     // 내 관심

@@ -29,6 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         case .alreadyRegister:
             window?.rootViewController = HomeTabBarController()
         }
+        
+//        window?.rootViewController = MainNearUserViewController()
 
         window?.makeKeyAndVisible()
     }

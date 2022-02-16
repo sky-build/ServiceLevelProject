@@ -115,7 +115,8 @@ class MainViewController: BaseViewController {
     }
     
     @objc private func statusButtonClicked(_ sender: UIButton) {
-        let vc = MainSearchViewController()
+//        let vc = MainSearchViewController()
+        let vc = MainNearUserViewController()
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }

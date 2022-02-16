@@ -29,6 +29,9 @@ final class MainSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // bind to APIReault
+        bindAPIResult()
+        
         // collectionView 설정
         setCollectionView()
         
@@ -40,6 +43,20 @@ final class MainSearchViewController: BaseViewController {
         
         // 버튼 설정
         setButton()
+    }
+    
+    // bind to APIReault
+    private func bindAPIResult() {
+        viewModel.queueAPI.state
+            .subscribe(onNext: { [self] apiResult in
+                switch apiResult {
+                case .success:
+                    navigationController?.popViewController(animated: true)
+                default:
+                    view.makeToast(apiResult.rawValue)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // collectionView 설정
@@ -210,7 +227,6 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
         case 2:
             cell.hobbyLabel.text = viewModel.model.myHobby.value[indexPath.row]
             cell.state = .green
-            cell.deleteButton.isHidden = false
             cell.deleteButton.tag = indexPath.row
             cell.deleteButton.addTarget(self, action: #selector(deleteButtonClicked(_:)), for: .touchUpInside)
         default:

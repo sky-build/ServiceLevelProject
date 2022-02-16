@@ -75,7 +75,8 @@ class ProfileCustomView: UIView, FetchViews {
     
     func makeConstraints() {
         backgroundImageView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
+            $0.top.equalTo(super.safeAreaLayoutGuide).inset(8)
+            $0.leading.trailing.equalTo(super.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(194)
         }
         
@@ -88,7 +89,7 @@ class ProfileCustomView: UIView, FetchViews {
         profileFrame.snp.makeConstraints {
             $0.top.equalTo(backgroundImageView.snp.bottom)
             $0.leading.trailing.equalTo(backgroundImageView)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(8)
         }
         
         profileUserNameView.snp.makeConstraints {
