@@ -9,9 +9,27 @@ import UIKit
 import SnapKit
 import RxRelay
 
+enum AlertViewStateEnum {
+    case deRegister
+    case requestFriends
+}
+
 class CustomAlertViewController: UIViewController, FetchViews {
     
     let state = PublishRelay<Bool>()
+    
+    var viewState: AlertViewStateEnum = .deRegister {
+        didSet {
+            switch viewState {
+            case .deRegister:
+                titleLabel.text = "정말 탈퇴하시겠습니까?"
+                subTitleLabel.text = "탈퇴하시면 새싹 프렌즈를 이용할 수 없어요ㅠ"
+            case .requestFriends:
+                titleLabel.text = "취미 같이 하기를 요청할게요!"
+                subTitleLabel.text = "요청이 수락되면 30분 후에 리뷰를 남길 수 있어요"
+            }
+        }
+    }
     
     let backgroundView: UIView = {
         let view = UIView()

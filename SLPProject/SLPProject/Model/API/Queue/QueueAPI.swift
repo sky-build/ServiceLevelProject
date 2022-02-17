@@ -14,9 +14,9 @@ import RxRelay
 private enum QueueEnum: Int {
     case noConnectinon = 0   // enum 처리
     case success = 200
-    case moreThreeReportUser = 201
     case twoZeroOne = 201
-    case penaltyGradeOne = 203
+    case twoZeroTwo = 202
+    case twoZeroThree = 203
     case penaltyGradeTwo = 204
     case penaltyGradeThree = 205
     case noGenderSelect = 206
@@ -29,6 +29,8 @@ private enum QueueEnum: Int {
 private enum QueueURL: String {
     case queue = "queue"
     case onqueue = "queue/onqueue"
+    case hobbyrequest = "queue/hobbyrequest"
+    case hobbyaccept = "queue/hobbyaccept"
 }
 
 extension QueueURL {
@@ -80,9 +82,9 @@ class QueueAPI {
                 break
             case .success:
                 state.accept(.success)
-            case .moreThreeReportUser:
+            case .twoZeroOne:
                 state.accept(.moreThreeReportUser)
-            case .penaltyGradeOne:
+            case .twoZeroThree:
                 state.accept(.penaltyGradeOne)
             case .penaltyGradeTwo:
                 state.accept(.penaltyGradeTwo)
@@ -100,6 +102,8 @@ class QueueAPI {
                 state.accept(.serverError)
             case .clientError:
                 state.accept(.clientError)
+            default:
+                break
             }
         }
     }
@@ -190,4 +194,72 @@ class QueueAPI {
         }
     }
     
+    func hobbyRequest() {
+        var parameters: Parameters {
+            [
+                "otheruid" : MainModel.shared.nearFriends.value[MainModel.shared.selectedDataIndex].uid
+            ]
+        }
+        
+        baseQueueAPIRequest(method: .post, url: QueueURL.hobbyrequest.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
+            switch apiState {
+            case .noConnectinon:
+                break
+            case .success:
+                state.accept(.success)
+            case .twoZeroOne:
+//                state.accept(.alreadyMatch)
+//                //{baseURL}/queue/hobbyaccept 호출
+                hobbyAccept()
+            case .twoZeroTwo:
+                state.accept(.friendsDeleteMe)
+            case .firebaseTokenError:
+                FirebaseToken.shared.updateIDToken {
+                    hobbyRequest()
+                }
+            case .noRegisterUser:
+                state.accept(.noRegisterUser)
+            case .serverError:
+                state.accept(.serverError)
+            default:
+                break
+            }
+        }
+    }
+    
+    func hobbyAccept() {
+        var parameters: Parameters {
+            [
+                "otheruid" : MainModel.shared.nearFriends.value[MainModel.shared.selectedDataIndex].uid
+            ]
+        }
+        
+        baseQueueAPIRequest(method: .post, url: QueueURL.hobbyaccept.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
+            switch apiState {
+            case .noConnectinon:
+                break
+            case .success:
+                state.accept(.success)
+            case .twoZeroOne:
+                state.accept(.alreadyMatch)
+                //{baseURL}/queue/hobbyaccept 호출
+            case .twoZeroTwo:
+                state.accept(.friendsDeleteMe)
+            case .twoZeroThree:
+                state.accept(.anyPersonAcceptMyRequest)
+            case .firebaseTokenError:
+                FirebaseToken.shared.updateIDToken {
+                    hobbyAccept()
+                }
+            case .noRegisterUser:
+                state.accept(.noRegisterUser)
+            case .serverError:
+                state.accept(.serverError)
+            case .clientError:
+                state.accept(.clientError)
+            default:
+                break
+            }
+        }
+    }
 }

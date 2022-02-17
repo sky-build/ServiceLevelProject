@@ -18,6 +18,12 @@ class MainNearSeSACViewController: BaseViewController {
     
     var disposeBag = DisposeBag()
     
+    let vc: CustomAlertViewController = {
+        let vc = CustomAlertViewController()
+        vc.viewState = .requestFriends
+        return vc
+    }()
+    
     override func loadView() {
         super.loadView()
         
@@ -46,6 +52,23 @@ class MainNearSeSACViewController: BaseViewController {
                 print("값 업데이트")
                 mainView.tableView.reloadData()
             }
+            .disposed(by: disposeBag)
+        
+        // 커스텀뷰 설정
+        setCustomAlertView()
+    }
+    
+    // 커스텀뷰 설정
+    private func setCustomAlertView() {
+        vc.state
+            .subscribe(onNext: { [self] state in
+                if state {
+                    // queue/hobbyrequest 요청
+                    viewModel.queueAPI.hobbyRequest()
+                    
+                    print(viewModel.model.selectedDataIndex, "번째 버튼 클릭")
+                }
+            })
             .disposed(by: disposeBag)
     }
     
@@ -111,6 +134,9 @@ extension MainNearSeSACViewController: UITableViewDelegate, UITableViewDataSourc
     
     @objc private func requestButtonClicked(_ sender: UIButton) {
         print("\(sender.tag) 번째 버튼 클릭")
+        viewModel.model.selectedDataIndex = sender.tag
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false, completion: nil)
     }
 }
 

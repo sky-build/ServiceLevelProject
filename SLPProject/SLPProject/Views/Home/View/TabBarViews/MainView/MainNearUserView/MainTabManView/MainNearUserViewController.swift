@@ -43,11 +43,24 @@ class MainNearUserViewController: TabmanViewController, FetchViews {
         
         self.dataSource = self
         
+        viewModel.queueAPI.state
+            .subscribe(onNext: { [self] apiResult in
+                switch apiResult {
+                case .success:
+                    self.navigationController?.popViewController(animated: true)
+                default:
+                    view.makeToast(apiResult.rawValue)
+                }
+            })
+            .disposed(by: disposeBag)
+        
         // Set tabman
         setTabMan()
 
         addViews()
         makeConstraints()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기중단", style: .plain, target: self, action: #selector(deleteButtonClicked(_:)))
         
         refreshButton.rx.tap
             .bind { [self] _ in
@@ -60,6 +73,10 @@ class MainNearUserViewController: TabmanViewController, FetchViews {
                 navigationController?.pushViewController(MainSearchViewController(), animated: true)
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func deleteButtonClicked(_ sender: UIButton) {
+        viewModel.queueAPI.deleteQueue()
     }
     
     // Set tabman

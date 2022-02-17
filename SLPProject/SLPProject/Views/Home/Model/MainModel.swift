@@ -20,6 +20,8 @@ class MainModel {
     
     let fromRecomend = BehaviorRelay<[String]>(value: [])
     
+    var selectedDataIndex: Int = 0
+    
     // 내 관심
     let myHobby = BehaviorRelay<[String]>(value: [])
     
