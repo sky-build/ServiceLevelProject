@@ -21,6 +21,7 @@ class ProfileCommentView: UIView, FetchViews {
             switch commentState {
             case .zero:
                 comment.textColor = .slpGray6
+                comment.text = "첫 리뷰를 기다리는 중이에요!"
                 commentButton.isHidden = true
             case .one:
                 comment.textColor = .slpBlack

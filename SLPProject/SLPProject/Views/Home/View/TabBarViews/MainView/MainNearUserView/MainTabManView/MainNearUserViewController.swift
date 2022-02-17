@@ -8,16 +8,62 @@
 import UIKit
 import Tabman
 import Pageboy
+import RxSwift
+import RxCocoa
 
-class MainNearUserViewController: TabmanViewController {
+class MainNearUserViewController: TabmanViewController, FetchViews {
     
     private var viewControllers = [MainNearSeSACViewController(), MainRequestedViewController()]
+    
+    let changeHobbyButton: CustomNextButton = {
+        let button = CustomNextButton()
+        button.titleLabel?.font = .Body3_R14
+        button.setTitle("취미 변경", for: .normal)
+        return button
+    }()
+    
+    let refreshButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(named: "refresh"), for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.slpGreen.cgColor
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
+    let viewModel = MainViewModel()
+    
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "새싹 친구"
+        
         self.dataSource = self
         
+        // Set tabman
+        setTabMan()
+
+        addViews()
+        makeConstraints()
+        
+        refreshButton.rx.tap
+            .bind { [self] _ in
+                viewModel.queueAPI.onQueue()
+            }
+            .disposed(by: disposeBag)
+        
+        changeHobbyButton.rx.tap
+            .bind { [self] _ in
+                navigationController?.pushViewController(MainSearchViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    // Set tabman
+    private func setTabMan() {
         // Create bar
         let bar = TMBar.ButtonBar()
         bar.layout.transitionStyle = .snap // Customize
@@ -42,6 +88,24 @@ class MainNearUserViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
     }
     
+    func addViews() {
+        [refreshButton, changeHobbyButton].forEach {
+            view.addSubview($0)
+        }
+    }
+    
+    func makeConstraints() {
+        refreshButton.snp.makeConstraints {
+            $0.width.height.equalTo(48)
+            $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
+        }
+        
+        changeHobbyButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.equalTo(refreshButton.snp.leading).inset(-8)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
+        }
+    }
 }
 
 extension MainNearUserViewController: PageboyViewControllerDataSource, TMBarDataSource {

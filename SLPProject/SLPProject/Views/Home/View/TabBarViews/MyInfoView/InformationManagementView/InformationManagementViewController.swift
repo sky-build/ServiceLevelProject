@@ -167,7 +167,7 @@ class InformationManagementViewController: BaseViewController {
     private func setCollectionView() {
         mainView.profileView.profileTitleView.titleCollectionViews.delegate = self
         mainView.profileView.profileTitleView.titleCollectionViews.dataSource = self
-        mainView.profileView.profileTitleView.titleCollectionViews.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
+//        mainView.profileView.profileTitleView.titleCollectionViews.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
     }
     
     // 성별 버튼 클릭 처리

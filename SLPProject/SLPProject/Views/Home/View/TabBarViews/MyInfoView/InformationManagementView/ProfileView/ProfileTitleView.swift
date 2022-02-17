@@ -32,7 +32,7 @@ class ProfileTitleView: UIView, FetchViews {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isScrollEnabled = false
-        
+        collectionView.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
         return collectionView
     }()
     

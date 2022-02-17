@@ -1,5 +1,5 @@
 //
-//  MainNearSeSACTableViewCell.swift
+//  MainTableViewCell.swift
 //  SLPProject
 //
 //  Created by 노건호 on 2022/02/16.
@@ -8,11 +8,13 @@
 import UIKit
 import SnapKit
 
-class MainNearSeSACTableViewCell: UITableViewCell, FetchViews {
+class MainTableViewCell: UITableViewCell, FetchViews {
     
-    static let identifier = "MainNearSeSACTableViewCell"
+    static let identifier = "MainTableViewCell"
     
     let view = ProfileCustomView()
+    
+    var index = 0
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

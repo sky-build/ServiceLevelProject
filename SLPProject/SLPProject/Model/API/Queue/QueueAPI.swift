@@ -146,7 +146,8 @@ class QueueAPI {
                     MainModel.shared.requestNearFriends.accept(decodeData.fromQueueDBRequested)
                     MainModel.shared.fromRecomend.accept(decodeData.fromRecommend)
                     // 테이블뷰 상태 코드
-                    MainModel.shared.tableViewState.accept(Array(repeating: false, count: decodeData.fromQueueDB.count))
+                    MainModel.shared.nearFriendsState.accept(Array(repeating: false, count: decodeData.fromQueueDB.count))
+                    MainModel.shared.requestNearFriendsState.accept(Array(repeating: false, count: decodeData.fromQueueDBRequested.count))
                     
                     // 그리고 구독하라고 설정
                     state.accept(.success)

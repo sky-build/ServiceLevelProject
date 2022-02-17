@@ -78,10 +78,10 @@
 		D3348EA427BBDA4B00C3AFB6 /* MainNearUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EA327BBDA4B00C3AFB6 /* MainNearUserViewController.swift */; };
 		D3348EA927BCB61700C3AFB6 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D3348EA827BCB61700C3AFB6 /* Tabman */; };
 		D3348EAD27BCC98900C3AFB6 /* MainNearSeSACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EAC27BCC98900C3AFB6 /* MainNearSeSACViewController.swift */; };
-		D3348EAF27BCC98E00C3AFB6 /* MainNearSeSACView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EAE27BCC98E00C3AFB6 /* MainNearSeSACView.swift */; };
-		D3348EB127BCC99700C3AFB6 /* MainRequestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EB027BCC99700C3AFB6 /* MainRequestedView.swift */; };
+		D3348EAF27BCC98E00C3AFB6 /* MainNearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EAE27BCC98E00C3AFB6 /* MainNearView.swift */; };
 		D3348EB327BCC99F00C3AFB6 /* MainRequestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EB227BCC99F00C3AFB6 /* MainRequestedViewController.swift */; };
-		D3348EB727BCCB3900C3AFB6 /* MainNearSeSACTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EB627BCCB3900C3AFB6 /* MainNearSeSACTableViewCell.swift */; };
+		D3348EB727BCCB3900C3AFB6 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EB627BCCB3900C3AFB6 /* MainTableViewCell.swift */; };
+		D3348EB927BD5E2B00C3AFB6 /* MainEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3348EB827BD5E2B00C3AFB6 /* MainEmptyView.swift */; };
 		D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C88B279E8BDA001D51D9 /* RxAlamofire */; };
 		D351C891279E96ED001D51D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D351C890279E96ED001D51D9 /* Alamofire */; };
 		D362F8F3279EC07900409DF2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D362F8F2279EC07900409DF2 /* FirebaseAuth */; };
@@ -188,10 +188,10 @@
 		D3348E9F27BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCollectionViewHeader.swift; sourceTree = "<group>"; };
 		D3348EA327BBDA4B00C3AFB6 /* MainNearUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNearUserViewController.swift; sourceTree = "<group>"; };
 		D3348EAC27BCC98900C3AFB6 /* MainNearSeSACViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNearSeSACViewController.swift; sourceTree = "<group>"; };
-		D3348EAE27BCC98E00C3AFB6 /* MainNearSeSACView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNearSeSACView.swift; sourceTree = "<group>"; };
-		D3348EB027BCC99700C3AFB6 /* MainRequestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRequestedView.swift; sourceTree = "<group>"; };
+		D3348EAE27BCC98E00C3AFB6 /* MainNearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNearView.swift; sourceTree = "<group>"; };
 		D3348EB227BCC99F00C3AFB6 /* MainRequestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRequestedViewController.swift; sourceTree = "<group>"; };
-		D3348EB627BCCB3900C3AFB6 /* MainNearSeSACTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNearSeSACTableViewCell.swift; sourceTree = "<group>"; };
+		D3348EB627BCCB3900C3AFB6 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		D3348EB827BD5E2B00C3AFB6 /* MainEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmptyView.swift; sourceTree = "<group>"; };
 		D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseToken.swift; sourceTree = "<group>"; };
 		D362F8F9279EF5F700409DF2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		D362F8FD279FD1D300409DF2 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
@@ -510,6 +510,9 @@
 			isa = PBXGroup;
 			children = (
 				D3348EB427BCC9A500C3AFB6 /* MainTabManView */,
+				D3348EB627BCCB3900C3AFB6 /* MainTableViewCell.swift */,
+				D3348EB827BD5E2B00C3AFB6 /* MainEmptyView.swift */,
+				D3348EAE27BCC98E00C3AFB6 /* MainNearView.swift */,
 				D3348EAA27BCC96900C3AFB6 /* MainNearSeSACView */,
 				D3348EAB27BCC97200C3AFB6 /* MainRequestedView */,
 			);
@@ -519,8 +522,6 @@
 		D3348EAA27BCC96900C3AFB6 /* MainNearSeSACView */ = {
 			isa = PBXGroup;
 			children = (
-				D3348EB627BCCB3900C3AFB6 /* MainNearSeSACTableViewCell.swift */,
-				D3348EAE27BCC98E00C3AFB6 /* MainNearSeSACView.swift */,
 				D3348EAC27BCC98900C3AFB6 /* MainNearSeSACViewController.swift */,
 			);
 			path = MainNearSeSACView;
@@ -529,7 +530,6 @@
 		D3348EAB27BCC97200C3AFB6 /* MainRequestedView */ = {
 			isa = PBXGroup;
 			children = (
-				D3348EB027BCC99700C3AFB6 /* MainRequestedView.swift */,
 				D3348EB227BCC99F00C3AFB6 /* MainRequestedViewController.swift */,
 			);
 			path = MainRequestedView;
@@ -855,6 +855,7 @@
 				D301DC7B279E656600E4BD08 /* Typealias.swift in Sources */,
 				D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */,
 				D332A96A27B038B20093FB65 /* BaseAPI.swift in Sources */,
+				D3348EB927BD5E2B00C3AFB6 /* MainEmptyView.swift in Sources */,
 				D362F8F8279EF1D300409DF2 /* FirebaseToken.swift in Sources */,
 				D36958B6279669AF00924F5A /* AppDelegate.swift in Sources */,
 				D301DC4C279C793C00E4BD08 /* BirtydayViewController.swift in Sources */,
@@ -897,10 +898,9 @@
 				D301DC62279D65C100E4BD08 /* GenderSelectView.swift in Sources */,
 				D301DC68279D67CC00E4BD08 /* GenderView.swift in Sources */,
 				D362F93527AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift in Sources */,
-				D3348EAF27BCC98E00C3AFB6 /* MainNearSeSACView.swift in Sources */,
+				D3348EAF27BCC98E00C3AFB6 /* MainNearView.swift in Sources */,
 				D332A97C27B188F60093FB65 /* MainModel.swift in Sources */,
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
-				D3348EB127BCC99700C3AFB6 /* MainRequestedView.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
@@ -912,7 +912,7 @@
 				D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */,
 				D362F93C27AC217500409DF2 /* MyInfoSearchAgeView.swift in Sources */,
 				D33459052796E1F500EB983B /* CustomTextField.swift in Sources */,
-				D3348EB727BCCB3900C3AFB6 /* MainNearSeSACTableViewCell.swift in Sources */,
+				D3348EB727BCCB3900C3AFB6 /* MainTableViewCell.swift in Sources */,
 				D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */,
 				D362F92B27ABAC3D00409DF2 /* ProfileUserNameView.swift in Sources */,
 				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,

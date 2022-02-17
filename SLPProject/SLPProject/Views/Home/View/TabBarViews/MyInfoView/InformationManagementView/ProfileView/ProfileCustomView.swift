@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+enum RequestButtonStateEnum {
+    case request
+    case ok
+}
+
 class ProfileCustomView: UIView, FetchViews {
     
     let backgroundImageView: UIImageView = {
@@ -17,6 +22,28 @@ class ProfileCustomView: UIView, FetchViews {
         image.clipsToBounds = true
         return image
     }()
+    
+    let requestButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("요청하기", for: .normal)
+        button.backgroundColor = .slpError
+        button.titleLabel?.font = .Title3_M14
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
+    var requestButtonState: RequestButtonStateEnum = .request {
+        didSet {
+            switch requestButtonState {
+            case .request:
+                requestButton.setTitle("요청하기", for: .normal)
+                requestButton.backgroundColor = .slpError
+            case .ok:
+                requestButton.setTitle("수락하기", for: .normal)
+                requestButton.backgroundColor = .slpSuccess
+            }
+        }
+    }
     
     let profileImage: UIImageView = {
         let image = UIImageView()
@@ -67,6 +94,7 @@ class ProfileCustomView: UIView, FetchViews {
     func addViews() {
         self.addSubview(backgroundImageView)
         self.addSubview(profileImage)
+        self.addSubview(requestButton)
         self.addSubview(profileFrame)
         [profileUserNameView, profileTitleView, profileCommentView].forEach {
             profileFrame.addArrangedSubview($0)
@@ -84,6 +112,12 @@ class ProfileCustomView: UIView, FetchViews {
             $0.centerX.equalTo(backgroundImageView).offset(-10)
             $0.top.equalTo(backgroundImageView.snp.top).inset(19)
             $0.width.height.equalTo(184)
+        }
+        
+        requestButton.snp.makeConstraints {
+            $0.width.equalTo(80)
+            $0.height.equalTo(40)
+            $0.top.trailing.equalTo(backgroundImageView).inset(16)
         }
         
         profileFrame.snp.makeConstraints {

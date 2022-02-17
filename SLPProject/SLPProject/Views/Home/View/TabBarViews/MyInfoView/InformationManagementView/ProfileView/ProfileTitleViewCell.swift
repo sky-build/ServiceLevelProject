@@ -12,6 +12,8 @@ class ProfileTitleViewCell: UICollectionViewCell, FetchViews {
     
     static let identifier = "ProfileTitleViewCell"
     
+    var index = 0
+    
     var state: Bool = false {
         didSet {
             if state {
