@@ -15,6 +15,7 @@ private enum QueueEnum: Int {
     case noConnectinon = 0   // enum 처리
     case success = 200
     case moreThreeReportUser = 201
+    case twoZeroOne = 201
     case penaltyGradeOne = 203
     case penaltyGradeTwo = 204
     case penaltyGradeThree = 205
@@ -71,12 +72,6 @@ class QueueAPI {
                 "hf": MainModel.shared.myHobby.value
             ]
         }
-        
-        print(parameters)
-//        print("region", region(MainModel.shared.currentPosition.value[0], MainModel.shared.currentPosition.value[1]))
-//        print("long", MainModel.shared.currentPosition.value[1])
-//        print("lat", MainModel.shared.currentPosition.value[0])
-//        print("hf", MainModel.shared.myHobby.value)
         
         baseQueueAPIRequest(method: .post, url: QueueURL.queue.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
             print("apiState = ", apiState.rawValue)
@@ -166,6 +161,29 @@ class QueueAPI {
                 state.accept(.serverError)
             case .clientError:
                 state.accept(.clientError)
+            default:
+                break
+            }
+        }
+    }
+    
+    func deleteQueue() {
+        baseQueueAPIRequest(method: .delete, url: QueueURL.queue.url, parameters: nil, header: BaseAPI.header) { [self] (data, apiState) in
+            switch apiState {
+            case .noConnectinon:
+                break
+            case .success:
+                state.accept(.success)
+            case .twoZeroOne:
+                state.accept(.alreadyMatch)
+            case .firebaseTokenError:
+                FirebaseToken.shared.updateIDToken {
+                    deleteQueue()
+                }
+            case .noRegisterUser:
+                state.accept(.noRegisterUser)
+            case .serverError:
+                state.accept(.serverError)
             default:
                 break
             }
