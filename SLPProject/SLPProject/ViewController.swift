@@ -9,14 +9,14 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-    
+
     let button = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .white
-        
+
         button.backgroundColor = .black
         view.addSubview(button)
         button.snp.makeConstraints {

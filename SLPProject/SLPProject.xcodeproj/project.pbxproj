@@ -121,6 +121,13 @@
 		D36958C2279669B200924F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36958C0279669B200924F5A /* LaunchScreen.storyboard */; };
 		D39B6965279678E8005B1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D39B6964279678E8005B1EBB /* GoogleService-Info.plist */; };
 		D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */; };
+		D3F5903927BF678A00588454 /* MainChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903827BF678900588454 /* MainChatViewController.swift */; };
+		D3F5903B27BF678E00588454 /* MainChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903A27BF678E00588454 /* MainChatView.swift */; };
+		D3F5903D27BF6D6C00588454 /* MainMyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */; };
+		D3F5903F27BF6D7A00588454 /* MainFriendChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903E27BF6D7A00588454 /* MainFriendChatTableViewCell.swift */; };
+		D3F5904127BF6EA800588454 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904027BF6EA800588454 /* ChatView.swift */; };
+		D3F5904327BF7A6800588454 /* ChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904227BF7A6800588454 /* ChatTextView.swift */; };
+		D3F5904627BF94FE00588454 /* GrowingTextView in Frameworks */ = {isa = PBXBuildFile; productRef = D3F5904527BF94FE00588454 /* GrowingTextView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +234,12 @@
 		D36958C3279669B200924F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39B6964279678E8005B1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapview+Extension.swift"; sourceTree = "<group>"; };
+		D3F5903827BF678900588454 /* MainChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatViewController.swift; sourceTree = "<group>"; };
+		D3F5903A27BF678E00588454 /* MainChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatView.swift; sourceTree = "<group>"; };
+		D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMyChatTableViewCell.swift; sourceTree = "<group>"; };
+		D3F5903E27BF6D7A00588454 /* MainFriendChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFriendChatTableViewCell.swift; sourceTree = "<group>"; };
+		D3F5904027BF6EA800588454 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		D3F5904227BF7A6800588454 /* ChatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +249,7 @@
 			files = (
 				D301DC6D279D769900E4BD08 /* RxCocoa in Frameworks */,
 				D362F94227AC299300409DF2 /* MultiSlider in Frameworks */,
+				D3F5904627BF94FE00588454 /* GrowingTextView in Frameworks */,
 				D334592C27987ECE00EB983B /* AnyFormatKit in Frameworks */,
 				D3348E9E27B8E16800C3AFB6 /* RxKeyboard in Frameworks */,
 				D362F8F5279EC07900409DF2 /* FirebaseMessaging in Frameworks */,
@@ -614,6 +628,7 @@
 		D362F91727A1AEF400409DF2 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D3F5903727BF66C400588454 /* MainChatView */,
 				D3348EA227BBDA3300C3AFB6 /* MainNearUserView */,
 				D332A97327B116380093FB65 /* MainSearchView */,
 				D3348EA127BBDA1F00C3AFB6 /* MainView */,
@@ -723,6 +738,19 @@
 			path = SLPProject;
 			sourceTree = "<group>";
 		};
+		D3F5903727BF66C400588454 /* MainChatView */ = {
+			isa = PBXGroup;
+			children = (
+				D3F5904027BF6EA800588454 /* ChatView.swift */,
+				D3F5904227BF7A6800588454 /* ChatTextView.swift */,
+				D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */,
+				D3F5903E27BF6D7A00588454 /* MainFriendChatTableViewCell.swift */,
+				D3F5903A27BF678E00588454 /* MainChatView.swift */,
+				D3F5903827BF678900588454 /* MainChatViewController.swift */,
+			);
+			path = MainChatView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -754,6 +782,7 @@
 				D362F94127AC299300409DF2 /* MultiSlider */,
 				D3348E9D27B8E16800C3AFB6 /* RxKeyboard */,
 				D3348EA827BCB61700C3AFB6 /* Tabman */,
+				D3F5904527BF94FE00588454 /* GrowingTextView */,
 			);
 			productName = SLPProject;
 			productReference = D36958B2279669AF00924F5A /* SLPProject.app */;
@@ -796,6 +825,7 @@
 				D362F94027AC299300409DF2 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 				D3348E9C27B8E16800C3AFB6 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				D3348EA727BCB61600C3AFB6 /* XCRemoteSwiftPackageReference "Tabman" */,
+				D3F5904427BF94FE00588454 /* XCRemoteSwiftPackageReference "GrowingTextView" */,
 			);
 			productRefGroup = D36958B3279669AF00924F5A /* Products */;
 			projectDirPath = "";
@@ -849,6 +879,7 @@
 				D33459372799809900EB983B /* CustomTextFieldView.swift in Sources */,
 				D362F90D27A1A10600409DF2 /* HomeTabBarController.swift in Sources */,
 				D301DC5B279D5F2500E4BD08 /* EmailViewController.swift in Sources */,
+				D3F5903F27BF6D7A00588454 /* MainFriendChatTableViewCell.swift in Sources */,
 				D3348E9727B6305200C3AFB6 /* MainManAnnotationView.swift in Sources */,
 				D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */,
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
@@ -900,7 +931,9 @@
 				D362F93527AC1BD700409DF2 /* MyInfoFavoriteHabitView.swift in Sources */,
 				D3348EAF27BCC98E00C3AFB6 /* MainNearView.swift in Sources */,
 				D332A97C27B188F60093FB65 /* MainModel.swift in Sources */,
+				D3F5903D27BF6D6C00588454 /* MainMyChatTableViewCell.swift in Sources */,
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
+				D3F5903B27BF678E00588454 /* MainChatView.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
@@ -915,8 +948,11 @@
 				D3348EB727BCCB3900C3AFB6 /* MainTableViewCell.swift in Sources */,
 				D301DC54279D0CE300E4BD08 /* DateStackView.swift in Sources */,
 				D362F92B27ABAC3D00409DF2 /* ProfileUserNameView.swift in Sources */,
+				D3F5904127BF6EA800588454 /* ChatView.swift in Sources */,
 				D301DC32279C269B00E4BD08 /* OnboardingView.swift in Sources */,
 				D301DC40279C646B00E4BD08 /* NicknameViewController.swift in Sources */,
+				D3F5903927BF678A00588454 /* MainChatViewController.swift in Sources */,
+				D3F5904327BF7A6800588454 /* ChatTextView.swift in Sources */,
 				D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */,
 				D332A97927B188760093FB65 /* FriendsData.swift in Sources */,
 				D332A95927AEDFC90093FB65 /* UserDefaultValues.swift in Sources */,
@@ -1232,6 +1268,14 @@
 				version = 1.11.2;
 			};
 		};
+		D3F5904427BF94FE00588454 /* XCRemoteSwiftPackageReference "GrowingTextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KennethTsang/GrowingTextView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1304,6 +1348,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D362F94027AC299300409DF2 /* XCRemoteSwiftPackageReference "MultiSlider" */;
 			productName = MultiSlider;
+		};
+		D3F5904527BF94FE00588454 /* GrowingTextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3F5904427BF94FE00588454 /* XCRemoteSwiftPackageReference "GrowingTextView" */;
+			productName = GrowingTextView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

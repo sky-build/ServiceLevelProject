@@ -177,7 +177,7 @@ class QueueAPI {
             case .noConnectinon:
                 break
             case .success:
-                state.accept(.success)
+                state.accept(.stopQueue)
             case .twoZeroOne:
                 state.accept(.alreadyMatch)
             case .firebaseTokenError:
@@ -202,11 +202,12 @@ class QueueAPI {
         }
         
         baseQueueAPIRequest(method: .post, url: QueueURL.hobbyrequest.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
+            print(MainModel.shared.nearFriends.value[MainModel.shared.selectedDataIndex].uid)
             switch apiState {
             case .noConnectinon:
                 break
             case .success:
-                state.accept(.success)
+                state.accept(.requestUserSuccess)
             case .twoZeroOne:
 //                state.accept(.alreadyMatch)
 //                //{baseURL}/queue/hobbyaccept 호출

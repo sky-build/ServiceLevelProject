@@ -46,7 +46,7 @@ class MainNearUserViewController: TabmanViewController, FetchViews {
         viewModel.queueAPI.state
             .subscribe(onNext: { [self] apiResult in
                 switch apiResult {
-                case .success:
+                case .stopQueue:
                     self.navigationController?.popViewController(animated: true)
                 default:
                     view.makeToast(apiResult.rawValue)

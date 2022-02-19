@@ -222,7 +222,7 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.hobbyLabel.text = viewModel.model.fromRecomend.value[indexPath.row]
             cell.state = .red
         case 1:
-            cell.hobbyLabel.text = viewModel.model.nearFriends.value[indexPath.row].hf[0]
+            cell.hobbyLabel.text = viewModel.model.nearFriends.value[indexPath.row].hf.count == 0 ? "abc" : viewModel.model.nearFriends.value[indexPath.row].hf[0]
             cell.state = .black
         case 2:
             cell.hobbyLabel.text = viewModel.model.myHobby.value[indexPath.row]

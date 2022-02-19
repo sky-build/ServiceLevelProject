@@ -10,6 +10,10 @@ import Foundation
 enum QueueAPIResult: String {
     case noConnectinon = "네트워크에 연결할 수 없습니다."   // enum 처리
     case success = "성공"
+    // 상태 추가하기
+    case stopQueue = "찾기 중단"
+    case refreshData = "새로고침"
+    case requestUserSuccess = "친구요청 성공"
     
     case alreadyMatch = "누군가와 취미를 함께하기로 약속하셨어요!"
     case friendsDeleteMe = "상대방이 취미찾기를 그만두었습니다."

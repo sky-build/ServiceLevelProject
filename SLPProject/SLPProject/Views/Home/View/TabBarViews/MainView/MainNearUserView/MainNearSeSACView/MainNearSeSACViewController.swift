@@ -65,8 +65,6 @@ class MainNearSeSACViewController: BaseViewController {
                 if state {
                     // queue/hobbyrequest 요청
                     viewModel.queueAPI.hobbyRequest()
-                    
-                    print(viewModel.model.selectedDataIndex, "번째 버튼 클릭")
                 }
             })
             .disposed(by: disposeBag)
