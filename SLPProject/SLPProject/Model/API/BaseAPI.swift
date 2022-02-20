@@ -8,8 +8,10 @@
 import Foundation
 import Alamofire
 
-struct BaseAPI {
+class BaseAPI {
     static let baseURL = "http://test.monocoding.com:35484/"
+    
+    let url = "http://test.monocoding.com:35484/"
     
     // 연산 프로퍼티 사용해야 idToken값이 지속적으로 변경됨
     static var header: HTTPHeaders {

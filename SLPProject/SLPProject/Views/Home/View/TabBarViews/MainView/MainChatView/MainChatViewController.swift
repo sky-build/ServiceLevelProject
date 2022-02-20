@@ -8,10 +8,14 @@
 import UIKit
 import SnapKit
 import GrowingTextView
+import RxSwift
+import RxCocoa
 
 class MainChatViewController: BaseViewController {
     
     let mainView = MainChatView()
+    
+    var disposeBag = DisposeBag()
     
     override func loadView() {
         super.loadView()
@@ -22,46 +26,48 @@ class MainChatViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.tableView.delegate = self
-        mainView.tableView.dataSource = self
+        setTableView()
         
-        mainView.chatView.textView.delegate = self
+        setTextView()
+        
+        mainView.chatView.sendButton.rx.tap
+            .subscribe { [self] _ in
+                switch mainView.chatView.sendButtonState {
+                case .enable:
+                    print("가능")
+                case .disable:
+                    print("불가능")
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
+    private func setTableView() {
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
+    }
+    
+    private func setTextView() {
+        mainView.chatView.textView.delegate = self
+    }
 }
 
 extension MainChatViewController: GrowingTextViewDelegate {
     func textViewDidChangeHeight(_ textView: GrowingTextView, height: CGFloat) {
-        print("높이 변경 - ", height)
         
-//        if height < 60 {
-            mainView.chatView.snp.updateConstraints {
-                print("높이 변경되나?")
-                $0.height.equalTo(height + 22)
-            }
-//            mainView.chatView.textView.isScrollEnabled = false
-//        }
+        mainView.chatView.snp.updateConstraints {
+            $0.height.equalTo(height + 15)
+        }
+        
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        mainView.chatView.sendButtonState = textView.text == "" ? .disable : .enable
+    }
 }
-
-//extension MainChatViewController: UITextViewDelegate {
-//    func textViewDidChange(_ textView: UITextView) {
-////        let size = CGSize(width: view.frame.width, height: .infinity)
-////        let estimateSize = textView.sizeThatFits(size)
-////
-////        textView.constraints.forEach { (constraint) in
-////            if constraint.firstAttribute == .height {
-////                constraint.constant = estimateSize.height
-////            }
-////        }
-//        let fixedWidth = textView.frame.size.width
-//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-//    }
-//}
 
 extension MainChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

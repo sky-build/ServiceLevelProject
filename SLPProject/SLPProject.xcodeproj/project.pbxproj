@@ -128,6 +128,8 @@
 		D3F5904127BF6EA800588454 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904027BF6EA800588454 /* ChatView.swift */; };
 		D3F5904327BF7A6800588454 /* ChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904227BF7A6800588454 /* ChatTextView.swift */; };
 		D3F5904627BF94FE00588454 /* GrowingTextView in Frameworks */ = {isa = PBXBuildFile; productRef = D3F5904527BF94FE00588454 /* GrowingTextView */; };
+		D3F5904927C0B86F00588454 /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904827C0B86F00588454 /* ChatAPI.swift */; };
+		D3F5904B27C0B8C800588454 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904A27C0B8C800588454 /* ChatData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +242,8 @@
 		D3F5903E27BF6D7A00588454 /* MainFriendChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFriendChatTableViewCell.swift; sourceTree = "<group>"; };
 		D3F5904027BF6EA800588454 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D3F5904227BF7A6800588454 /* ChatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextView.swift; sourceTree = "<group>"; };
+		D3F5904827C0B86F00588454 /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
+		D3F5904A27C0B8C800588454 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -572,6 +576,7 @@
 				D332A96927B038B20093FB65 /* BaseAPI.swift */,
 				D362F8FC279EF6AB00409DF2 /* User */,
 				D332A96627B0385B0093FB65 /* Queue */,
+				D3F5904727C0B85700588454 /* Chat */,
 				D362F91D27A2772B00409DF2 /* NetworkMonitor.swift */,
 				D362F8F7279EF1D300409DF2 /* FirebaseToken.swift */,
 			);
@@ -751,6 +756,15 @@
 			path = MainChatView;
 			sourceTree = "<group>";
 		};
+		D3F5904727C0B85700588454 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D3F5904827C0B86F00588454 /* ChatAPI.swift */,
+				D3F5904A27C0B8C800588454 /* ChatData.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -896,6 +910,7 @@
 				D362F90927A019D800409DF2 /* UserModel.swift in Sources */,
 				D332A95B27AF9A7A0093FB65 /* CustomAlertViewController.swift in Sources */,
 				D362F92F27ABBEF300409DF2 /* CustomButton.swift in Sources */,
+				D3F5904B27C0B8C800588454 /* ChatData.swift in Sources */,
 				D362F94427AC364200409DF2 /* MyInfoDeRegisterView.swift in Sources */,
 				D362F93327AC0B7900409DF2 /* MyInfoGenderSelectView.swift in Sources */,
 				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
@@ -954,6 +969,7 @@
 				D3F5903927BF678A00588454 /* MainChatViewController.swift in Sources */,
 				D3F5904327BF7A6800588454 /* ChatTextView.swift in Sources */,
 				D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */,
+				D3F5904927C0B86F00588454 /* ChatAPI.swift in Sources */,
 				D332A97927B188760093FB65 /* FriendsData.swift in Sources */,
 				D332A95927AEDFC90093FB65 /* UserDefaultValues.swift in Sources */,
 				D334593127996A2100EB983B /* AuthNumberViewController.swift in Sources */,

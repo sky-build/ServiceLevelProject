@@ -61,7 +61,6 @@ class QueueAPI {
         } else {
             completion(nil, .noConnectinon)
         }
-
     }
     
     func queue() {
