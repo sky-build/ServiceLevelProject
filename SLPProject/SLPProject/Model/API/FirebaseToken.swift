@@ -59,6 +59,7 @@ class FirebaseToken {
                 self.fcmToken = token
                 completion()
             }
+            completion()
         }
     }
 }

@@ -31,6 +31,8 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserAPI().updateFCMToken()
+        
         viewModel.model.filterState
             .subscribe(onNext: { [self] value in
                 mainView.mapView.markFriendsAnnotation(viewModel.model.nearFriends.value, filter: viewModel.model.filterState.value)
@@ -164,13 +166,13 @@ extension MainViewController: MKMapViewDelegate {
 
 extension MainViewController: CLLocationManagerDelegate {
     
-    // 위치가 업데이트 될 때
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let coordinate = manager.location?.coordinate {
-            mainView.mapView.removeAnnotations(mainView.mapView.annotations)
-            mainView.mapView.markAnnotation(coordinate)
-            viewModel.model.currentPosition.accept([coordinate.latitude, coordinate.longitude])
-        }
-    }
-    
+//    // 위치가 업데이트 될 때
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let coordinate = manager.location?.coordinate {
+//            mainView.mapView.removeAnnotations(mainView.mapView.annotations)
+//            mainView.mapView.markAnnotation(coordinate)
+//            viewModel.model.currentPosition.accept([coordinate.latitude, coordinate.longitude])
+//        }
+//    }
+//    
 }

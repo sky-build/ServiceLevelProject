@@ -19,7 +19,6 @@ class ChatTextView: UIView, FetchViews {
     let textView: GrowingTextView = {
         let view = GrowingTextView()
         view.backgroundColor = .clear
-//        view.maxLength = 140
         view.font = .Title4_R14
         view.trimWhiteSpaceWhenEndEditing = false
         view.placeholder = "메시지를 입력하세요"

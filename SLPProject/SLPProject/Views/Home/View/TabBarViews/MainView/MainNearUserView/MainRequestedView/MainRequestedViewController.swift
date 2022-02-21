@@ -26,8 +26,6 @@ class MainRequestedViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = false
-        
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.separatorStyle = .none
@@ -43,6 +41,12 @@ class MainRequestedViewController: BaseViewController {
                 mainView.tableView.reloadData()
             }
             .disposed(by: disposeBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
     }
     
 }

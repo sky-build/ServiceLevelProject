@@ -95,7 +95,7 @@ extension MainChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIImageView()
-        view.image = UIImage(named: "notice")
+        view.image = UIImage(named: "notice.header")
         view.contentMode = .scaleAspectFit
         return view
     }

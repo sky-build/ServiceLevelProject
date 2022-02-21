@@ -24,6 +24,12 @@ class OnboardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // getuser 안함...
+        FirebaseToken.shared.updateFCMToken {
+            // 다시 호출
+            UserAPI().updateFCMToken()
+        }
+        
         // 컬렉션뷰 설정
         setCollectionView()
         

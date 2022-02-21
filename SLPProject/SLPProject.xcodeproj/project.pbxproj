@@ -440,9 +440,9 @@
 				D33459062796E21800EB983B /* UITextField+Extension.swift */,
 				D33459152797058D00EB983B /* String+Extension.swift */,
 				D33459272797D55300EB983B /* UIFont+Extension.swift */,
-				D301DC55279D4C9C00E4BD08 /* Date+Extension.swift */,
 				D362F905279FF0E600409DF2 /* UIViewController+Extension.swift */,
 				D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */,
+				D301DC55279D4C9C00E4BD08 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

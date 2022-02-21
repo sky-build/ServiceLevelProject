@@ -197,12 +197,15 @@ class UserAPI {
         // 연산 프로퍼티
         var parameters: Parameters {
             [
-                "FCMToken": FirebaseToken.shared.fcmToken
+                "FCMToken": "eZpca7JwO0V0kNznuLgvPm:APA91bF7MdMQE8bNho_2LHPebuESN4M4m7AeeMONgz4boZjPneHfQRLGxeqq1YZlGDTra2IRR9sWPCBerT7EQsp21nbcpAUbFzZ3NG3A4IK0cUT6-e3Fbb9NRKV9W_C7Q29ZwhHkHP3_"//FirebaseToken.shared.fcmToken
             ]
         }
         
         baseUserAPIRequest(method: .put, url: UserURL.updateFCMToken.url, parameters: parameters, header: BaseAPI.header) { [weak self] (data, apiState) in
+            print("UpdateFCM", apiState.rawValue)
             switch apiState {
+            case .success:
+                print("성공")
             case .firebaseTokenError:
                 // 토큰 재발급, 재시도
                 FirebaseToken.shared.updateIDToken {
