@@ -17,6 +17,8 @@ class MainChatViewController: BaseViewController {
     
     var disposeBag = DisposeBag()
     
+    let chatSocket = ChatSocket()
+    
     override func loadView() {
         super.loadView()
         
@@ -25,6 +27,8 @@ class MainChatViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chatSocket.establishConnection()
         
         setTableView()
         
@@ -79,7 +83,7 @@ extension MainChatViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainMyChatTableViewCell.identifier, for: indexPath) as! MainMyChatTableViewCell
             
             cell.date.text = "15:02"
-            cell.chatView.text.text = "안녕하세요! 저 평일은 저녁 8시에 꾸준히 타는데 7시부터 타도 괜찮아요안녕하세요! 저 평일은 저녁 8시에 꾸준히 타는데 7시부터 타도 괜찮아요"
+            cell.chatView.text.text = "아아ㅏ아ㅏ아ㅏㅏ아ㅏ아아아아ㅏ아아ㅏ아아ㅏ아ㅏ아아ㅏ아ㅏ아아ㅏ아아아ㅏ아아ㅏ아아아아아아아ㅏ아ㅏ아ㅏㅏ아ㅏ아아아아ㅏ아아ㅏ아아ㅏ아ㅏ아아ㅏ아ㅏ아아ㅏ아아아ㅏ아아ㅏ아아아아아"
             cell.readState = .read
             
             return cell

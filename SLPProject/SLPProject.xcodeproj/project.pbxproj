@@ -130,6 +130,8 @@
 		D3F5904627BF94FE00588454 /* GrowingTextView in Frameworks */ = {isa = PBXBuildFile; productRef = D3F5904527BF94FE00588454 /* GrowingTextView */; };
 		D3F5904927C0B86F00588454 /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904827C0B86F00588454 /* ChatAPI.swift */; };
 		D3F5904B27C0B8C800588454 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904A27C0B8C800588454 /* ChatData.swift */; };
+		D3F5904D27C4C3D800588454 /* ChatSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5904C27C4C3D800588454 /* ChatSocket.swift */; };
+		D3F5905027C4C95400588454 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = D3F5904F27C4C95400588454 /* SocketIO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,6 +246,7 @@
 		D3F5904227BF7A6800588454 /* ChatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextView.swift; sourceTree = "<group>"; };
 		D3F5904827C0B86F00588454 /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
 		D3F5904A27C0B8C800588454 /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
+		D3F5904C27C4C3D800588454 /* ChatSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +263,7 @@
 				D301DC72279D771400E4BD08 /* RxGesture in Frameworks */,
 				D33459142796F97900EB983B /* Toast in Frameworks */,
 				D362F8F3279EC07900409DF2 /* FirebaseAuth in Frameworks */,
+				D3F5905027C4C95400588454 /* SocketIO in Frameworks */,
 				D351C891279E96ED001D51D9 /* Alamofire in Frameworks */,
 				D3348EA927BCB61700C3AFB6 /* Tabman in Frameworks */,
 				D351C88C279E8BDA001D51D9 /* RxAlamofire in Frameworks */,
@@ -761,6 +765,7 @@
 			children = (
 				D3F5904827C0B86F00588454 /* ChatAPI.swift */,
 				D3F5904A27C0B8C800588454 /* ChatData.swift */,
+				D3F5904C27C4C3D800588454 /* ChatSocket.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -797,6 +802,7 @@
 				D3348E9D27B8E16800C3AFB6 /* RxKeyboard */,
 				D3348EA827BCB61700C3AFB6 /* Tabman */,
 				D3F5904527BF94FE00588454 /* GrowingTextView */,
+				D3F5904F27C4C95400588454 /* SocketIO */,
 			);
 			productName = SLPProject;
 			productReference = D36958B2279669AF00924F5A /* SLPProject.app */;
@@ -840,6 +846,7 @@
 				D3348E9C27B8E16800C3AFB6 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				D3348EA727BCB61600C3AFB6 /* XCRemoteSwiftPackageReference "Tabman" */,
 				D3F5904427BF94FE00588454 /* XCRemoteSwiftPackageReference "GrowingTextView" */,
+				D3F5904E27C4C95400588454 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = D36958B3279669AF00924F5A /* Products */;
 			projectDirPath = "";
@@ -914,6 +921,7 @@
 				D362F94427AC364200409DF2 /* MyInfoDeRegisterView.swift in Sources */,
 				D362F93327AC0B7900409DF2 /* MyInfoGenderSelectView.swift in Sources */,
 				D301DC3E279C646300E4BD08 /* NicknameView.swift in Sources */,
+				D3F5904D27C4C3D800588454 /* ChatSocket.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
 				D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
@@ -1292,6 +1300,14 @@
 				minimumVersion = 0.7.2;
 			};
 		};
+		D3F5904E27C4C95400588454 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1369,6 +1385,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D3F5904427BF94FE00588454 /* XCRemoteSwiftPackageReference "GrowingTextView" */;
 			productName = GrowingTextView;
+		};
+		D3F5904F27C4C95400588454 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3F5904E27C4C95400588454 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -27,7 +27,7 @@ final class ChatAPI: BaseAPI {
     private var disposeBag = DisposeBag()
     
     // 기본 코드
-    fileprivate func baseQueueAPIRequest(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, ChatEnum) -> Void) {
+    fileprivate func baseChatAPIRequest(method: HTTPMethod, url: URL, parameters: Parameters?, header: HTTPHeaders, completion: @escaping (Data?, ChatEnum) -> Void) {
         if NetworkMonitor.shared.isConnected {
             RxAlamofire.requestData(method, url, parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets), headers: header)
                 .debug()
