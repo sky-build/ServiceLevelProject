@@ -19,17 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
 
-        // 상태에 따른 분기 처리
-        switch UserDefaultValues.registerState {
-        case .beginner:
-            window?.rootViewController = OnboardingViewController()
-        case .phoneAuth:
-            window?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
-        case .alreadyRegister:
-            window?.rootViewController = HomeTabBarController()
-        }
+//        // 상태에 따른 분기 처리
+//        switch UserDefaultValues.registerState {
+//        case .beginner:
+//            window?.rootViewController = OnboardingViewController()
+//        case .phoneAuth:
+//            window?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
+//        case .alreadyRegister:
+//            window?.rootViewController = HomeTabBarController()
+//        }
         
-//        window?.rootViewController = MainChatViewController()
+        window?.rootViewController = MainChatViewController()
 
         window?.makeKeyAndVisible()
     }
