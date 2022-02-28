@@ -70,7 +70,7 @@ extension MainRequestedViewController: UITableViewDelegate, UITableViewDataSourc
         cell.view.requestButton.tag = indexPath.row
         
         // 컬렉션뷰 설정
-        cell.index = indexPath.row
+//        cell.index = indexPath.row
         cell.view.profileTitleView.titleCollectionViews.delegate = self
         cell.view.profileTitleView.titleCollectionViews.dataSource = self
         

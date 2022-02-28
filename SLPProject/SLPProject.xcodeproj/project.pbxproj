@@ -119,8 +119,11 @@
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
 		D36958BF279669B200924F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36958BE279669B200924F5A /* Assets.xcassets */; };
 		D36958C2279669B200924F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36958C0279669B200924F5A /* LaunchScreen.storyboard */; };
+		D37E8AD527CC4DBF005CAA9B /* ProfileTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */; };
 		D39B6965279678E8005B1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D39B6964279678E8005B1EBB /* GoogleService-Info.plist */; };
 		D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */; };
+		D3DA35F627CB8CAE00D842E9 /* ChatSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA35F527CB8CAE00D842E9 /* ChatSettingView.swift */; };
+		D3DA35F827CB8D4200D842E9 /* ChatSettingSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA35F727CB8D4200D842E9 /* ChatSettingSubView.swift */; };
 		D3F5903927BF678A00588454 /* MainChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903827BF678900588454 /* MainChatViewController.swift */; };
 		D3F5903B27BF678E00588454 /* MainChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903A27BF678E00588454 /* MainChatView.swift */; };
 		D3F5903D27BF6D6C00588454 /* MainMyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */; };
@@ -236,8 +239,11 @@
 		D36958BE279669B200924F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D36958C1279669B200924F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36958C3279669B200924F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleCollectionView.swift; sourceTree = "<group>"; };
 		D39B6964279678E8005B1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapview+Extension.swift"; sourceTree = "<group>"; };
+		D3DA35F527CB8CAE00D842E9 /* ChatSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingView.swift; sourceTree = "<group>"; };
+		D3DA35F727CB8D4200D842E9 /* ChatSettingSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingSubView.swift; sourceTree = "<group>"; };
 		D3F5903827BF678900588454 /* MainChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatViewController.swift; sourceTree = "<group>"; };
 		D3F5903A27BF678E00588454 /* MainChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatView.swift; sourceTree = "<group>"; };
 		D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMyChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -690,6 +696,7 @@
 				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
 				D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */,
 				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
+				D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */,
 				D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */,
 			);
 			path = ProfileView;
@@ -755,6 +762,8 @@
 				D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */,
 				D3F5903E27BF6D7A00588454 /* MainFriendChatTableViewCell.swift */,
 				D3F5903A27BF678E00588454 /* MainChatView.swift */,
+				D3DA35F527CB8CAE00D842E9 /* ChatSettingView.swift */,
+				D3DA35F727CB8D4200D842E9 /* ChatSettingSubView.swift */,
 				D3F5903827BF678900588454 /* MainChatViewController.swift */,
 			);
 			path = MainChatView;
@@ -905,6 +914,7 @@
 				D33458F827969C7D00EB983B /* PhoneNumberAuthView.swift in Sources */,
 				D33459282797D55300EB983B /* UIFont+Extension.swift in Sources */,
 				D301DC7B279E656600E4BD08 /* Typealias.swift in Sources */,
+				D3DA35F827CB8D4200D842E9 /* ChatSettingSubView.swift in Sources */,
 				D334593B2799A7C800EB983B /* BaseViewController.swift in Sources */,
 				D332A96A27B038B20093FB65 /* BaseAPI.swift in Sources */,
 				D3348EB927BD5E2B00C3AFB6 /* MainEmptyView.swift in Sources */,
@@ -924,12 +934,14 @@
 				D3F5904D27C4C3D800588454 /* ChatSocket.swift in Sources */,
 				D334593327996A3700EB983B /* AuthNumberView.swift in Sources */,
 				D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */,
+				D3DA35F627CB8CAE00D842E9 /* ChatSettingView.swift in Sources */,
 				D362F91227A1A6E800409DF2 /* MainViewController.swift in Sources */,
 				D301DC30279C22AF00E4BD08 /* OnboardingViewController.swift in Sources */,
 				D332A96C27B03EA40093FB65 /* QueueAPIResult.swift in Sources */,
 				D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D332A96127B02E770093FB65 /* MainFilterButtons.swift in Sources */,
+				D37E8AD527CC4DBF005CAA9B /* ProfileTitleCollectionView.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
 				D332A95F27B02C860093FB65 /* CustomFilterButton.swift in Sources */,

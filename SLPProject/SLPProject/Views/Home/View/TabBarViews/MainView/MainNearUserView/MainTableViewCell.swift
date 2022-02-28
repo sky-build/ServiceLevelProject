@@ -14,8 +14,6 @@ class MainTableViewCell: UITableViewCell, FetchViews {
     
     let view = ProfileCustomView()
     
-    var index = 0
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

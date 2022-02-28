@@ -30,6 +30,8 @@ class MainChatViewController: BaseViewController {
         
         chatSocket.establishConnection()
         
+        setNavigationBar() 
+        
         setTableView()
         
         setTextView()
@@ -53,6 +55,15 @@ class MainChatViewController: BaseViewController {
     
     private func setTextView() {
         mainView.chatView.textView.delegate = self
+    }
+    
+    private func setNavigationBar() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "three_dots"), style: .plain, target: self, action: #selector(dotsButtonClicked(_:)))
+    }
+    
+    @objc private func dotsButtonClicked(_ sender: UIButton) {
+        print("dotsButtonClicked")
+        mainView.testView.isHidden.toggle()
     }
 }
 
