@@ -10,12 +10,12 @@ import SnapKit
 
 class ProfileTitleView: UIView, FetchViews {
     
-    let cellTexts = ["좋은 매너", "정확한 시간 약속", "빠른 응답", "친절한 성격", "능숙한 취미 실력", "유익한 시간"]
-    var cellState = [0, 0, 0, 0, 0, 0] {
-        didSet {
-            titleCollectionViews.reloadData()
-        }
-    }
+//    let cellTexts = ["좋은 매너", "정확한 시간 약속", "빠른 응답", "친절한 성격", "능숙한 취미 실력", "유익한 시간"]
+//    var cellState = [0, 0, 0, 0, 0, 0] {
+//        didSet {
+//            titleCollectionViews.reloadData()
+//        }
+//    }
     
     let titleText: UILabel = {
         let label = UILabel()
@@ -24,17 +24,19 @@ class ProfileTitleView: UIView, FetchViews {
         return label
     }()
     
-    let titleCollectionViews: ProfileTitleCollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        layout.minimumLineSpacing = 8
-        layout.scrollDirection = .vertical
-        
-        let collectionView = ProfileTitleCollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.isScrollEnabled = false
-        collectionView.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
-        return collectionView
-    }()
+//    let titleCollectionViews: ProfileTitleCollectionView = {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+//        layout.minimumLineSpacing = 8
+//        layout.scrollDirection = .vertical
+//
+//        let collectionView = ProfileTitleCollectionView(frame: .zero, collectionViewLayout: layout)
+//        collectionView.isScrollEnabled = false
+//        collectionView.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
+//        return collectionView
+//    }()
+    
+    let titleCollectionViews = ProfileTitleContentView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

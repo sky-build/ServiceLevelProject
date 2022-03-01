@@ -75,7 +75,7 @@ class InformationManagementViewController: BaseViewController {
         viewModel.user.reputation
             .subscribe { [self] value in
                 // 새싹 타이틀
-                mainView.profileView.profileTitleView.cellState = value
+//                mainView.profileView.profileTitleView.cellState = value
             }
             .disposed(by: disposeBag)
         
@@ -165,8 +165,8 @@ class InformationManagementViewController: BaseViewController {
     
     // 컬렉션뷰 기본 설정
     private func setCollectionView() {
-        mainView.profileView.profileTitleView.titleCollectionViews.delegate = self
-        mainView.profileView.profileTitleView.titleCollectionViews.dataSource = self
+//        mainView.profileView.profileTitleView.titleCollectionViews.delegate = self
+//        mainView.profileView.profileTitleView.titleCollectionViews.dataSource = self
 //        mainView.profileView.profileTitleView.titleCollectionViews.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
     }
     
@@ -229,24 +229,24 @@ extension InformationManagementViewController {
     }
 }
 
-extension InformationManagementViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mainView.profileView.profileTitleView.cellTexts.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
-        
-        let row = indexPath.row
-        cell.state = mainView.profileView.profileTitleView.cellState[row] == 1
-        cell.label.text = mainView.profileView.profileTitleView.cellTexts[row]
-
-        return cell
-    }
-
-    // 셀 크기 설정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 64) / 2 * 0.97, height: 32)
-    }
-}
+//extension InformationManagementViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return mainView.profileView.profileTitleView.cellTexts.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
+//        
+//        let row = indexPath.row
+//        cell.state = mainView.profileView.profileTitleView.cellState[row] == 1
+//        cell.label.text = mainView.profileView.profileTitleView.cellTexts[row]
+//
+//        return cell
+//    }
+//
+//    // 셀 크기 설정
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: (UIScreen.main.bounds.width - 64) / 2 * 0.97, height: 32)
+//    }
+//}

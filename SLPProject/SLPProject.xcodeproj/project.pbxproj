@@ -121,6 +121,8 @@
 		D36958C2279669B200924F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36958C0279669B200924F5A /* LaunchScreen.storyboard */; };
 		D37E8AD527CC4DBF005CAA9B /* ProfileTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */; };
 		D39B6965279678E8005B1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D39B6964279678E8005B1EBB /* GoogleService-Info.plist */; };
+		D3AAB12727CE0E5D00626FB2 /* ProfileTitleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB12627CE0E5D00626FB2 /* ProfileTitleContentView.swift */; };
+		D3AAB12927CE0E8400626FB2 /* ProfileTitleContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB12827CE0E8400626FB2 /* ProfileTitleContent.swift */; };
 		D3D2B7E327B3D16200A43658 /* MKMapview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */; };
 		D3DA35F627CB8CAE00D842E9 /* ChatSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA35F527CB8CAE00D842E9 /* ChatSettingView.swift */; };
 		D3DA35F827CB8D4200D842E9 /* ChatSettingSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DA35F727CB8D4200D842E9 /* ChatSettingSubView.swift */; };
@@ -241,6 +243,8 @@
 		D36958C3279669B200924F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleCollectionView.swift; sourceTree = "<group>"; };
 		D39B6964279678E8005B1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3AAB12627CE0E5D00626FB2 /* ProfileTitleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleContentView.swift; sourceTree = "<group>"; };
+		D3AAB12827CE0E8400626FB2 /* ProfileTitleContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleContent.swift; sourceTree = "<group>"; };
 		D3D2B7E227B3D16200A43658 /* MKMapview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapview+Extension.swift"; sourceTree = "<group>"; };
 		D3DA35F527CB8CAE00D842E9 /* ChatSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingView.swift; sourceTree = "<group>"; };
 		D3DA35F727CB8D4200D842E9 /* ChatSettingSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingSubView.swift; sourceTree = "<group>"; };
@@ -693,11 +697,13 @@
 			isa = PBXGroup;
 			children = (
 				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
-				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
 				D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */,
+				D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */,
 				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
 				D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */,
-				D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */,
+				D3AAB12627CE0E5D00626FB2 /* ProfileTitleContentView.swift */,
+				D3AAB12827CE0E8400626FB2 /* ProfileTitleContent.swift */,
+				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -903,6 +909,7 @@
 				D3348EAD27BCC98900C3AFB6 /* MainNearSeSACViewController.swift in Sources */,
 				D36958BA279669AF00924F5A /* ViewController.swift in Sources */,
 				D3348EB327BCC99F00C3AFB6 /* MainRequestedViewController.swift in Sources */,
+				D3AAB12727CE0E5D00626FB2 /* ProfileTitleContentView.swift in Sources */,
 				D362F8FE279FD1D300409DF2 /* UserInformation.swift in Sources */,
 				D332A98027B18D070093FB65 /* HobbyUICollectionViewCell.swift in Sources */,
 				D301DC52279D0C0400E4BD08 /* DateType.swift in Sources */,
@@ -970,6 +977,7 @@
 				D362F90B27A0493400409DF2 /* UserAPIResult.swift in Sources */,
 				D3F5903B27BF678E00588454 /* MainChatView.swift in Sources */,
 				D301DC74279D78B300E4BD08 /* GenderType.swift in Sources */,
+				D3AAB12927CE0E8400626FB2 /* ProfileTitleContent.swift in Sources */,
 				D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */,
 				D36958B8279669AF00924F5A /* SceneDelegate.swift in Sources */,
 				D3348EA027BBBF3C00C3AFB6 /* HobbyCollectionViewHeader.swift in Sources */,

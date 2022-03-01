@@ -91,9 +91,10 @@ extension MainNearSeSACViewController: UITableViewDelegate, UITableViewDataSourc
         cell.view.requestButton.tag = indexPath.row
         
         // 컬렉션뷰 설정
-        cell.view.profileTitleView.titleCollectionViews.index = indexPath.row
-        cell.view.profileTitleView.titleCollectionViews.delegate = self
-        cell.view.profileTitleView.titleCollectionViews.dataSource = self
+        cell.view.profileTitleView.titleCollectionViews.setViewState(viewModel.model.nearFriends.value[indexPath.row].reputation)
+//        cell.view.profileTitleView.titleCollectionViews.index = indexPath.row
+//        cell.view.profileTitleView.titleCollectionViews.delegate = self
+//        cell.view.profileTitleView.titleCollectionViews.dataSource = self
         
         // 댓글 불러오기
         let comments = viewModel.model.nearFriends.value[indexPath.row].reviews
@@ -148,8 +149,8 @@ extension MainNearSeSACViewController: UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
         
         let cv = collectionView as! ProfileTitleCollectionView
+        print("cv Index = ", cv.index)
         
-        // 방금 저 위치에 인덱스를 씁니다.
         let row = viewModel.model.nearFriends.value[cv.index].reputation
         
         cell.state = row[indexPath.row] == 1
