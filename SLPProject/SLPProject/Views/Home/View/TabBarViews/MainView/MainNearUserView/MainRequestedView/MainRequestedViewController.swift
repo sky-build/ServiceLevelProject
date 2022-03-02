@@ -70,9 +70,7 @@ extension MainRequestedViewController: UITableViewDelegate, UITableViewDataSourc
         cell.view.requestButton.tag = indexPath.row
         
         // 컬렉션뷰 설정
-//        cell.index = indexPath.row
-//        cell.view.profileTitleView.titleCollectionViews.delegate = self
-//        cell.view.profileTitleView.titleCollectionViews.dataSource = self
+
         
         if viewModel.model.requestNearFriendsState.value[indexPath.row] {
             cell.view.profileUserNameView.stratchButton.setImage(UIImage(named: "button.up"), for: .normal)
@@ -101,27 +99,3 @@ extension MainRequestedViewController: UITableViewDelegate, UITableViewDataSourc
         print("\(sender.tag) 번째 버튼 클릭")
     }
 }
-
-//extension MainRequestedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 6
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
-//        
-//        let row = viewModel.model.requestNearFriends.value[cell.index].reputation
-//        
-//        cell.state = row[indexPath.row] == 1
-//        let cellTexts = ["좋은 매너", "정확한 시간 약속", "빠른 응답", "친절한 성격", "능숙한 취미 실력", "유익한 시간"]
-//        cell.label.text = cellTexts[indexPath.row]
-//        
-//        return cell
-//    }
-//    
-//    // 셀 크기 설정
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (UIScreen.main.bounds.width - 64) / 2 * 0.97, height: 32)
-//    }
-//}

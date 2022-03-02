@@ -24,18 +24,6 @@ class ProfileTitleView: UIView, FetchViews {
         return label
     }()
     
-//    let titleCollectionViews: ProfileTitleCollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-//        layout.minimumLineSpacing = 8
-//        layout.scrollDirection = .vertical
-//
-//        let collectionView = ProfileTitleCollectionView(frame: .zero, collectionViewLayout: layout)
-//        collectionView.isScrollEnabled = false
-//        collectionView.register(ProfileTitleViewCell.self, forCellWithReuseIdentifier: ProfileTitleViewCell.identifier)
-//        return collectionView
-//    }()
-    
     let titleCollectionViews = ProfileTitleContentView()
     
     override init(frame: CGRect) {

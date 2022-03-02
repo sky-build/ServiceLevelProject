@@ -197,7 +197,7 @@ class UserAPI {
         // 연산 프로퍼티
         var parameters: Parameters {
             [
-                "FCMToken": "eZpca7JwO0V0kNznuLgvPm:APA91bF7MdMQE8bNho_2LHPebuESN4M4m7AeeMONgz4boZjPneHfQRLGxeqq1YZlGDTra2IRR9sWPCBerT7EQsp21nbcpAUbFzZ3NG3A4IK0cUT6-e3Fbb9NRKV9W_C7Q29ZwhHkHP3_"//FirebaseToken.shared.fcmToken
+                "FCMToken": FirebaseToken.shared.fcmToken
             ]
         }
         

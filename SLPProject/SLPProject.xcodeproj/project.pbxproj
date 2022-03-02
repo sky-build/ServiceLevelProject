@@ -102,7 +102,6 @@
 		D362F92127A2936300409DF2 /* InformationManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92027A2936300409DF2 /* InformationManagementViewController.swift */; };
 		D362F92327A297DF00409DF2 /* InformationManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92227A297DF00409DF2 /* InformationManagementView.swift */; };
 		D362F92527A297F700409DF2 /* ProfileCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92427A297F700409DF2 /* ProfileCustomView.swift */; };
-		D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */; };
 		D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */; };
 		D362F92B27ABAC3D00409DF2 /* ProfileUserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */; };
 		D362F92D27ABB21000409DF2 /* ProfileCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */; };
@@ -119,7 +118,6 @@
 		D36958BA279669AF00924F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958B9279669AF00924F5A /* ViewController.swift */; };
 		D36958BF279669B200924F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36958BE279669B200924F5A /* Assets.xcassets */; };
 		D36958C2279669B200924F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36958C0279669B200924F5A /* LaunchScreen.storyboard */; };
-		D37E8AD527CC4DBF005CAA9B /* ProfileTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */; };
 		D39B6965279678E8005B1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D39B6964279678E8005B1EBB /* GoogleService-Info.plist */; };
 		D3AAB12727CE0E5D00626FB2 /* ProfileTitleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB12627CE0E5D00626FB2 /* ProfileTitleContentView.swift */; };
 		D3AAB12927CE0E8400626FB2 /* ProfileTitleContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB12827CE0E8400626FB2 /* ProfileTitleContent.swift */; };
@@ -224,7 +222,6 @@
 		D362F92027A2936300409DF2 /* InformationManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementViewController.swift; sourceTree = "<group>"; };
 		D362F92227A297DF00409DF2 /* InformationManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationManagementView.swift; sourceTree = "<group>"; };
 		D362F92427A297F700409DF2 /* ProfileCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomView.swift; sourceTree = "<group>"; };
-		D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleViewCell.swift; sourceTree = "<group>"; };
 		D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleView.swift; sourceTree = "<group>"; };
 		D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNameView.swift; sourceTree = "<group>"; };
 		D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCommentView.swift; sourceTree = "<group>"; };
@@ -241,7 +238,6 @@
 		D36958BE279669B200924F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D36958C1279669B200924F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36958C3279669B200924F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleCollectionView.swift; sourceTree = "<group>"; };
 		D39B6964279678E8005B1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3AAB12627CE0E5D00626FB2 /* ProfileTitleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleContentView.swift; sourceTree = "<group>"; };
 		D3AAB12827CE0E8400626FB2 /* ProfileTitleContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleContent.swift; sourceTree = "<group>"; };
@@ -699,8 +695,6 @@
 				D362F92427A297F700409DF2 /* ProfileCustomView.swift */,
 				D362F92A27ABAC3D00409DF2 /* ProfileUserNameView.swift */,
 				D362F92827A3BF9700409DF2 /* ProfileTitleView.swift */,
-				D362F92627A306B000409DF2 /* ProfileTitleViewCell.swift */,
-				D37E8AD427CC4DBF005CAA9B /* ProfileTitleCollectionView.swift */,
 				D3AAB12627CE0E5D00626FB2 /* ProfileTitleContentView.swift */,
 				D3AAB12827CE0E8400626FB2 /* ProfileTitleContent.swift */,
 				D362F92C27ABB21000409DF2 /* ProfileCommentView.swift */,
@@ -903,7 +897,6 @@
 				D332A95727AED9390093FB65 /* UserRegisterState.swift in Sources */,
 				D332A97527B116660093FB65 /* MainSearchViewController.swift in Sources */,
 				D362F91C27A1AF8800409DF2 /* MyInfoView.swift in Sources */,
-				D362F92727A306B000409DF2 /* ProfileTitleViewCell.swift in Sources */,
 				D301DC50279D03B200E4BD08 /* DateView.swift in Sources */,
 				D362F91027A1A16F00409DF2 /* MyInfoViewController.swift in Sources */,
 				D3348EAD27BCC98900C3AFB6 /* MainNearSeSACViewController.swift in Sources */,
@@ -948,7 +941,6 @@
 				D362F92927A3BF9700409DF2 /* ProfileTitleView.swift in Sources */,
 				D301DC34279C39BD00E4BD08 /* OnboardingCollectionViewCell.swift in Sources */,
 				D332A96127B02E770093FB65 /* MainFilterButtons.swift in Sources */,
-				D37E8AD527CC4DBF005CAA9B /* ProfileTitleCollectionView.swift in Sources */,
 				D33459162797058D00EB983B /* String+Extension.swift in Sources */,
 				D33459012796CF9800EB983B /* FetchViews.swift in Sources */,
 				D332A95F27B02C860093FB65 /* CustomFilterButton.swift in Sources */,
