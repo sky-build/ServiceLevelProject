@@ -20,10 +20,9 @@ class MainChatView: UIView, FetchViews {
     
     let chatView = ChatTextView()
     
-    let testView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .slpGreen
-        view.isHidden = true
+    let settingView: ChatSettingView = {
+        let view = ChatSettingView()
+        view.isHidden = false
         return view
     }()
     
@@ -39,7 +38,7 @@ class MainChatView: UIView, FetchViews {
     }
     
     func addViews() {
-        [tableView, chatView, testView].forEach {
+        [tableView, chatView, settingView].forEach {
             self.addSubview($0)
         }
     }
@@ -56,7 +55,7 @@ class MainChatView: UIView, FetchViews {
             $0.height.equalTo(40 + 20)
         }
         
-        testView.snp.makeConstraints {
+        settingView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(super.safeAreaLayoutGuide)
             $0.bottom.equalToSuperview()
         }

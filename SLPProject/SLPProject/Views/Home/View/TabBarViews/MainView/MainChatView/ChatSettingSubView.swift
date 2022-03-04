@@ -12,11 +12,18 @@ class ChatSettingSubView: UIView, FetchViews {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.spacing = 6
         stackView.axis = .vertical
         return stackView
     }()
     
-    let image = UIImageView()
+    let image: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
     let text: UILabel = {
         let label = UILabel()
         label.font = .Title3_M14
@@ -43,8 +50,23 @@ class ChatSettingSubView: UIView, FetchViews {
     }
     
     func makeConstraints() {
-        stackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+        self.snp.makeConstraints {
+            $0.center.equalTo(super.safeAreaLayoutGuide)
         }
+        
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+//        
+//        image.snp.makeConstraints {
+//            $0.centerX.equalToSuperview()
+//            $0.size.equalTo(20)
+//        }
+//
+//        text.snp.makeConstraints {
+//            $0.centerX.equalToSuperview()
+//            $0.width.equalTo(55)
+//            $0.height.equalTo(22)
+//        }
     }
 }

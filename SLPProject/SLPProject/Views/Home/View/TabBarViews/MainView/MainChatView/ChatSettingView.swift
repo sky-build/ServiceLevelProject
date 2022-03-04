@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ChatSettingView: UIView, FetchViews {
     
@@ -13,6 +14,8 @@ class ChatSettingView: UIView, FetchViews {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 0
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -40,6 +43,8 @@ class ChatSettingView: UIView, FetchViews {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = .slpWhite
+        
         addViews()
         makeConstraints()
     }
@@ -57,6 +62,16 @@ class ChatSettingView: UIView, FetchViews {
     }
     
     func makeConstraints() {
+        self.snp.makeConstraints {
+//            $0.top.leading.trailing.equalTo(super.safeAreaLayoutGuide)
+//            $0.bottom.equalToSuperview()
+            $0.edges.equalTo(super.safeAreaLayoutGuide)
+        }
         
+        stackView.backgroundColor = .slpGreen
+        stackView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(75)
+        }
     }
 }

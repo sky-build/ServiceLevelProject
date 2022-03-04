@@ -761,9 +761,9 @@
 				D3F5904227BF7A6800588454 /* ChatTextView.swift */,
 				D3F5903C27BF6D6C00588454 /* MainMyChatTableViewCell.swift */,
 				D3F5903E27BF6D7A00588454 /* MainFriendChatTableViewCell.swift */,
-				D3F5903A27BF678E00588454 /* MainChatView.swift */,
 				D3DA35F527CB8CAE00D842E9 /* ChatSettingView.swift */,
 				D3DA35F727CB8D4200D842E9 /* ChatSettingSubView.swift */,
+				D3F5903A27BF678E00588454 /* MainChatView.swift */,
 				D3F5903827BF678900588454 /* MainChatViewController.swift */,
 			);
 			path = MainChatView;

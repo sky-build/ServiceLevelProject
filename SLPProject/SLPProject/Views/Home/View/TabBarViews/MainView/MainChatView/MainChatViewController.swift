@@ -63,7 +63,7 @@ class MainChatViewController: BaseViewController {
     
     @objc private func dotsButtonClicked(_ sender: UIButton) {
         print("dotsButtonClicked")
-        mainView.testView.isHidden.toggle()
+        mainView.settingView.isHidden.toggle()
     }
 }
 
