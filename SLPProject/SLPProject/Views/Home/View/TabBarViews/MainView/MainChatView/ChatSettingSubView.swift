@@ -57,16 +57,5 @@ class ChatSettingSubView: UIView, FetchViews {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-//        
-//        image.snp.makeConstraints {
-//            $0.centerX.equalToSuperview()
-//            $0.size.equalTo(20)
-//        }
-//
-//        text.snp.makeConstraints {
-//            $0.centerX.equalToSuperview()
-//            $0.width.equalTo(55)
-//            $0.height.equalTo(22)
-//        }
     }
 }

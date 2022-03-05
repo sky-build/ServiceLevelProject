@@ -10,12 +10,15 @@ import SnapKit
 import GrowingTextView
 import RxSwift
 import RxCocoa
+import RxGesture
 
 class MainChatViewController: BaseViewController {
     
     let mainView = MainChatView()
     
     var disposeBag = DisposeBag()
+    
+    var viewModel = MainViewModel()
     
     let chatSocket = ChatSocket()
     
@@ -35,6 +38,8 @@ class MainChatViewController: BaseViewController {
         setTableView()
         
         setTextView()
+        
+        setSettingView()
         
         mainView.chatView.sendButton.rx.tap
             .subscribe { [self] _ in
@@ -64,6 +69,32 @@ class MainChatViewController: BaseViewController {
     @objc private func dotsButtonClicked(_ sender: UIButton) {
         print("dotsButtonClicked")
         mainView.settingView.isHidden.toggle()
+    }
+    
+    private func setSettingView() {
+        mainView.settingView.reportView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe { _ in
+                print("새싹 신고")
+            }
+            .disposed(by: disposeBag)
+        
+        mainView.settingView.cancelPromiseView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe { _ in
+                viewModel.queueAPI.dodgeQueue()
+            }
+            .disposed(by: disposeBag)
+        
+        mainView.settingView.reviewView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe { _ in
+                print("리뷰 등록")
+            }
+            .disposed(by: disposeBag)
     }
 }
 

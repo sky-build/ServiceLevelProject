@@ -21,7 +21,7 @@ class ChatSettingView: UIView, FetchViews {
     
     let reportView: ChatSettingSubView = {
         let view = ChatSettingSubView()
-        view.text.text = "신고 하기"
+        view.text.text = "새싹 신고"
         view.image.image = UIImage(named: "report")
         return view
     }()
