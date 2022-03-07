@@ -32,6 +32,7 @@ private enum QueueURL: String {
     case hobbyrequest = "queue/hobbyrequest"
     case hobbyaccept = "queue/hobbyaccept"
     case dodge = "queue/dodge"
+    case rate = "queue/rate"
 }
 
 extension QueueURL {
@@ -283,6 +284,37 @@ class QueueAPI {
             case .firebaseTokenError:
                 FirebaseToken.shared.updateIDToken {
                     dodgeQueue()
+                }
+            case .noRegisterUser:
+                state.accept(.noRegisterUser)
+            case .serverError:
+                state.accept(.serverError)
+            case .clientError:
+                state.accept(.clientError)
+            default:
+                break
+            }
+        }
+    }
+    
+    func queueRate() {
+        var parameters: Parameters {
+            [
+                "otheruid" : MainModel.shared.nearFriends.value[MainModel.shared.selectedDataIndex].uid,
+                "reputation": [1, 1, 1, 1, 1, 1, 0, 0, 0],
+                "comment" : "약속 시간을 잘 지키고 친절해요!"
+            ]
+        }
+        
+        baseQueueAPIRequest(method: .post, url: QueueURL.rate.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
+            switch apiState {
+            case .noConnectinon:
+                break
+            case .success:
+                state.accept(.success)
+            case .firebaseTokenError:
+                FirebaseToken.shared.updateIDToken {
+                    queueRate()
                 }
             case .noRegisterUser:
                 state.accept(.noRegisterUser)

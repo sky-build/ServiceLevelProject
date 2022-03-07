@@ -74,6 +74,7 @@ class MainChatViewController: BaseViewController {
     private func setSettingView() {
         mainView.settingView.reportView.rx.tapGesture()
             .when(.recognized)
+            .withUnretained(self)
             .subscribe { _ in
                 print("새싹 신고")
             }
@@ -81,13 +82,15 @@ class MainChatViewController: BaseViewController {
         
         mainView.settingView.cancelPromiseView.rx.tapGesture()
             .when(.recognized)
-            .subscribe { [self] _ in
-                viewModel.queueAPI.dodgeQueue()
+            .withUnretained(self)
+            .subscribe { (owner, _) in
+                owner.viewModel.queueAPI.dodgeQueue()
             }
             .disposed(by: disposeBag)
         
         mainView.settingView.reviewView.rx.tapGesture()
             .when(.recognized)
+            .withUnretained(self)
             .subscribe { _ in
                 print("리뷰 등록")
             }
