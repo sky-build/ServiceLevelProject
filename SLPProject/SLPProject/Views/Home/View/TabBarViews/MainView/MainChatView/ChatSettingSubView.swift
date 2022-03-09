@@ -35,6 +35,8 @@ class ChatSettingSubView: UIView, FetchViews {
         
         addViews()
         makeConstraints()
+        
+        stackView.backgroundColor = .slpWhite
     }
     
     required init?(coder: NSCoder) {

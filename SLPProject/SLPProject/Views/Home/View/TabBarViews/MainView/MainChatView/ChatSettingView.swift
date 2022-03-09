@@ -43,7 +43,7 @@ class ChatSettingView: UIView, FetchViews {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .slpWhite
+        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         
         addViews()
         makeConstraints()
