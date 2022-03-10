@@ -146,6 +146,7 @@ extension MainViewController: MKMapViewDelegate {
         mainView.mapView.removeAnnotations(mainView.mapView.annotations)
         mapView.markAnnotation(mapView.centerCoordinate, region: false)
         viewModel.model.currentPosition.accept([position.latitude, position.longitude])
+        print(viewModel.model.nearFriends.value)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

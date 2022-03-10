@@ -67,7 +67,6 @@ class MainChatViewController: BaseViewController {
     }
     
     @objc private func dotsButtonClicked(_ sender: UIButton) {
-        print("dotsButtonClicked")
         mainView.settingView.isHidden.toggle()
     }
     
@@ -84,7 +83,8 @@ class MainChatViewController: BaseViewController {
             .when(.recognized)
             .withUnretained(self)
             .subscribe { (owner, _) in
-                owner.viewModel.queueAPI.dodgeQueue()
+                print("약속 취소")
+//                owner.viewModel.queueAPI.dodgeQueue()
             }
             .disposed(by: disposeBag)
         

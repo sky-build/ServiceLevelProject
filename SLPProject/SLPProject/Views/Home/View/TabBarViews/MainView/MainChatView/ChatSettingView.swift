@@ -19,6 +19,12 @@ class ChatSettingView: UIView, FetchViews {
         return stackView
     }()
     
+    let bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .slpWhite
+        return view
+    }()
+    
     let reportView: ChatSettingSubView = {
         let view = ChatSettingSubView()
         view.text.text = "새싹 신고"
@@ -54,7 +60,9 @@ class ChatSettingView: UIView, FetchViews {
     }
     
     func addViews() {
-        self.addSubview(stackView)
+        [stackView, bottomView].forEach {
+            self.addSubview($0)
+        }
         
         [reportView, cancelPromiseView, reviewView].forEach {
             stackView.addArrangedSubview($0)
@@ -63,15 +71,19 @@ class ChatSettingView: UIView, FetchViews {
     
     func makeConstraints() {
         self.snp.makeConstraints {
-//            $0.top.leading.trailing.equalTo(super.safeAreaLayoutGuide)
-//            $0.bottom.equalToSuperview()
             $0.edges.equalTo(super.safeAreaLayoutGuide)
         }
         
         stackView.backgroundColor = .slpGreen
         stackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(75)
+            $0.height.equalTo(60)
+        }
+        
+        bottomView.snp.makeConstraints {
+            $0.top.equalTo(stackView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(15)
         }
     }
 }
