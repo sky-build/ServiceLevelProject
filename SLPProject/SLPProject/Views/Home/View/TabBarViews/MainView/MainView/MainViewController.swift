@@ -54,12 +54,19 @@ class MainViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
 
-
-        
         // 위치정보가 활성화되어있다면
+        // 이거는 스마트폰 자체에서 활성화되어있는거고, 앱내 설정이 활성화되어있는지 확인해야함
         if CLLocationManager.locationServicesEnabled() {
-            // 위치정보 받아오기 시작
-            locationManager.startUpdatingLocation()
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                print("안됨")
+            case .authorizedAlways, .authorizedWhenInUse:
+                // 위치정보 받아오기 시작
+                locationManager.startUpdatingLocation()
+            @unknown default:
+                print("default")
+            }
+            
         }
         
         // mapView 설정
