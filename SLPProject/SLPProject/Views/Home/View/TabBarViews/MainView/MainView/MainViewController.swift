@@ -66,7 +66,6 @@ class MainViewController: BaseViewController {
             @unknown default:
                 print("default")
             }
-            
         }
         
         // mapView 설정

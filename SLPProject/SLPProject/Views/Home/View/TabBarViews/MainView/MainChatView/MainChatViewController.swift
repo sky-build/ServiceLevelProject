@@ -11,6 +11,7 @@ import GrowingTextView
 import RxSwift
 import RxCocoa
 import RxGesture
+import Toast
 
 class MainChatViewController: BaseViewController {
     
@@ -20,7 +21,7 @@ class MainChatViewController: BaseViewController {
     
     var viewModel = MainViewModel()
     
-    let chatSocket = ChatSocket()
+//    let chatSocket = ChatSocket()
     
     override func loadView() {
         super.loadView()
@@ -31,7 +32,12 @@ class MainChatViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chatSocket.establishConnection()
+        SocketIOManager.shared.establishConnection()
+//        chatSocket.establishConnection()
+        
+        mainView.settingView.isHidden.toggle()
+        
+//        chatSocket.establishConnection()
         
         setNavigationBar() 
         
@@ -43,14 +49,29 @@ class MainChatViewController: BaseViewController {
         
         mainView.chatView.sendButton.rx.tap
             .subscribe { [self] _ in
+//                chatSocket.state()
+//                view.makeToast("전송")
+                print(SocketIOManager.shared.socket.status.description)
                 switch mainView.chatView.sendButtonState {
                 case .enable:
+                    let text = mainView.chatView.textView.text!
+                    SocketIOManager.shared.sendMessage(message: text, nickname: "nick")
+                    var array = ChatViewModel.shared.chatData.value
+                    array.append(ChatData(state: .my, chat: text))
+                    ChatViewModel.shared.chatData.accept(array)
                     print("가능")
+                    mainView.chatView.textView.text = ""
+                    mainView.chatView.sendButtonState = .disable
                 case .disable:
                     print("불가능")
                 }
             }
             .disposed(by: disposeBag)
+        
+        ChatViewModel.shared.chatData.subscribe { _ in
+            self.mainView.tableView.reloadData()
+        }
+        .disposed(by: disposeBag)
     }
     
     private func setTableView() {
@@ -117,23 +138,25 @@ extension MainChatViewController: GrowingTextViewDelegate {
 
 extension MainChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return ChatViewModel.shared.chatData.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 || indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 6 || indexPath.row == 8 {
+//        if ChatViewModel.shared.chatData.value[indexPath.row][0] == ChatState.my {
+        let chatData = ChatViewModel.shared.chatData.value[indexPath.row]
+        if chatData.state == .my {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainMyChatTableViewCell.identifier, for: indexPath) as! MainMyChatTableViewCell
             
-            cell.date.text = "15:02"
-            cell.chatView.text.text = "아아ㅏ아ㅏ아ㅏㅏ아ㅏ아아아아ㅏ아아ㅏ아아ㅏ아ㅏ아아ㅏ아ㅏ아아ㅏ아아아ㅏ아아ㅏ아아아아아아아ㅏ아ㅏ아ㅏㅏ아ㅏ아아아아ㅏ아아ㅏ아아ㅏ아ㅏ아아ㅏ아ㅏ아아ㅏ아아아ㅏ아아ㅏ아아아아아"
+//            cell.date.text = "15:02"
+            cell.chatView.text.text = chatData.chat
             cell.readState = .read
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainFriendChatTableViewCell.identifier, for: indexPath) as! MainFriendChatTableViewCell
             
-            cell.date.text = "15:02"
-            cell.chatView.text.text = "안녕하세요! 저 평일은 저녁 8시에 꾸준히 타는데 7시부터 타도 괜찮아요안녕하세요! 저 평일은 저녁 8시에 꾸준히 타는데 7시부터 타도 괜찮아요"
+//            cell.date.text = "15:02"
+            cell.chatView.text.text = chatData.chat
             
             return cell
         }

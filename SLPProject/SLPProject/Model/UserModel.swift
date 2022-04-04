@@ -11,7 +11,7 @@ import RxRelay
 class UserModel {
     static let shared = UserModel()
     
-    let phoneNumber = BehaviorRelay<String>(value: "1099009603")
+    let phoneNumber = BehaviorRelay<String>(value: "1092293212")
     let authNumber = BehaviorRelay<String>(value: "")
     let nickname = BehaviorRelay<String>(value: "")
     let birthday = BehaviorRelay<Date>(value: Date())

@@ -11,6 +11,7 @@ import SnapKit
 enum RequestButtonStateEnum {
     case request
     case ok
+    case none
 }
 
 class ProfileCustomView: UIView, FetchViews {
@@ -32,7 +33,7 @@ class ProfileCustomView: UIView, FetchViews {
         return button
     }()
     
-    var requestButtonState: RequestButtonStateEnum = .request {
+    var requestButtonState: RequestButtonStateEnum = .none {
         didSet {
             switch requestButtonState {
             case .request:
@@ -41,6 +42,8 @@ class ProfileCustomView: UIView, FetchViews {
             case .ok:
                 requestButton.setTitle("수락하기", for: .normal)
                 requestButton.backgroundColor = .slpSuccess
+            case .none:
+                requestButton.isHidden = true
             }
         }
     }

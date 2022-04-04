@@ -45,6 +45,7 @@ class InformationManagerView: UIView, FetchViews {
     func addViews() {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        profileView.requestButtonState = .none
         
         [profileView, selectGenderView, favoriteHabitView, phoneSearchView, searchAgeView, deRegisterView].forEach {
             contentView.addSubview($0)

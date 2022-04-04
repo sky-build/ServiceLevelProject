@@ -67,6 +67,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        SocketIOManager.shared.closeConnection()
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        SocketIOManager.shared.establishConnection()
+    }
+    
 
     // MARK: UISceneSession Lifecycle
 

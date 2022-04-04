@@ -41,14 +41,22 @@ class PhoneNumberAuthViewController: BaseViewController {
         // 델리게이트 위임
         mainView.phoneNumberTextField.textField.delegate = self
     }
+    // cx2rCtnmHEnfkEvPDNsH6l:APA91bHY1_hVScbReHGhlRwmK7Y3wLCOrPSXvZzd_jMiUXCdefiWTHiBlpp86UfDpasKyqI5eCwe-QD_igY4QmnoUeqwXW34mWc1bNVLHyCy1k4N4MxMxXqVVI3EEGrICnqFjJWO5bmz
     
     // 인증하기 메시지 버튼 설정
     private func setAuthMessageButton() {
+        // 입력값 뷰모델에 바인딩
+//        mainView.phoneNumberTextField.textField.rx.text
+//            .orEmpty
+//            .bind(to: viewModel.user.phoneNumber)
+//            .disposed(by: disposeBag)
+        
         // 인증하기 버튼 클릭했을 경우
         mainView.authMessageButton.rx.tap
             .map { self.mainView.phoneNumberTextField.textField.text!.validPhoneNumber() }
             .bind { [self] state in
                 // 번호를 제대로 입력한 경우 전화번호 인증 수행
+                print(viewModel.user.phoneNumber)
                 if state {
                     view.makeToast("전화번호 인증 시작")
                     viewModel.sendPhoneAuthorization { state in
