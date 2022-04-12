@@ -49,7 +49,6 @@ class MainNearSeSACViewController: BaseViewController {
         
         viewModel.model.nearFriends
             .subscribe { [self] _ in
-                print("값 업데이트")
                 mainView.tableView.reloadData()
             }
             .disposed(by: disposeBag)
@@ -129,7 +128,6 @@ extension MainNearSeSACViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     @objc private func requestButtonClicked(_ sender: UIButton) {
-        print("\(sender.tag) 번째 버튼 클릭")
         viewModel.model.selectedDataIndex = sender.tag
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: false, completion: nil)

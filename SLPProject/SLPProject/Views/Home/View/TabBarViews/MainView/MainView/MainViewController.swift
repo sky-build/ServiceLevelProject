@@ -47,24 +47,19 @@ class MainViewController: BaseViewController {
         
         viewModel.queueAPI.state
             .subscribe { [self] _ in
-                print(viewModel.model.fromRecomend.value)
-                print(viewModel.model.requestNearFriends.value)
-                print(viewModel.model.nearFriends.value)
                 mainView.mapView.markFriendsAnnotation(viewModel.model.nearFriends.value, filter: viewModel.model.filterState.value)
             }
             .disposed(by: disposeBag)
 
         // 위치정보가 활성화되어있다면
-        // 이거는 스마트폰 자체에서 활성화되어있는거고, 앱내 설정이 활성화되어있는지 확인해야함
         if CLLocationManager.locationServicesEnabled() {
-            switch CLLocationManager.authorizationStatus() {
-            case .notDetermined, .restricted, .denied:
-                print("안됨")
+            // 이거는 스마트폰 자체에서 활성화되어있는거고, 앱내 설정이 활성화되어있는지 확인해야함
+            switch locationManager.authorizationStatus {
             case .authorizedAlways, .authorizedWhenInUse:
                 // 위치정보 받아오기 시작
                 locationManager.startUpdatingLocation()
             @unknown default:
-                print("default")
+                break
             }
         }
         
@@ -123,8 +118,8 @@ class MainViewController: BaseViewController {
     }
     
     @objc private func statusButtonClicked(_ sender: UIButton) {
-//        let vc = MainSearchViewController()
-        let vc = MainNearUserViewController()
+        let vc = MainSearchViewController()
+//        let vc = MainNearUserViewController()
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -152,7 +147,6 @@ extension MainViewController: MKMapViewDelegate {
         mainView.mapView.removeAnnotations(mainView.mapView.annotations)
         mapView.markAnnotation(mapView.centerCoordinate, region: false)
         viewModel.model.currentPosition.accept([position.latitude, position.longitude])
-        print(viewModel.model.nearFriends.value)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

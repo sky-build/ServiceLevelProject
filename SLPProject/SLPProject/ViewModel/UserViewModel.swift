@@ -20,7 +20,6 @@ class UserViewModel {
     
     // 휴대폰 인증 전송 코드
     func sendPhoneAuthorization(completion: @escaping (PhoneNumberAuthStatus) -> Void) {
-        print("phoneNumber = ", user.phoneNumber.value)
         PhoneAuthProvider.provider()
             .verifyPhoneNumber("+82\(user.phoneNumber.value)", uiDelegate: nil) { verificationID, error in
                 if let error = error {

@@ -49,9 +49,6 @@ class MainChatViewController: BaseViewController {
         
         mainView.chatView.sendButton.rx.tap
             .subscribe { [self] _ in
-//                chatSocket.state()
-//                view.makeToast("전송")
-                print(SocketIOManager.shared.socket.status.description)
                 switch mainView.chatView.sendButtonState {
                 case .enable:
                     let text = mainView.chatView.textView.text!
@@ -59,11 +56,10 @@ class MainChatViewController: BaseViewController {
                     var array = ChatViewModel.shared.chatData.value
                     array.append(ChatData(state: .my, chat: text))
                     ChatViewModel.shared.chatData.accept(array)
-                    print("가능")
                     mainView.chatView.textView.text = ""
                     mainView.chatView.sendButtonState = .disable
                 case .disable:
-                    print("불가능")
+                    break
                 }
             }
             .disposed(by: disposeBag)
@@ -92,28 +88,11 @@ class MainChatViewController: BaseViewController {
     }
     
     private func setSettingView() {
-        mainView.settingView.reportView.rx.tapGesture()
-            .when(.recognized)
-            .withUnretained(self)
-            .subscribe { _ in
-                print("새싹 신고")
-            }
-            .disposed(by: disposeBag)
-        
         mainView.settingView.cancelPromiseView.rx.tapGesture()
             .when(.recognized)
             .withUnretained(self)
             .subscribe { (owner, _) in
-                print("약속 취소")
-//                owner.viewModel.queueAPI.dodgeQueue()
-            }
-            .disposed(by: disposeBag)
-        
-        mainView.settingView.reviewView.rx.tapGesture()
-            .when(.recognized)
-            .withUnretained(self)
-            .subscribe { _ in
-                print("리뷰 등록")
+                owner.viewModel.queueAPI.dodgeQueue()
             }
             .disposed(by: disposeBag)
     }
@@ -142,12 +121,10 @@ extension MainChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if ChatViewModel.shared.chatData.value[indexPath.row][0] == ChatState.my {
         let chatData = ChatViewModel.shared.chatData.value[indexPath.row]
         if chatData.state == .my {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainMyChatTableViewCell.identifier, for: indexPath) as! MainMyChatTableViewCell
             
-//            cell.date.text = "15:02"
             cell.chatView.text.text = chatData.chat
             cell.readState = .read
             
@@ -155,7 +132,6 @@ extension MainChatViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: MainFriendChatTableViewCell.identifier, for: indexPath) as! MainFriendChatTableViewCell
             
-//            cell.date.text = "15:02"
             cell.chatView.text.text = chatData.chat
             
             return cell

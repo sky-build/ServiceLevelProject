@@ -56,7 +56,6 @@ class PhoneNumberAuthViewController: BaseViewController {
             .map { self.mainView.phoneNumberTextField.textField.text!.validPhoneNumber() }
             .bind { [self] state in
                 // 번호를 제대로 입력한 경우 전화번호 인증 수행
-                print(viewModel.user.phoneNumber)
                 if state {
                     view.makeToast("전화번호 인증 시작")
                     viewModel.sendPhoneAuthorization { state in

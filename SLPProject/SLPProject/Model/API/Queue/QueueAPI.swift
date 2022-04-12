@@ -77,7 +77,6 @@ class QueueAPI {
         }
         
         baseQueueAPIRequest(method: .post, url: QueueURL.queue.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
-            print("apiState = ", apiState.rawValue)
             switch apiState {
             case .noConnectinon:
                 break
@@ -140,7 +139,6 @@ class QueueAPI {
                 do {
                     let decoder = JSONDecoder()
                     let decodeData = try decoder.decode(FriendsData.self, from: data)
-                    print(decodeData)
                     // 모델에 값 변경해줌
                     MainModel.shared.nearFriends.accept(decodeData.fromQueueDB)
                     MainModel.shared.requestNearFriends.accept(decodeData.fromQueueDBRequested)
@@ -149,10 +147,9 @@ class QueueAPI {
                     MainModel.shared.nearFriendsState.accept(Array(repeating: false, count: decodeData.fromQueueDB.count))
                     MainModel.shared.requestNearFriendsState.accept(Array(repeating: false, count: decodeData.fromQueueDBRequested.count))
                     
-                    // 그리고 구독하라고 설정
                     state.accept(.success)
                 } catch {
-                    print("decode error")
+                    break
                 }
                 state.accept(.success)
             case .firebaseTokenError:
@@ -203,7 +200,6 @@ class QueueAPI {
         }
         
         baseQueueAPIRequest(method: .post, url: QueueURL.hobbyrequest.url, parameters: parameters, header: BaseAPI.header) { [self] (data, apiState) in
-            print(MainModel.shared.nearFriends.value[MainModel.shared.selectedDataIndex].uid)
             switch apiState {
             case .noConnectinon:
                 break

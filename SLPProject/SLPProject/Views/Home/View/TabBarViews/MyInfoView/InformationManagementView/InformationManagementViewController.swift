@@ -38,7 +38,7 @@ class InformationManagementViewController: BaseViewController {
                 case .successDeRegister:
                     self?.changeRootView(OnboardingViewController())
                 default:
-                    print("기본")
+                    break
                 }
             })
             .disposed(by: disposeBag)
@@ -221,32 +221,5 @@ class InformationManagementViewController: BaseViewController {
 extension InformationManagementViewController {
     @objc func saveButtonClicked(_ sender: UIBarButtonItem) {
         viewModel.userAPI.updateMyPage()
-        
-        print(viewModel.user.gender.value)
-        print(viewModel.user.hobby.value)
-        print(viewModel.user.toggleState.value)
-        print(viewModel.user.age.value)
     }
 }
-
-//extension InformationManagementViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return mainView.profileView.profileTitleView.cellTexts.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileTitleViewCell.identifier, for: indexPath) as! ProfileTitleViewCell
-//        
-//        let row = indexPath.row
-//        cell.state = mainView.profileView.profileTitleView.cellState[row] == 1
-//        cell.label.text = mainView.profileView.profileTitleView.cellTexts[row]
-//
-//        return cell
-//    }
-//
-//    // 셀 크기 설정
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (UIScreen.main.bounds.width - 64) / 2 * 0.97, height: 32)
-//    }
-//}

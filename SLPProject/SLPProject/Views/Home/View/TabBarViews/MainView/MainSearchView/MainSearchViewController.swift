@@ -68,7 +68,6 @@ final class MainSearchViewController: BaseViewController {
         
         viewModel.model.myHobby
             .subscribe { [self] value in
-                print("데이터", viewModel.model.myHobby.value)
                 mainView.collectionView.reloadData()
             }
             .disposed(by: disposeBag)
@@ -76,8 +75,6 @@ final class MainSearchViewController: BaseViewController {
         mainView.collectionView.rx.itemSelected
             .filter { $0.section != 2 }
             .subscribe(onNext: { [self] indexPath in
-                print("클릭한 데이터")
-                print(indexPath.section, indexPath.row)
                 if indexPath.section == 0 {
                     let value = viewModel.model.fromRecomend.value[indexPath.row]
                     
@@ -85,8 +82,6 @@ final class MainSearchViewController: BaseViewController {
                     if list.count < 8 && !list.contains(value) {
                         list.append(value)
                         viewModel.model.myHobby.accept(list)
-                    } else {
-                        view.makeToast("추가할 수 없습니다.")
                     }
                 } else if indexPath.section == 1 {
                     let value = viewModel.model.nearFriends.value[indexPath.row].hf[0]
@@ -95,8 +90,6 @@ final class MainSearchViewController: BaseViewController {
                     if list.count < 8 && !list.contains(value) {
                         list.append(value)
                         viewModel.model.myHobby.accept(list)
-                    } else {
-                        view.makeToast("추가할 수 없습니다.")
                     }
                 }
             })
@@ -205,7 +198,6 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
         case 1:
             return viewModel.model.nearFriends.value.count > 8 ? 8 : viewModel.model.nearFriends.value.count
         case 2:
-            print(viewModel.model.myHobby.value.count)
             return viewModel.model.myHobby.value.count
         default:
             return 0
@@ -213,7 +205,6 @@ extension MainSearchViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("수정")
         
         let cell = mainView.collectionView.dequeueReusableCell(withReuseIdentifier: HobbyUICollectionViewCell.identifier, for: indexPath) as! HobbyUICollectionViewCell
         

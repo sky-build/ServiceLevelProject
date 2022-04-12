@@ -103,7 +103,7 @@ class UserAPI {
             case .noConnectinon:
                 state.accept(.noConnection)
             default:
-                print(apiState.rawValue)
+                break
             }
         }
     }
@@ -140,7 +140,7 @@ class UserAPI {
                     registerUser()
                 }
             default:
-                print(apiState.rawValue)
+                break
             }
         }
     }
@@ -152,15 +152,13 @@ class UserAPI {
             case .success:  // 성공했을때
                 UserDefaultValues.registerState = .beginner
                 self?.state.accept(.successDeRegister)
-            case .userInformationError:
-                print("이미 회원탈퇴함")
             case .firebaseTokenError:
                 // 토큰 재발급, 재시도
                 FirebaseToken.shared.updateIDToken {
                     self?.withdrawUser()
                 }
             default:
-                print(apiState.rawValue)
+                break
             }
         }
     }
@@ -187,7 +185,7 @@ class UserAPI {
                     self?.updateMyPage()
                 }
             default:
-                print(apiState.rawValue)
+                break
             }
         }
     }
@@ -202,17 +200,14 @@ class UserAPI {
         }
         
         baseUserAPIRequest(method: .put, url: UserURL.updateFCMToken.url, parameters: parameters, header: BaseAPI.header) { [weak self] (data, apiState) in
-            print("UpdateFCM", apiState.rawValue)
             switch apiState {
-            case .success:
-                print("성공")
             case .firebaseTokenError:
                 // 토큰 재발급, 재시도
                 FirebaseToken.shared.updateIDToken {
                     self?.updateFCMToken()
                 }
             default:
-                print(apiState.rawValue)
+                break
             }
         }
     }

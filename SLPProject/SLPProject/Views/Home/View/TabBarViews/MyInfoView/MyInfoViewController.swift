@@ -51,7 +51,6 @@ class MyInfoViewController: BaseViewController {
                 var dataArray = data.value
                 dataArray.removeFirst()
                 dataArray.insert(viewModel.user.nickname.value, at: 0)
-                print("이름은 ", viewModel.user.nickname.value)
                 data.accept(dataArray)
             }
             .disposed(by: disposeBag)

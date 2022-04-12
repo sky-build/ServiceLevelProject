@@ -82,8 +82,6 @@ extension MainRequestedViewController: UITableViewDelegate, UITableViewDataSourc
             cell.view.profileCommentView.isHidden = true
         }
         
-        cell.view.requestButton.addTarget(self, action: #selector(requestButtonClicked(_:)), for: .touchUpInside)
-        
         cell.view.profileUserNameView.stratchButton.addTarget(self, action: #selector(stratchButtonClicked(_:)), for: .touchUpInside)
         
         return cell
@@ -93,9 +91,5 @@ extension MainRequestedViewController: UITableViewDelegate, UITableViewDataSourc
         var array = viewModel.model.requestNearFriendsState.value
         array[sender.tag].toggle()
         viewModel.model.requestNearFriendsState.accept(array)
-    }
-    
-    @objc private func requestButtonClicked(_ sender: UIButton) {
-        print("\(sender.tag) 번째 버튼 클릭")
     }
 }

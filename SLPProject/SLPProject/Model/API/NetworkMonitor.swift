@@ -26,31 +26,23 @@ class NetworkMonitor {
         case unknown
     }
     
-    public func startMonitoring(){
+    public func startMonitoring() {
         // 지속적으로 모니터링
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
-            print("path :\(path)")
 
             self?.isConnected = path.status == .satisfied
             self?.connectionType(path)
-            
-            if self?.isConnected == true{
-                print("연결이된 상태임!")
-            }else{
-                print("연결 안된 상태임!")
-            }
         }
     }
     
-    public func stopMonitoring(){
-        print("stopMonitoring 호출")
+    public func stopMonitoring() {
         monitor.cancel()
     }
     
     
     private func connectionType(_ path: NWPath) {
-        print("getConenctionType 호출")
+
         if path.usesInterfaceType(.wifi){
             connectionType = .wifi
             print("wifi에 연결")
