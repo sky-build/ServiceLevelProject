@@ -8,6 +8,23 @@
 - Enum 적극적으로 사용하기
 - MVVM, RxSwift 적용하기
 
+## 수행한 것
+
+- **SnapKit**으로 **UI** 구현
+- **FirebaseAuth**를 이용해 전화번호 인증
+- **RxSwift** 와 **MVVM** 적용
+- **Socket.IO**를 사용해 채팅 구현
+- **MapView**, **CLLocationManager**를 이용해 지도 업데이트
+- 중복되는 **View 재사용**
+
+## 배운 것
+
+- View를 재사용하기위해 코드를 구조화하는것이 중요하다.
+- **UICollectionView**를 **Paging**하는법을 알게되었다.
+- Commit 컨벤션을 지키면 깃허브에서 변경사항을 확인하는 데 도움이 된다.
+- 로그인하는 디바이스가 바뀔 때 **FCMToken**을 업데이트 해야한다.
+- **RxSwift**에 대한 이해
+
 ## Issue
 - 중복되는 View 재사용
 - FirebaseAuth를 사용해 전화번호 인증
