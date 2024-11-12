@@ -13,7 +13,6 @@
 - **SnapKit**으로 **UI** 구현
 - **FirebaseAuth**를 이용해 전화번호 인증
 - **RxSwift** 와 **MVVM** 적용
-- **Socket.IO**를 사용해 채팅 구현
 - **MapView**, **CLLocationManager**를 이용해 지도 업데이트
 - 중복되는 **View 재사용**
 
@@ -55,7 +54,7 @@
 |<img src="https://user-images.githubusercontent.com/26789278/163787325-b671f72a-d983-4849-8b7e-ff9b6c76e893.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163787333-12982d85-a1be-464f-9beb-d43ca5242957.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163787338-092ae01b-bd8a-4a8a-9ac2-0cf605b7c67e.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163787343-193956e5-f167-46a9-a3c3-f5be94f2d7fe.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163787351-12691215-ae66-4f14-b23e-1483b63bba59.png"  width="200" height="410">|
 
 ### 메인 화면
-|홈 화면|취미 등록|주변 친구 목록|채팅|설정|
-|-----|-------|-----------|--|---|
-|<img src="https://user-images.githubusercontent.com/26789278/163789597-6208ffde-0b69-4924-b367-512620c005b9.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163789595-b07cf97d-468e-491e-a326-f6e5811f2c5f.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163789589-2fd17808-2164-42e4-92f3-619cdb3bf651.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163789572-78ce458a-1da6-449d-83f5-fa528b460264.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163790198-9ce89c8e-4839-4346-85d6-f85a8b2a93b5.png"  width="200" height="410">|
+|홈 화면|취미 등록|주변 친구 목록|설정|
+|-----|-------|-----------|---|
+|<img src="https://user-images.githubusercontent.com/26789278/163789597-6208ffde-0b69-4924-b367-512620c005b9.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163789595-b07cf97d-468e-491e-a326-f6e5811f2c5f.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163789589-2fd17808-2164-42e4-92f3-619cdb3bf651.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/163790198-9ce89c8e-4839-4346-85d6-f85a8b2a93b5.png"  width="200" height="410">|
 
