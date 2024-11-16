@@ -28,7 +28,6 @@
 - 중복되는 View 재사용
 - FirebaseAuth를 사용해 전화번호 인증
 - MapView, CLLocationManager 사용해 지도 업데이트
-- SocketIO 사용해 채팅 구현
 - RxSwift, MVVM 적용
 - SnapKit으로 UI 구현
 - View 관련 프로토콜 사용
